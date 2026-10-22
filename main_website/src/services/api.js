@@ -1,5 +1,9 @@
-const rawBase = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || '/api';
-const API_BASE = rawBase.replace(/\/+$/, '');
+let rawBase = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || '/api';
+rawBase = rawBase.replace(/\/+$/, '');
+if (!rawBase.endsWith('/api') && rawBase.startsWith('http')) {
+  rawBase += '/api';
+}
+const API_BASE = rawBase;
 
 export async function request(path, options = {}) {
   const token = localStorage.getItem('token');
