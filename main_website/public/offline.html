@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline — Ethio Exam Hall</title>
+    <meta name="theme-color" content="#000d23" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        margin: 0; min-height: 100svh;
+        display: flex; align-items: center; justify-content: center;
+        background: #f9f9ff;
+        font-family: 'Inter', system-ui, sans-serif;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .card {
+        background: white;
+        border: 1px solid #c5c6ce;
+        border-radius: 1.5rem;
+        padding: 3rem 2rem;
+        max-width: 400px;
+        width: 100%;
+        box-shadow: 0 8px 24px rgba(16,35,63,0.08);
+      }
+      .icon {
+        font-size: 4rem; margin-bottom: 1rem;
+      }
+      h1 {
+        font-size: 1.5rem; font-weight: 700;
+        color: #000d23; margin: 0 0 0.5rem;
+      }
+      p { color: #44474d; margin: 0 0 1.5rem; font-size: 0.95rem; line-height: 1.6; }
+      button {
+        background: #000d23; color: white;
+        border: none; border-radius: 0.75rem;
+        padding: 0.75rem 2rem; font-size: 0.875rem; font-weight: 700;
+        cursor: pointer; transition: opacity 0.15s;
+        touch-action: manipulation;
+      }
+      button:hover { opacity: 0.85; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="icon">📶</div>
+      <h1>You're Offline</h1>
+      <p>Ethio Exam Hall needs a connection to load new content. Please check your internet and try again.</p>
+      <button onclick="location.reload()">Try Again</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#fffbff", "surface-tint": "#4d5f7e", "on-error": "#ffffff", "on-secondary-fixed-variant": "#003cad", "tertiary-fixed": "#7ef5ef", "inverse-on-surface": "#edf0ff", "surface-container-high": "#e0e8ff", "surface-container-highest": "#d7e2ff", "on-primary-fixed-variant": "#364765", "tertiary-container": "#002827", "surface": "#f9f9ff", "primary-fixed": "#d6e3ff", "on-tertiary-fixed": "#00201f", "outline": "#75777e", "on-error-container": "#93000a", "inverse-surface": "#263046", "tertiary": "#00100f", "on-primary-container": "#798bac", "secondary-fixed-dim": "#b5c4ff", "secondary": "#1a51d0", "error": "#ba1a1a", "secondary-container": "#3e6bea", "on-secondary": "#ffffff", "on-secondary-fixed": "#00164d", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#b5c7eb", "surface-container": "#e8edff", "on-surface": "#101b30", "surface-variant": "#d7e2ff", "outline-variant": "#c5c6ce", "primary-container": "#10233f", "surface-bright": "#f9f9ff", "on-tertiary": "#ffffff", "surface-container-low": "#f1f3ff", "secondary-fixed": "#dce1ff", "on-tertiary-container": "#009a96", "on-tertiary-fixed-variant": "#00504d", "error-container": "#ffdad6", "tertiary-fixed-dim": "#60d9d3", "on-primary-fixed": "#071b37", "on-background": "#101b30", "primary": "#000d23", "background": "#f9f9ff", "inverse-primary": "#b5c7eb", "on-surface-variant": "#44474d", "on-primary": "#ffffff", "surface-dim": "#cfdaf6" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-sm": "0.5rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "margin-tablet": "1.5rem", "space-md": "1rem", "margin": "3rem", "margin-mobile": "1rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-mobile": "1rem", "space-2xl": "4rem" }, "fontFamily": { "headline-xl-mobile": ["Manrope"], "body-sm": ["Inter"], "display-lg-mobile": ["Manrope"], "label-md": ["Inter"], "headline-xl": ["Manrope"], "headline-sm": ["Manrope"], "data-mono": ["Inter"], "body-md": ["Inter"], "label-lg": ["Inter"], "body-xl": ["Inter"], "display-lg": ["Manrope"], "body-lg": ["Inter"], "headline-lg": ["Manrope"], "headline-md": ["Manrope"] }, "fontSize": { "headline-xl-mobile": ["1.875rem", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.875rem", { "lineHeight": "1.5", "fontWeight": "400" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }], "label-md": ["0.75rem", { "lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-xl": ["2.5rem", { "lineHeight": "1.2", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-sm": ["1.25rem", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }], "data-mono": ["1.125rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["1rem", { "lineHeight": "1.55", "fontWeight": "400" }], "label-lg": ["0.875rem", { "lineHeight": "1.25", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-xl": ["1.25rem", { "lineHeight": "1.6", "letterSpacing": "-0.005em", "fontWeight": "400" }], "display-lg": ["3.5rem", { "lineHeight": "1.15", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }], "headline-lg": ["2rem", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["1.5rem", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "600" }] } } } }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(16,35,63,0.06)]"><div class="h-20 max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><img alt="Ethio Exam Hall Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WxJ7UeNN8l8KFNKpkxEfn8Oc8Zv71HuIpZmXrFbCuj3Q4bEcDwPRacfO9YC-_5DzoLLD9LiQOYek1zms1C_8gnTqKATN-zpKfUWr4G6888we2liTdkQoR_BF0_3B8Bmdyzn4b3sv5AiYZnyUumMMSfex8unssMPLJfb02_nxjBXEDolsJLOL4CEszes0ZHF4j9JZ7za3RubPO7-MQHQnJC_HZ4Necnlv_K7vL5M6SBCRRF77qhTcxIZMM"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Ethio Exam Hall</span><span class="font-label-md text-label-md text-on-surface-variant font-medium tracking-wide mt-0.5">ኢትዮ ፈተና</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-label-lg rounded-xl"><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Home</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore-exams" href="#">Explore Exams</a><a aria-current="page" class="px-3 py-2 transition-colors bg-surface-container text-primary font-label-lg rounded-xl" data-path="past-papers" href="#">Past Papers</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="practice-tests" href="#">Practice Tests</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface inline-flex items-center gap-1.5 transition-colors" data-path="aviation-portal" href="#"><span>Aviation Portal</span><span class="px-2 py-0.5 font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed rounded-full">Aviation Track</span></a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Pricing</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Search shortcut" class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button class="px-2.5 py-1 rounded-xl bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-on-surface font-semibold transition-colors" type="button">EN | አማ</button><a class="hidden sm:inline-flex px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface font-semibold transition-colors" data-path="sign-in" href="#">Sign In</a><a class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container font-label-lg text-label-lg rounded-xl shadow-[0_1px_3px_0_rgba(16,35,63,0.08)] transition-all" data-path="get-started" href="#">Get Started</a><div class="pl-1 border-l border-outline-variant/30 flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnDIPGhd3lLxBp097OyxIlAygta4smT4HV4BFTDchJ3o6Sp7H94ORy8kAR6B81X2IvCvs2dKv0v4jyRfIe70Y50x5VLXOZFVGuD3XncAFG8NPxvwi3L2sHNunKN56gdcuaRUW8tg9nLAVvm_vZktwRiUbHMKS7V0RDFROmvv7ZZDIx5KyXQ0nDrt0kfm3CuKl-AdNbgeTSIfT9FIAH_0987p1l5K6sJU28pYztAD0qZ8mu7oOv8Aaj"/></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-lg">
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md mb-space-md">
+<a class="hover:text-secondary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Exam Library</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">University Exit Exams</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold truncate">2016 E.C. Computer Science Exit Exam</span>
+</nav>
+<!-- Top Header Panel -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg md:p-space-xl mb-space-xl flex flex-col gap-space-md">
+<!-- Badges Row -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+          Verified Official Examination Paper
+        </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">task_alt</span>
+          Complete Answer Key Available
+        </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold">
+          Free Access
+        </span>
+<span class="ml-auto font-data-mono text-label-md text-on-surface-variant bg-surface-container-low px-2.5 py-1 rounded-lg">
+          CODE: CS-EXIT-2016-A
+        </span>
+</div>
+<!-- Main Title -->
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight max-w-4xl">
+        2016 E.C. Ethiopian University Exit Examination: Computer Science &amp; Software Engineering
+      </h1>
+<!-- Metadata Structured Bar -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm py-space-sm bg-surface-container-low rounded-xl px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Category</span>
+<span class="font-body-md text-body-md text-primary font-semibold">University Exit</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Authority</span>
+<span class="font-body-md text-body-md text-primary font-semibold truncate" title="Ministry of Education (MoE), Ethiopia">MoE Ethiopia</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Session</span>
+<span class="font-body-md text-body-md text-primary font-semibold">2016 E.C. (July 2024)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Language</span>
+<span class="font-body-md text-body-md text-primary font-semibold">English (Official)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Scope</span>
+<span class="font-body-md text-body-md text-primary font-semibold">100 Multiple Choice</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Allotted Time</span>
+<span class="font-body-md text-body-md text-primary font-semibold">180 Minutes (3.0 Hrs)</span>
+</div>
+</div>
+<!-- Actions Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg font-semibold hover:bg-secondary-container transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span>Start Timed Mock Simulator</span>
+</button>
+<a class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Download PDF (Original Scan 4.2 MB)</span>
+</a>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Save to Bookmarks" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+<span class="hidden sm:inline">Save</span>
+</button>
+<button aria-label="Share Examination" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span class="hidden sm:inline">Share</span>
+</button>
+<button aria-label="Report Issue or Typo" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-low text-on-surface-variant hover:text-error transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+<span class="hidden sm:inline">Report Issue</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main 2-Column Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Document Previewer & In-Depth Details (8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl min-w-0">
+<!-- Document Previewer Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col">
+<!-- Document Chrome Toolbar -->
+<div class="bg-primary px-space-md py-space-sm flex flex-wrap items-center justify-between text-on-primary gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">description</span>
+<span class="font-label-md text-label-md tracking-wider uppercase text-outline-variant">Document Viewer</span>
+<span class="bg-primary-container px-2.5 py-0.5 rounded-full text-xs font-semibold text-inverse-on-surface">Official Scan Paper</span>
+</div>
+<!-- Controls -->
+<div class="flex items-center gap-space-xs text-xs">
+<div class="flex items-center bg-primary-container rounded-lg px-2 py-1 gap-2">
+<button class="hover:text-tertiary-fixed transition-colors" id="docPrevBtn" title="Previous Page" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="font-data-mono text-label-md px-1">Page <span class="text-tertiary-fixed font-bold" id="docPageNum">1</span> of 18</span>
+<button class="hover:text-tertiary-fixed transition-colors" id="docNextBtn" title="Next Page" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="hidden sm:flex items-center bg-primary-container rounded-lg px-2 py-1 gap-2">
+<button class="hover:text-tertiary-fixed transition-colors" id="zoomOutBtn" title="Zoom Out" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_out</span>
+</button>
+<span class="font-data-mono text-label-md" id="zoomLabel">100%</span>
+<button class="hover:text-tertiary-fixed transition-colors" id="zoomInBtn" title="Zoom In" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+</div>
+<button class="p-1.5 rounded-lg bg-primary-container hover:bg-secondary-container hover:text-on-secondary transition-colors" title="Toggle Fullscreen" type="button">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+<button class="p-1.5 rounded-lg bg-primary-container hover:bg-secondary-container hover:text-on-secondary transition-colors" title="Print Sheet" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</div>
+<!-- Document Sheet (Simulated Exam Paper) -->
+<div class="bg-surface-container-low p-space-md sm:p-space-lg flex justify-center overflow-x-auto">
+<div class="w-full max-w-2xl bg-surface-container-lowest p-space-md sm:p-space-xl rounded shadow-md flex flex-col gap-space-lg transition-transform duration-200 origin-top" id="examPaperCanvas">
+<!-- Paper Institutional Header -->
+<div class="flex flex-col items-center text-center pb-space-md border-b-2 border-primary/20">
+<div class="font-headline-sm text-headline-sm text-primary tracking-wide uppercase font-bold">
+                  Federal Democratic Republic of Ethiopia
+                </div>
+<div class="font-headline-sm text-headline-sm text-primary font-semibold">
+                  Ministry of Education (MoE)
+                </div>
+<div class="font-label-lg text-label-lg text-on-surface mt-1 font-bold">
+                  Higher Education National Exit Examination — July 2024
+                </div>
+<div class="inline-flex items-center gap-space-sm mt-2 text-xs text-on-surface-variant font-mono">
+<span>SUBJECT: COMPUTER SCIENCE &amp; SOFTWARE ENG.</span>
+<span>•</span>
+<span>BOOKLET CODE: 01-CS</span>
+</div>
+</div>
+<!-- General Exam Instruction Snippet -->
+<div class="bg-surface-container-low p-space-sm rounded-lg text-xs text-on-surface-variant leading-relaxed">
+<span class="font-bold text-on-surface">INSTRUCTIONS:</span> This examination paper contains 100 questions. Choose the single best alternative and bubble your answer sheet carefully. Scientific calculators are permitted. Rough computational work must remain within margin boundaries.
+              </div>
+<!-- Question 1 -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-start gap-space-sm">
+<span class="font-bold text-primary text-body-lg">1.</span>
+<div class="flex flex-col gap-space-xs w-full">
+<p class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+                      Which of the following data structures provides <span class="font-mono bg-surface-container px-1 py-0.5 rounded text-sm">O(1)</span> average time complexity for both insertion and search operations?
+                    </p>
+<!-- Options Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">A</span>
+<span class="font-body-sm text-body-sm text-on-surface">Binary Search Tree</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-secondary-fixed/50 hover:bg-secondary-fixed cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs">B</span>
+<span class="font-body-sm text-body-sm text-on-secondary-fixed font-bold">Hash Table</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">C</span>
+<span class="font-body-sm text-body-sm text-on-surface">Balanced AVL Tree</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">D</span>
+<span class="font-body-sm text-body-sm text-on-surface">Doubly Linked List</span>
+</label>
+</div>
+<!-- Verified Rationale Accordion Button -->
+<div class="mt-2 pt-2 flex items-center justify-between text-xs text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-medium">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                        Section 1: Algorithms &amp; Data Structures • Domain Weight: 20%
+                      </span>
+<button class="text-secondary font-semibold hover:underline" onclick="document.getElementById('sol1').classList.toggle('hidden')" type="button">
+                        View Solution Rationale
+                      </button>
+</div>
+<div class="hidden mt-2 p-3 bg-surface-container rounded-lg text-xs leading-relaxed text-on-surface" id="sol1">
+<span class="font-bold text-secondary">Correct Answer: (B) Hash Table.</span> In a hash table with uniform distribution and a well-engineered collision resolution mechanism (such as separate chaining or open addressing), hash lookups and key insertions operate at constant time O(1) in the average case. Worst-case degenerate clustering degrades to O(n).
+                    </div>
+</div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-start gap-space-sm">
+<span class="font-bold text-primary text-body-lg">2.</span>
+<div class="flex flex-col gap-space-xs w-full">
+<p class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+                      In the relational database model, which normal form (NF) specifically eliminates transitive dependencies for non-prime attributes?
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">A</span>
+<span class="font-body-sm text-body-sm text-on-surface">First Normal Form (1NF)</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">B</span>
+<span class="font-body-sm text-body-sm text-on-surface">Second Normal Form (2NF)</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-secondary-fixed/50 hover:bg-secondary-fixed cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs">C</span>
+<span class="font-body-sm text-body-sm text-on-secondary-fixed font-bold">Third Normal Form (3NF)</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">D</span>
+<span class="font-body-sm text-body-sm text-on-surface">Boyce-Codd Normal Form (BCNF)</span>
+</label>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between text-xs text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-medium">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                        Section 3: Database Systems • Domain Weight: 20%
+                      </span>
+<button class="text-secondary font-semibold hover:underline" onclick="document.getElementById('sol2').classList.toggle('hidden')" type="button">
+                        View Solution Rationale
+                      </button>
+</div>
+<div class="hidden mt-2 p-3 bg-surface-container rounded-lg text-xs leading-relaxed text-on-surface" id="sol2">
+<span class="font-bold text-secondary">Correct Answer: (C) Third Normal Form (3NF).</span> A relation schema is in 3NF if it is already in 2NF and no non-prime attribute is transitively dependent on the primary key (X → Y and Y → Z, where Z is non-prime).
+                    </div>
+</div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-start gap-space-sm">
+<span class="font-bold text-primary text-body-lg">3.</span>
+<div class="flex flex-col gap-space-xs w-full">
+<p class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+                      During process management in modern operating systems, which state transition occurs when a process is preempted by the scheduler due to time quantum expiration?
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+<label class="flex items-center gap-3 p-2 rounded-lg bg-secondary-fixed/50 hover:bg-secondary-fixed cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs">A</span>
+<span class="font-body-sm text-body-sm text-on-secondary-fixed font-bold">Running → Ready</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">B</span>
+<span class="font-body-sm text-body-sm text-on-surface">Running → Blocked/Waiting</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">C</span>
+<span class="font-body-sm text-body-sm text-on-surface">Blocked → Ready</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">D</span>
+<span class="font-body-sm text-body-sm text-on-surface">Ready → Running</span>
+</label>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between text-xs text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-medium">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                        Section 5: Operating Systems • Domain Weight: 20%
+                      </span>
+<button class="text-secondary font-semibold hover:underline" onclick="document.getElementById('sol3').classList.toggle('hidden')" type="button">
+                        View Solution Rationale
+                      </button>
+</div>
+<div class="hidden mt-2 p-3 bg-surface-container rounded-lg text-xs leading-relaxed text-on-surface" id="sol3">
+<span class="font-bold text-secondary">Correct Answer: (A) Running → Ready.</span> Round-robin scheduling interrupts active CPU execution once the quantum timer expires; the process remains fully runnable and returns to the ready queue.
+                    </div>
+</div>
+</div>
+</div>
+<!-- Question 4 -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-start gap-space-sm">
+<span class="font-bold text-primary text-body-lg">4.</span>
+<div class="flex flex-col gap-space-xs w-full">
+<p class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+                      In the OSI Reference Architecture, at which layer does flow control, segmentation/reassembly, and end-to-end error checking (via TCP) take place?
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">A</span>
+<span class="font-body-sm text-body-sm text-on-surface">Network Layer (Layer 3)</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-secondary-fixed/50 hover:bg-secondary-fixed cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs">B</span>
+<span class="font-body-sm text-body-sm text-on-secondary-fixed font-bold">Transport Layer (Layer 4)</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">C</span>
+<span class="font-body-sm text-body-sm text-on-surface">Data Link Layer (Layer 2)</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container cursor-pointer transition-colors">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-bold text-xs text-primary">D</span>
+<span class="font-body-sm text-body-sm text-on-surface">Session Layer (Layer 5)</span>
+</label>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between text-xs text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-on-tertiary-container font-medium">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                        Section 4: Computer Networks • Domain Weight: 15%
+                      </span>
+<button class="text-secondary font-semibold hover:underline" onclick="document.getElementById('sol4').classList.toggle('hidden')" type="button">
+                        View Solution Rationale
+                      </button>
+</div>
+<div class="hidden mt-2 p-3 bg-surface-container rounded-lg text-xs leading-relaxed text-on-surface" id="sol4">
+<span class="font-bold text-secondary">Correct Answer: (B) Transport Layer (Layer 4).</span> The transport layer ensures complete and reliable host-to-host delivery via protocols such as TCP, managing windowing, flow control, and segment sequencing.
+                    </div>
+</div>
+</div>
+</div>
+<!-- Document Sheet Pagination Foot -->
+<div class="pt-space-md border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span>ETHIOPIAN UNIVERSITY EXIT EXAM — COMPUTER SCIENCE</span>
+<span class="font-mono">PAGE 1 OF 18</span>
+</div>
+</div>
+</div>
+<!-- Document Chrome Footer -->
+<div class="bg-surface-container-low px-space-md py-space-sm flex items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Watermark validated: Ministry of Education National Archive Copy</span>
+</div>
+<a class="text-secondary font-semibold hover:underline flex items-center gap-1" href="#">
+<span>Request Full High-Res Print Scan</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Detailed Curriculum & Exam Breakdown Tabs -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Segmented Tab Header -->
+<div class="bg-surface-container-low p-1.5 flex gap-1 rounded-t-xl" id="tabGroup">
+<button class="tab-btn px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all bg-surface-container-lowest text-primary shadow-sm" data-tab="0" onclick="switchExamTab(0)" type="button">
+              Exam Syllabus &amp; Domain Weight
+            </button>
+<button class="tab-btn px-4 py-2 rounded-lg font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface transition-all" data-tab="1" onclick="switchExamTab(1)" type="button">
+              Answer Key &amp; Explanations
+            </button>
+<button class="tab-btn px-4 py-2 rounded-lg font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface transition-all" data-tab="2" onclick="switchExamTab(2)" type="button">
+              Student Discussion &amp; Study Notes (24)
+            </button>
+</div>
+<!-- Tab Content Panels -->
+<div class="p-space-lg">
+<!-- Tab 1: Syllabus & Weights -->
+<div class="flex flex-col gap-space-md" id="tabPanel0">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Core Knowledge Domains (100 MCQs)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Accredited university exit competencies set by the Ministry of Education.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold w-fit">Standard Harmonized Curriculum</span>
+</div>
+<!-- Domain Weights Breakdown Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Item 1 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Software Engineering</span>
+<span class="font-data-mono text-secondary font-bold">25% (25 Qs)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 25%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">SDLC, Agile/Scrum, Software Architecture, Design Patterns, Quality Assurance &amp; Testing.</p>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Algorithms &amp; Data Structures</span>
+<span class="font-data-mono text-secondary font-bold">20% (20 Qs)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 20%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Asymptotic Complexity, Graphs, Dynamic Programming, Trees, Hashing, Sorting &amp; Searching.</p>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Database Management Systems</span>
+<span class="font-data-mono text-secondary font-bold">20% (20 Qs)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 20%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Relational Algebra, SQL Optimization, Normalization (1NF-BCNF), ACID Transactions, Indexing.</p>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Operating Systems</span>
+<span class="font-data-mono text-secondary font-bold">20% (20 Qs)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 20%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Process Scheduling, Deadlocks, Virtual Memory Paging, Concurrency &amp; Semaphores, File Systems.</p>
+</div>
+<!-- Item 5 -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2 md:col-span-2">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Computer Networks &amp; Security</span>
+<span class="font-data-mono text-secondary font-bold">15% (15 Qs)</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 15%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OSI/TCP-IP Stack, Subnetting (IPv4/IPv6), Routing protocols (OSPF, BGP), Network Security &amp; Cryptography.</p>
+</div>
+</div>
+</div>
+<!-- Tab 2: Answer Key & Explanations -->
+<div class="hidden flex flex-col gap-space-md" id="tabPanel1">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Official Answer Key &amp; Verified Rationale</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Certified solutions approved by senior Computer Science university faculties.</p>
+</div>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container text-primary rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container">lock_open</span>
+                  100% Unlocked
+                </span>
+</div>
+<!-- Quick Answer Matrix snippet -->
+<div class="grid grid-cols-5 sm:grid-cols-10 gap-2 p-space-md bg-surface-container-low rounded-xl text-center">
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q1</span><span class="font-bold text-secondary">B</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q2</span><span class="font-bold text-secondary">C</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q3</span><span class="font-bold text-secondary">A</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q4</span><span class="font-bold text-secondary">B</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q5</span><span class="font-bold text-secondary">D</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q6</span><span class="font-bold text-secondary">A</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q7</span><span class="font-bold text-secondary">C</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q8</span><span class="font-bold text-secondary">B</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q9</span><span class="font-bold text-secondary">D</span></div>
+<div class="p-2 bg-surface-container-lowest rounded"><span class="block text-xs text-on-surface-variant">Q10</span><span class="font-bold text-secondary">A</span></div>
+</div>
+<div class="p-4 bg-surface-container rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[28px] text-secondary">menu_book</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-primary">Comprehensive Rationales Document</span>
+<span class="text-xs text-on-surface-variant">Download all 100 questions with annotated mathematical formulas &amp; diagrams</span>
+</div>
+</div>
+<a class="px-3 py-1.5 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors" href="#">
+                  Download Solutions (PDF)
+                </a>
+</div>
+</div>
+<!-- Tab 3: Study Notes & Discussion -->
+<div class="hidden flex flex-col gap-space-md" id="tabPanel2">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Student Discussion &amp; Clarifications</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Peer-reviewed notes from candidates and graduate teaching assistants.</p>
+</div>
+<button class="px-3 py-1.5 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md font-semibold hover:bg-secondary-container" type="button">
+                  Post Study Note
+                </button>
+</div>
+<!-- Comment Card 1 -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">AB</div>
+<span class="font-label-md text-label-md font-bold text-primary">Abebe Kebede</span>
+<span class="text-xs text-on-surface-variant">• AAU Computer Science '24</span>
+</div>
+<span class="text-xs text-on-surface-variant">3 days ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+                  On Question 18 regarding B+ Tree vs B Tree, pay attention to leaf sequential pointers. MoE questions frequently test range search efficiency in relation to storage sector reads!
+                </p>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant pt-1">
+<button class="flex items-center gap-1 hover:text-primary" type="button"><span class="material-symbols-outlined text-[14px]">thumb_up</span> 42 Helpful</button>
+<button class="flex items-center gap-1 hover:text-primary" type="button"><span class="material-symbols-outlined text-[14px]">reply</span> Reply</button>
+</div>
+</div>
+<!-- Comment Card 2 -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-xs font-bold">SM</div>
+<span class="font-label-md text-label-md font-bold text-primary">Selamawit Mengistu</span>
+<span class="text-xs text-on-surface-variant">• ASTU Software Eng.</span>
+</div>
+<span class="text-xs text-on-surface-variant">1 week ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+                  The subnetting calculations in questions 41 to 46 rely on CIDR /27 and /29 masks. Make sure you can write out binary power values quickly without a calculator.
+                </p>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant pt-1">
+<button class="flex items-center gap-1 hover:text-primary" type="button"><span class="material-symbols-outlined text-[14px]">thumb_up</span> 19 Helpful</button>
+<button class="flex items-center gap-1 hover:text-primary" type="button"><span class="material-symbols-outlined text-[14px]">reply</span> Reply</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar Actions & Provenance (4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Interactive Simulator Card -->
+<div class="bg-primary text-on-primary rounded-xl shadow-md p-space-lg flex flex-col gap-space-md relative overflow-hidden">
+<!-- Subtle graphic accent -->
+<div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-secondary/20 pointer-events-none"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">timer</span>
+<span class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-secondary-fixed">Interactive Simulator</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-primary font-bold">Ready to Test Yourself?</h3>
+<p class="font-body-sm text-body-sm text-inverse-on-surface/80 mt-1">
+              Experience the exact MoE examination environment with countdown timer and automated scoring.
+            </p>
+</div>
+<!-- Feature Bullets -->
+<ul class="flex flex-col gap-2.5 font-body-sm text-body-sm text-inverse-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">check_circle</span>
+<span>180-minute official timed mode</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">check_circle</span>
+<span>Live real-time performance analytics</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">check_circle</span>
+<span>Instant domain weak-point diagnosis</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed">check_circle</span>
+<span>Review flagged questions before submitting</span>
+</li>
+</ul>
+<button class="w-full py-3 px-4 rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg font-bold text-center hover:bg-secondary-container transition-all shadow-md flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Launch Practice Simulator</span>
+</button>
+<div class="text-center">
+<span class="text-xs text-inverse-on-surface/60">Over 14,200 candidates have taken this simulation</span>
+</div>
+</div>
+<!-- Exam Provenance & Source Information Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center gap-2 pb-space-xs border-b border-surface-container">
+<span class="material-symbols-outlined text-[22px] text-primary">policy</span>
+<h3 class="font-label-lg text-label-lg font-bold text-primary uppercase tracking-wider">Provenance &amp; Source</h3>
+</div>
+<div class="flex flex-col gap-3 font-body-sm text-body-sm">
+<div>
+<span class="font-bold text-on-surface block">Primary Source</span>
+<span class="text-on-surface-variant">Ministry of Education (MoE) Assessment &amp; Examinations Directorate, Addis Ababa, Ethiopia.</span>
+</div>
+<div>
+<span class="font-bold text-on-surface block">Verification Process</span>
+<span class="text-on-surface-variant">Digitized, OCR verified, and cross-referenced with national exam booklet Series 1 by the Ethio Exam Hall Academic Review Board.</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg text-xs text-on-surface-variant leading-relaxed">
+<span class="font-bold text-primary">Academic Integrity Guarantee:</span> Ethio Exam Hall preserves digital national exam papers for equal open academic research, remediation, and study access under educational fair evaluation charters.
+            </div>
+</div>
+</div>
+<!-- Similar & Recommended Examinations Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<h3 class="font-label-lg text-label-lg font-bold text-primary uppercase tracking-wider">Related Examinations</h3>
+<span class="text-xs font-semibold text-secondary hover:underline cursor-pointer">View All</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Item 1 -->
+<a class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex items-start justify-between gap-space-sm" href="#">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-bold text-primary truncate">2015 E.C. Computer Science Exit Exam</span>
+<span class="text-xs text-on-surface-variant mt-0.5">100 Multiple Choice • 180 Mins</span>
+<span class="text-xs font-semibold text-on-tertiary-container mt-1 inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 98% Verification
+                </span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant shrink-0 mt-1">chevron_right</span>
+</a>
+<!-- Item 2 -->
+<a class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex items-start justify-between gap-space-sm" href="#">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-bold text-primary truncate">2016 E.C. Information Technology Exit</span>
+<span class="text-xs text-on-surface-variant mt-0.5">100 Multiple Choice • 180 Mins</span>
+<span class="text-xs font-semibold text-on-tertiary-container mt-1 inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 100% Verification
+                </span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant shrink-0 mt-1">chevron_right</span>
+</a>
+<!-- Item 3 -->
+<a class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex items-start justify-between gap-space-sm" href="#">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg font-bold text-primary truncate">AAU GAT Quantitative Prep Paper</span>
+<span class="text-xs text-on-surface-variant mt-0.5">60 Analytical Questions • 90 Mins</span>
+<span class="text-xs font-semibold text-secondary mt-1 inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span> Graduate Test
+                </span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant shrink-0 mt-1">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Tab Switching Logic
+  function switchExamTab(tabIndex) {
+    const panels = [document.getElementById('tabPanel0'), document.getElementById('tabPanel1'), document.getElementById('tabPanel2')];
+    const buttons = document.querySelectorAll('#tabGroup .tab-btn');
+
+    panels.forEach((p, idx) => {
+      if (idx === tabIndex) {
+        p.classList.remove('hidden');
+      } else {
+        p.classList.add('hidden');
+      }
+    });
+
+    buttons.forEach((b, idx) => {
+      if (idx === tabIndex) {
+        b.className = 'tab-btn px-4 py-2 rounded-lg font-label-md text-label-md font-semibold transition-all bg-surface-container-lowest text-primary shadow-sm';
+      } else {
+        b.className = 'tab-btn px-4 py-2 rounded-lg font-label-md text-label-md font-semibold text-on-surface-variant hover:text-on-surface transition-all';
+      }
+    });
+  }
+
+  // Document Viewer Zoom and Page Navigation
+  (function initDocViewer() {
+    let zoomLevel = 100;
+    let currentPage = 1;
+    const totalPages = 18;
+    const canvas = document.getElementById('examPaperCanvas');
+    const zoomLabel = document.getElementById('zoomLabel');
+    const pageLabel = document.getElementById('docPageNum');
+
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const docPrevBtn = document.getElementById('docPrevBtn');
+    const docNextBtn = document.getElementById('docNextBtn');
+
+    if (zoomInBtn && zoomOutBtn && canvas) {
+      zoomInBtn.addEventListener('click', () => {
+        if (zoomLevel < 140) {
+          zoomLevel += 10;
+          canvas.style.transform = `scale(${zoomLevel / 100})`;
+          zoomLabel.innerText = `${zoomLevel}%`;
+        }
+      });
+
+      zoomOutBtn.addEventListener('click', () => {
+        if (zoomLevel > 80) {
+          zoomLevel -= 10;
+          canvas.style.transform = `scale(${zoomLevel / 100})`;
+          zoomLabel.innerText = `${zoomLevel}%`;
+        }
+      });
+    }
+
+    if (docPrevBtn && docNextBtn && pageLabel) {
+      docPrevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          pageLabel.innerText = currentPage;
+        }
+      });
+
+      docNextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          pageLabel.innerText = currentPage;
+        }
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-2xl pb-space-xl shadow-[0_-1px_6px_rgba(16,35,63,0.02)]"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-xl pb-space-xl border-b border-outline-variant/30"><div class="lg:col-span-2 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><img alt="Ethio Exam Hall Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WxJ7UeNN8l8KFNKpkxEfn8Oc8Zv71HuIpZmXrFbCuj3Q4bEcDwPRacfO9YC-_5DzoLLD9LiQOYek1zms1C_8gnTqKATN-zpKfUWr4G6888we2liTdkQoR_BF0_3B8Bmdyzn4b3sv5AiYZnyUumMMSfex8unssMPLJfb02_nxjBXEDolsJLOL4CEszes0ZHF4j9JZ7za3RubPO7-MQHQnJC_HZ4Necnlv_K7vL5M6SBCRRF77qhTcxIZMM"/><span class="font-headline-sm text-headline-sm text-primary leading-none">Ethio Exam Hall</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-sm">Every Exam. One Place. Your Next Achievement. Ethiopia's trusted institutional preparation network empowering matriculation, university certification, and vocational excellence.</p><div class="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md w-fit"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span><span>Verified Curriculum &amp; National Standardization</span></div></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Categories</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Grade 12 Entrance (ESUEE)</a></li><li class="hover:text-primary transition-colors"><a href="#">University Exit Exam</a></li><li class="hover:text-primary transition-colors"><a href="#">Graduate Admission Test (GAT)</a></li><li class="hover:text-primary transition-colors"><a href="#">Aviation &amp; Flight School</a></li><li class="hover:text-primary transition-colors"><a href="#">Aptitude &amp; Bank Recruitment</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Resources</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Past Papers</a></li><li class="hover:text-primary transition-colors"><a href="#">Practice Tests</a></li><li class="hover:text-primary transition-colors"><a href="#">Verified Solutions</a></li><li class="hover:text-primary transition-colors"><a href="#">Curriculum Study Guides</a></li><li class="hover:text-primary transition-colors"><a href="#">Performance Diagnostic Tools</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Legal &amp; Provenance</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Rights &amp; Attributions</a></li><li class="hover:text-primary transition-colors"><a href="#">Terms of Use</a></li><li class="hover:text-primary transition-colors"><a href="#">Privacy Policy</a></li><li class="hover:text-primary transition-colors"><a href="#">Academic Integrity Policy</a></li><li class="hover:text-primary transition-colors"><a href="#">Institutional Licensing</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Contact &amp; Support</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Educator Verification</a></li><li class="hover:text-primary transition-colors"><a href="#">Student Help Desk</a></li><li class="hover:text-primary transition-colors"><a href="#">Feedback &amp; Error Reporting</a></li><li class="hover:text-primary transition-colors"><a href="#">Ministry Partners Portal</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div>© 2025 Ethio Exam Hall. All mock exam materials and sample questions are illustrative academic preparation resources.</div><div class="flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">translate</span><span>Bilingual interface support: English (EN) &amp; Amharic (አማርኛ)</span></div></div></div></footer></body></html>

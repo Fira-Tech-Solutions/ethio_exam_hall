@@ -1,0 +1,29 @@
+{
+  "name": "ethio-exam-hall-platform",
+  "version": "1.0.0",
+  "description": "Ethio Exam Hall — Full-Stack Ethiopian Examination Preparation & Aviation Platform",
+  "scripts": {
+    "db:up": "docker compose -f db/docker-compose.yml up -d",
+    "db:down": "docker compose -f db/docker-compose.yml down",
+    "backend:start": "npm --prefix backend_service start",
+    "backend:dev": "npm --prefix backend_service run dev",
+    "backend:migrate": "npm --prefix backend_service run migrate",
+    "backend:seed": "npm --prefix backend_service run seed",
+    "backend:test": "npm --prefix backend_service test",
+    "main:dev": "npm --prefix main_website run dev",
+    "main:build": "npm --prefix main_website run build",
+    "admin:dev": "npm --prefix admin_panel run dev",
+    "admin:build": "npm --prefix admin_panel run build",
+    "build:all": "npm run main:build && npm run admin:build",
+    "test": "npm run backend:test"
+  },
+  "keywords": [
+    "ethio-exam-hall",
+    "exit-exam",
+    "esuee",
+    "aviation-academy",
+    "ethiopia"
+  ],
+  "author": "Ethio Exam Hall Team",
+  "license": "ISC"
+}

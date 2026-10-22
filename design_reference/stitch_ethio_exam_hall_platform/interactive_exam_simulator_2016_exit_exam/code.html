@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><title>Ethio Exam Hall - Secure Test Center</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary": "#00100f",
+          "on-primary-container": "#798bac",
+          "surface-container-high": "#e0e8ff",
+          "primary": "#000d23",
+          "on-primary-fixed": "#071b37",
+          "surface-bright": "#f9f9ff",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "on-background": "#101b30",
+          "primary-fixed-dim": "#b5c7eb",
+          "surface-container-low": "#f1f3ff",
+          "background": "#f9f9ff",
+          "secondary-fixed-dim": "#b5c4ff",
+          "on-secondary-fixed-variant": "#003cad",
+          "inverse-primary": "#b5c7eb",
+          "on-surface": "#101b30",
+          "surface-container": "#e8edff",
+          "on-tertiary-fixed": "#00201f",
+          "on-secondary-fixed": "#00164d",
+          "outline-variant": "#c5c6ce",
+          "on-tertiary": "#ffffff",
+          "inverse-on-surface": "#edf0ff",
+          "error": "#ba1a1a",
+          "secondary-container": "#3e6bea",
+          "surface-dim": "#cfdaf6",
+          "secondary": "#1a51d0",
+          "surface-container-highest": "#d7e2ff",
+          "surface-tint": "#4d5f7e",
+          "on-surface-variant": "#44474d",
+          "on-primary-fixed-variant": "#364765",
+          "on-tertiary-fixed-variant": "#00504d",
+          "on-secondary": "#ffffff",
+          "on-secondary-container": "#fffbff",
+          "tertiary-fixed-dim": "#60d9d3",
+          "error-container": "#ffdad6",
+          "secondary-fixed": "#dce1ff",
+          "outline": "#75777e",
+          "tertiary-fixed": "#7ef5ef",
+          "primary-container": "#10233f",
+          "tertiary-container": "#002827",
+          "surface": "#f9f9ff",
+          "surface-variant": "#d7e2ff",
+          "on-primary": "#ffffff",
+          "inverse-surface": "#263046",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#d6e3ff",
+          "on-tertiary-container": "#009a96"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "margin-tablet": "1.5rem",
+          "space-2xl": "4rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "margin": "3rem",
+          "gutter": "1.5rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem"
+        },
+        "fontFamily": {
+          "headline-xl": [
+            "Manrope"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "label-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Manrope"
+          ],
+          "label-lg": [
+            "Inter"
+          ],
+          "data-mono": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Manrope"
+          ],
+          "headline-lg": [
+            "Manrope"
+          ],
+          "headline-md": [
+            "Manrope"
+          ],
+          "headline-xl-mobile": [
+            "Manrope"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "body-xl": [
+            "Inter"
+          ],
+          "display-lg": [
+            "Manrope"
+          ]
+        },
+        "fontSize": {
+          "headline-xl": [
+            "2.5rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.025em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.875rem",
+            {
+              "lineHeight": "1.5",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.6",
+              "fontWeight": "400"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-lg-mobile": [
+            "2.25rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "800"
+            }
+          ],
+          "label-lg": [
+            "0.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "data-mono": [
+            "1.125rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-sm": [
+            "1.25rem",
+            {
+              "lineHeight": "1.4",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "2rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-md": [
+            "1.5rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "1rem",
+            {
+              "lineHeight": "1.55",
+              "fontWeight": "400"
+            }
+          ],
+          "body-xl": [
+            "1.25rem",
+            {
+              "lineHeight": "1.6",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg": [
+            "3.5rem",
+            {
+              "lineHeight": "1.15",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "800"
+            }
+          ]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><main class="w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Examination Control Bar -->
+<header class="w-full bg-primary text-on-primary sticky top-0 z-40 shadow-md">
+<div class="max-w-7xl mx-auto px-space-md py-space-sm flex flex-col md:flex-row items-center justify-between gap-space-sm">
+<!-- Session & Identity -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-between md:justify-start">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest/10 flex items-center justify-center text-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined text-headline-sm">verified_user</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-primary font-bold truncate">MoE University Exit Exam: Computer Science &amp; Software Eng.</span>
+<span class="px-2 py-0.5 rounded-full text-label-md font-label-md bg-secondary text-on-secondary font-semibold">2016 E.C.</span>
+</div>
+<div class="flex items-center gap-space-sm text-label-md font-label-md text-on-primary-container mt-0.5">
+<span class="truncate">Booklet Code: <strong class="text-on-primary font-semibold">01-CS</strong></span>
+<span>•</span>
+<span class="truncate">Candidate: <strong class="text-on-primary font-semibold">Dawit Mengistu (ID: ETH-88492)</strong></span>
+</div>
+</div>
+</div>
+<!-- Live Countdown, Auto-save & Submit Action -->
+<div class="flex items-center gap-space-md w-full md:w-auto justify-between md:justify-end shrink-0">
+<!-- Auto-save notification -->
+<div class="hidden lg:flex items-center gap-1.5 text-label-md font-label-md text-on-primary-container">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span>Progress auto-saved <span class="text-on-primary/70">(10s ago)</span></span>
+</div>
+<!-- Official Countdown Timer -->
+<div class="flex items-center bg-primary-container px-space-md py-1.5 rounded-xl shadow-inner gap-space-sm">
+<div class="flex flex-col items-start">
+<span class="text-label-md font-label-md text-on-primary-container uppercase tracking-wider text-[10px]">Time Remaining</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">timer</span>
+<span class="font-data-mono text-data-mono text-on-primary tracking-tight font-bold" id="countdownTimer">02:14:38</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-primary-container text-body-sm" title="Timed Session: Pause Disabled per MoE Regulations">lock</span>
+</div>
+<!-- Submit Button Safeguarded -->
+<button class="bg-secondary text-on-secondary hover:bg-secondary-container px-space-md py-2.5 rounded-xl font-label-lg text-label-lg font-bold shadow-sm transition-all duration-150 flex items-center gap-1.5 shrink-0 active:scale-95" id="openSubmitModalBtn">
+<span>Submit Exam</span>
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Workstation Container -->
+<div class="max-w-7xl mx-auto w-full px-space-md py-space-md lg:py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Examination Area (70% on desktop = 8 cols) -->
+<main class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Question Meta Card -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Question Meta Header Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Question 24</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">of 100</span>
+<span class="bg-surface-container-high text-secondary text-label-md font-label-md font-bold px-2.5 py-1 rounded-full">
+                Domain 3: Operating Systems &amp; Systems Architecture
+              </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-label-md font-label-md bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant font-semibold">
+                Marks: +1.0 • No negative marking
+              </span>
+<!-- Mark for Review Button -->
+<button class="flex items-center gap-1 px-3 py-1 rounded-full text-label-md font-label-md font-semibold bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" data-flagged="false" id="flagToggleBtn">
+<span class="material-symbols-outlined text-[18px]" id="flagIcon">bookmark</span>
+<span id="flagLabel">Mark for Review</span>
+</button>
+</div>
+</div>
+<!-- Academic Question Stem -->
+<div class="space-y-space-sm">
+<p class="font-body-xl text-body-xl text-on-surface leading-relaxed font-normal">
+              In modern multi-threaded operating systems, when multiple processes compete for a shared resource without adequate synchronization primitives, a race condition can occur. Which of the following synchronization mechanisms guarantees mutual exclusion while avoiding busy waiting (<em class="italic font-medium">spinlocks</em>) by placing competing threads into a sleep/waiting state?
+            </p>
+<!-- Technical Schema / Architectural Context Callout -->
+<div class="bg-surface-container-low rounded-lg p-space-md text-on-surface-variant flex flex-col md:flex-row gap-space-md items-start">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">architecture</span>
+</div>
+<div class="space-y-1 text-body-sm font-body-sm min-w-0">
+<div class="font-bold text-on-surface text-label-lg font-label-lg">System Context Reference: Posix / Kernel Dispatching Model</div>
+<p>Assume symmetric multiprocessing (SMP) dispatching with preemptive kernel scheduling. Synchronization must operate efficiently across uniprocessor and multiprocessor systems without indefinite CPU thread-state spinning.</p>
+</div>
+</div>
+</div>
+<!-- Interactive Options Form -->
+<fieldset aria-label="Multiple Choice Options" class="mt-space-sm space-y-space-sm">
+<!-- Option A (Selected Default) -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl cursor-pointer transition-all duration-150 bg-surface-container-high/60 hover:bg-surface-container-high text-on-surface shadow-sm">
+<input checked="" class="peer sr-only" name="exam_q24" type="radio" value="A"/>
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-label-lg font-label-lg shrink-0 mt-0.5 peer-checked:scale-105 transition-transform">
+                A
+              </div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md font-semibold text-on-surface block">
+                  Counting Semaphore with <code class="font-data-mono text-body-sm bg-surface-container px-1 py-0.5 rounded">wait() [P]</code> and <code class="font-data-mono text-body-sm bg-surface-container px-1 py-0.5 rounded">signal() [V]</code> operations and process blocking
+                </span>
+<span class="text-label-md font-label-md text-secondary mt-1 flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">check</span> Currently Selected
+                </span>
+</div>
+</label>
+<!-- Option B -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl cursor-pointer transition-all duration-150 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface">
+<input class="peer sr-only" name="exam_q24" type="radio" value="B"/>
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-label-lg font-label-lg shrink-0 mt-0.5 group-hover:bg-surface-container-highest transition-colors">
+                B
+              </div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface block">
+                  Test-and-Set hardware instruction in a tight while loop
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant/70 text-[12px] block mt-0.5">Executes active CPU register polling continuously on memory bus</span>
+</div>
+</label>
+<!-- Option C -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl cursor-pointer transition-all duration-150 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface">
+<input class="peer sr-only" name="exam_q24" type="radio" value="C"/>
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-label-lg font-label-lg shrink-0 mt-0.5 group-hover:bg-surface-container-highest transition-colors">
+                C
+              </div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface block">
+                  Peterson's Algorithm utilizing strict software polling flags
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant/70 text-[12px] block mt-0.5">Two-process algorithmic synchronization with busy waiting loop</span>
+</div>
+</label>
+<!-- Option D -->
+<label class="group relative flex items-start gap-space-md p-space-md rounded-xl cursor-pointer transition-all duration-150 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface">
+<input class="peer sr-only" name="exam_q24" type="radio" value="D"/>
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-bold text-label-lg font-label-lg shrink-0 mt-0.5 group-hover:bg-surface-container-highest transition-colors">
+                D
+              </div>
+<div class="flex-1 min-w-0">
+<span class="font-body-md text-body-md text-on-surface block">
+                  Disabling interrupts across symmetric multiprocessing (SMP) CPU cores
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant/70 text-[12px] block mt-0.5">Hardware interrupt mask without thread queue management</span>
+</div>
+</label>
+</fieldset>
+<!-- Bottom Action Navigation -->
+<div class="pt-space-md mt-space-sm flex flex-col-reverse sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md w-full sm:w-auto justify-between sm:justify-start">
+<!-- Previous Button -->
+<button class="flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold transition-all">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Previous</span>
+</button>
+<!-- Clear Selection & Flag Feedback -->
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-error transition-colors underline font-medium" id="clearSelectionBtn">
+                Clear Choice
+              </button>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-secondary flex items-center gap-1 px-2.5 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px]">report_problem</span>
+<span>Flag Issue</span>
+</button>
+<!-- Next Button (Primary) -->
+<button class="flex items-center gap-1.5 px-space-lg py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow transition-all active:scale-95">
+<span>Save &amp; Next</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Candidate Test Integrity Notice Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<div class="min-w-0 text-body-sm font-body-sm text-on-surface-variant">
+<span class="font-bold text-on-surface">Proctored Session Enforced:</span> Keystrokes, tab-switching, and display inputs are audited by the Ministry of Education Central Test Evaluation Server.
+          </div>
+</div>
+</main>
+<!-- Right Examination Area (30% on desktop = 4 cols) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Palette & Progress Container -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md md:p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Palette Header & Metrics -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Question Palette</h2>
+<span class="text-label-md font-label-md font-bold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">100 Items</span>
+</div>
+<!-- Progress Bar Tracker -->
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-label-md font-label-md">
+<span class="font-bold text-on-surface">Overall Completion</span>
+<span class="font-data-mono text-secondary font-bold">24%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full transition-all duration-300" style="width: 24%"></div>
+</div>
+<div class="text-[11px] font-body-sm text-on-surface-variant">
+                24 of 100 questions answered
+              </div>
+</div>
+</div>
+<!-- Summary Status Legend Pills -->
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="bg-surface-container-low rounded-lg p-2 flex flex-col items-center">
+<span class="font-data-mono text-headline-sm font-bold text-secondary">23</span>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium text-[11px]">Answered</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2 flex flex-col items-center">
+<span class="font-data-mono text-headline-sm font-bold text-on-surface">76</span>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium text-[11px]">Unanswered</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2 flex flex-col items-center">
+<span class="font-data-mono text-headline-sm font-bold text-on-tertiary-container">1</span>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium text-[11px]">Flagged</span>
+</div>
+</div>
+<!-- Segmented Filter Tabs -->
+<div class="bg-surface-container-low p-1 rounded-xl flex items-center justify-between gap-1 text-[11px] font-label-md">
+<button class="flex-1 py-1 px-1 rounded-lg bg-surface-container-lowest shadow-sm text-on-surface font-bold text-center">All</button>
+<button class="flex-1 py-1 px-1 rounded-lg text-on-surface-variant hover:text-on-surface text-center">Answered</button>
+<button class="flex-1 py-1 px-1 rounded-lg text-on-surface-variant hover:text-on-surface text-center">Pending</button>
+<button class="flex-1 py-1 px-1 rounded-lg text-on-surface-variant hover:text-on-surface text-center">Flagged</button>
+</div>
+<!-- 10x10 Question Number Grid -->
+<div class="space-y-1.5">
+<div class="text-label-md font-label-md text-on-surface-variant font-semibold">Jump to Question</div>
+<div class="grid grid-cols-10 gap-1.5 select-none" id="questionGridContainer">
+<!-- Dynamically populated or explicitly structured 1 to 100 -->
+<!-- Questions 1 - 13 (Answered) -->
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">1</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">2</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">3</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">4</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">5</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">6</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">7</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">8</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">9</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">10</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">11</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">12</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">13</button>
+<!-- Question 14 (Flagged + Answered) -->
+<button class="relative h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">
+                14
+                <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-tertiary-fixed rounded-full shadow-sm"></span>
+</button>
+<!-- Questions 15 - 23 (Answered) -->
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">15</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">16</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">17</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">18</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">19</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">20</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">21</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">22</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-bold bg-secondary text-on-secondary flex items-center justify-center hover:opacity-90 transition-opacity">23</button>
+<!-- Question 24 (Active Current Question) -->
+<button class="h-8 rounded font-data-mono text-body-sm font-extrabold bg-primary text-on-primary ring-2 ring-secondary ring-offset-2 flex items-center justify-center shadow-md scale-105">24</button>
+<!-- Questions 25 - 100 (Unanswered) -->
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">25</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">26</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">27</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">28</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">29</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">30</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">31</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">32</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">33</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">34</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">35</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">36</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">37</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">38</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">39</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">40</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">41</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">42</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">43</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">44</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">45</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">46</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">47</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">48</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">49</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">50</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">51</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">52</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">53</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">54</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">55</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">56</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">57</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">58</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">59</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">60</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">61</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">62</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">63</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">64</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">65</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">66</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">67</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">68</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">69</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">70</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">71</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">72</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">73</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">74</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">75</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">76</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">77</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">78</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">79</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">80</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">81</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">82</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">83</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">84</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">85</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">86</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">87</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">88</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">89</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">90</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">91</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">92</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">93</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">94</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">95</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">96</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">97</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">98</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">99</button>
+<button class="h-8 rounded font-data-mono text-body-sm font-medium bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors">100</button>
+</div>
+</div>
+<!-- Official MoE Regulation Notice Callout -->
+<div class="bg-surface-container-high/40 p-space-md rounded-xl space-y-1.5">
+<div class="flex items-center gap-1.5 text-on-surface font-bold text-label-md font-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">gavel</span>
+<span>Official MoE Examination Rules</span>
+</div>
+<p class="text-[12px] font-body-sm text-on-surface-variant leading-relaxed">
+              Once submitted, answers cannot be edited or modified. Ensure all flagged items are reviewed before the 180-minute countdown concludes. Unattempted questions will receive 0 marks.
+            </p>
+</div>
+</div>
+<!-- System Diagnostics Pill -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex items-center justify-between text-label-md font-label-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Network Latency: <strong class="text-on-surface">18ms</strong></span>
+</div>
+<span class="font-data-mono text-[11px] text-on-surface-variant/70">SEC-ID: 9811-AA</span>
+</div>
+</aside>
+</div>
+</div>
+<!-- Submission Safeguard Confirmation Modal (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-primary/70 backdrop-blur-sm flex items-center justify-center p-space-md hidden opacity-0 transition-opacity duration-200" id="submitModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-space-xl shadow-2xl space-y-space-md transform scale-95 transition-transform duration-200" id="submitModalCard">
+<!-- Warning Header -->
+<div class="flex items-center gap-space-sm text-primary">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-headline-md">assignment_turned_in</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Confirm Final Submission</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">Exit Examination Code: 2016-CS-MOE</p>
+</div>
+</div>
+<!-- Overview Breakdown -->
+<div class="bg-surface-container-low rounded-xl p-space-md space-y-space-sm">
+<div class="text-label-lg font-label-lg font-bold text-on-surface">Session Summary:</div>
+<div class="grid grid-cols-3 gap-space-sm text-center">
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<div class="font-data-mono font-bold text-headline-sm text-secondary">24</div>
+<div class="text-[11px] text-on-surface-variant font-medium">Completed</div>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<div class="font-data-mono font-bold text-headline-sm text-error">76</div>
+<div class="text-[11px] text-on-surface-variant font-medium">Unanswered</div>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<div class="font-data-mono font-bold text-headline-sm text-on-tertiary-container">1</div>
+<div class="text-[11px] text-on-surface-variant font-medium">Flagged</div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-error font-medium text-[12px] pt-1">
+<span class="material-symbols-outlined text-[14px] align-middle">warning</span>
+          Warning: 76 questions remain completely unanswered. Once you finalize, your submission is locked and registered with the Ministry.
+        </p>
+</div>
+<!-- Safeguard Checkbox -->
+<label class="flex items-start gap-space-sm cursor-pointer select-none">
+<input class="mt-1 w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary" id="safeguardCheckbox" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface">
+          I confirm that I have reviewed my answers and understand that this submission is final and permanent.
+        </span>
+</label>
+<!-- Modal Action Buttons -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold" id="cancelModalBtn">
+          Return to Exam
+        </button>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-md opacity-40 cursor-not-allowed transition-all" disabled="" id="confirmSubmitBtn">
+          Yes, Submit Test
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Countdown Timer Logic
+  (function initExamTimer() {
+    let remainingSeconds = (2 * 3600) + (14 * 60) + 38; // 02:14:38
+    const timerDisplay = document.getElementById('countdownTimer');
+
+    if (!timerDisplay) return;
+
+    const timerInterval = setInterval(() => {
+      if (remainingSeconds <= 0) {
+        clearInterval(timerInterval);
+        timerDisplay.textContent = '00:00:00';
+        return;
+      }
+      remainingSeconds--;
+      const hours = String(Math.floor(remainingSeconds / 3600)).padStart(2, '0');
+      const minutes = String(Math.floor((remainingSeconds % 3600) / 60)).padStart(2, '0');
+      const seconds = String(remainingSeconds % 60).padStart(2, '0');
+      timerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+    }, 1000);
+  })();
+
+  // Interactive Options Dynamic Styling
+  (function initOptionToggles() {
+    const radioInputs = document.querySelectorAll('input[name="exam_q24"]');
+    const labels = document.querySelectorAll('fieldset[aria-label="Multiple Choice Options"] label');
+    const clearBtn = document.getElementById('clearSelectionBtn');
+
+    function updateOptionStyles() {
+      radioInputs.forEach((input) => {
+        const parentLabel = input.closest('label');
+        const badge = parentLabel.querySelector('div');
+        const indicator = parentLabel.querySelector('.text-secondary.flex');
+
+        if (input.checked) {
+          parentLabel.classList.add('bg-surface-container-high/60', 'shadow-sm');
+          parentLabel.classList.remove('bg-surface-container-lowest');
+          badge.classList.remove('bg-surface-container', 'text-on-surface-variant');
+          badge.classList.add('bg-secondary', 'text-on-secondary');
+          if (!indicator) {
+            const ind = document.createElement('span');
+            ind.className = 'text-label-md font-label-md text-secondary mt-1 flex items-center gap-1 font-semibold';
+            ind.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span> Currently Selected';
+            parentLabel.querySelector('.flex-1').appendChild(ind);
+          }
+        } else {
+          parentLabel.classList.remove('bg-surface-container-high/60', 'shadow-sm');
+          parentLabel.classList.add('bg-surface-container-lowest');
+          badge.classList.remove('bg-secondary', 'text-on-secondary');
+          badge.classList.add('bg-surface-container', 'text-on-surface-variant');
+          if (indicator) {
+            indicator.remove();
+          }
+        }
+      });
+    }
+
+    radioInputs.forEach(input => {
+      input.addEventListener('change', updateOptionStyles);
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        radioInputs.forEach(input => input.checked = false);
+        updateOptionStyles();
+      });
+    }
+  })();
+
+  // Bookmark / Flag for Review Toggle
+  (function initFlagToggle() {
+    const flagBtn = document.getElementById('flagToggleBtn');
+    const flagIcon = document.getElementById('flagIcon');
+    const flagLabel = document.getElementById('flagLabel');
+
+    if (!flagBtn) return;
+
+    flagBtn.addEventListener('click', () => {
+      const isFlagged = flagBtn.getAttribute('data-flagged') === 'true';
+      if (isFlagged) {
+        flagBtn.setAttribute('data-flagged', 'false');
+        flagBtn.classList.remove('bg-tertiary-fixed', 'text-on-tertiary-fixed');
+        flagBtn.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        flagLabel.textContent = 'Mark for Review';
+        flagIcon.textContent = 'bookmark';
+      } else {
+        flagBtn.setAttribute('data-flagged', 'true');
+        flagBtn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        flagBtn.classList.add('bg-tertiary-fixed', 'text-on-tertiary-fixed');
+        flagLabel.textContent = 'Flagged for Review';
+        flagIcon.textContent = 'bookmark_added';
+      }
+    });
+  })();
+
+  // Submit Safeguard Modal Handlers
+  (function initSubmitModal() {
+    const modal = document.getElementById('submitModal');
+    const modalCard = document.getElementById('submitModalCard');
+    const openBtn = document.getElementById('openSubmitModalBtn');
+    const cancelBtn = document.getElementById('cancelModalBtn');
+    const safeguardCheckbox = document.getElementById('safeguardCheckbox');
+    const confirmSubmitBtn = document.getElementById('confirmSubmitBtn');
+
+    if (!modal || !openBtn) return;
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modalCard.classList.remove('scale-95');
+        modalCard.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeModal() {
+      modalCard.classList.remove('scale-100');
+      modalCard.classList.add('scale-95');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        if (safeguardCheckbox) safeguardCheckbox.checked = false;
+        if (confirmSubmitBtn) {
+          confirmSubmitBtn.disabled = true;
+          confirmSubmitBtn.classList.add('opacity-40', 'cursor-not-allowed');
+        }
+      }, 200);
+    }
+
+    openBtn.addEventListener('click', openModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    if (safeguardCheckbox && confirmSubmitBtn) {
+      safeguardCheckbox.addEventListener('change', () => {
+        if (safeguardCheckbox.checked) {
+          confirmSubmitBtn.disabled = false;
+          confirmSubmitBtn.classList.remove('opacity-40', 'cursor-not-allowed');
+          confirmSubmitBtn.classList.add('hover:bg-primary-container', 'active:scale-95');
+        } else {
+          confirmSubmitBtn.disabled = true;
+          confirmSubmitBtn.classList.add('opacity-40', 'cursor-not-allowed');
+          confirmSubmitBtn.classList.remove('hover:bg-primary-container', 'active:scale-95');
+        }
+      });
+
+      confirmSubmitBtn.addEventListener('click', () => {
+        confirmSubmitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span> Encrypting &amp; Submitting...';
+        setTimeout(() => {
+          alert('Examination Booklet 01-CS successfully submitted and timestamped with the Ministry of Education.');
+          closeModal();
+        }, 1200);
+      });
+    }
+  })();
+</script></main></body></html>

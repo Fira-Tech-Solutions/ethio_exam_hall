@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>Ethio Exam Hall - Student Dashboard</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary": "#00100f",
+          "on-primary-container": "#798bac",
+          "surface-container-high": "#e0e8ff",
+          "primary": "#000d23",
+          "on-primary-fixed": "#071b37",
+          "surface-bright": "#f9f9ff",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "on-background": "#101b30",
+          "primary-fixed-dim": "#b5c7eb",
+          "surface-container-low": "#f1f3ff",
+          "background": "#f9f9ff",
+          "secondary-fixed-dim": "#b5c4ff",
+          "on-secondary-fixed-variant": "#003cad",
+          "inverse-primary": "#b5c7eb",
+          "on-surface": "#101b30",
+          "surface-container": "#e8edff",
+          "on-tertiary-fixed": "#00201f",
+          "on-secondary-fixed": "#00164d",
+          "outline-variant": "#c5c6ce",
+          "on-tertiary": "#ffffff",
+          "inverse-on-surface": "#edf0ff",
+          "error": "#ba1a1a",
+          "secondary-container": "#3e6bea",
+          "surface-dim": "#cfdaf6",
+          "secondary": "#1a51d0",
+          "surface-container-highest": "#d7e2ff",
+          "surface-tint": "#4d5f7e",
+          "on-surface-variant": "#44474d",
+          "on-primary-fixed-variant": "#364765",
+          "on-tertiary-fixed-variant": "#00504d",
+          "on-secondary": "#ffffff",
+          "on-secondary-container": "#fffbff",
+          "tertiary-fixed-dim": "#60d9d3",
+          "error-container": "#ffdad6",
+          "secondary-fixed": "#dce1ff",
+          "outline": "#75777e",
+          "tertiary-fixed": "#7ef5ef",
+          "primary-container": "#10233f",
+          "tertiary-container": "#002827",
+          "surface": "#f9f9ff",
+          "surface-variant": "#d7e2ff",
+          "on-primary": "#ffffff",
+          "inverse-surface": "#263046",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#d6e3ff",
+          "on-tertiary-container": "#009a96"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "margin-tablet": "1.5rem",
+          "space-2xl": "4rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "margin": "3rem",
+          "gutter": "1.5rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem"
+        },
+        "fontFamily": {
+          "headline-xl": [
+            "Manrope"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "label-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Manrope"
+          ],
+          "label-lg": [
+            "Inter"
+          ],
+          "data-mono": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Manrope"
+          ],
+          "headline-lg": [
+            "Manrope"
+          ],
+          "headline-md": [
+            "Manrope"
+          ],
+          "headline-xl-mobile": [
+            "Manrope"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "body-xl": [
+            "Inter"
+          ],
+          "display-lg": [
+            "Manrope"
+          ]
+        },
+        "fontSize": {
+          "headline-xl": [
+            "2.5rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.025em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.875rem",
+            {
+              "lineHeight": "1.5",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.6",
+              "fontWeight": "400"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-lg-mobile": [
+            "2.25rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "800"
+            }
+          ],
+          "label-lg": [
+            "0.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "data-mono": [
+            "1.125rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-sm": [
+            "1.25rem",
+            {
+              "lineHeight": "1.4",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "2rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-md": [
+            "1.5rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "1rem",
+            {
+              "lineHeight": "1.55",
+              "fontWeight": "400"
+            }
+          ],
+          "body-xl": [
+            "1.25rem",
+            {
+              "lineHeight": "1.6",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg": [
+            "3.5rem",
+            {
+              "lineHeight": "1.15",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "800"
+            }
+          ]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md"><div class="flex flex-col"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[20px]">school</span></div><div><span class="font-headline-sm text-headline-sm text-primary leading-tight block">Ethio Exam</span><span class="font-label-md text-label-md text-on-surface-variant block">Candidate Portal</span></div></div><div class="px-space-md mb-space-md"><div class="bg-surface-container p-space-sm rounded-xl"><span class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-wider">Target Academic Code</span><span class="font-label-lg text-label-lg text-secondary font-bold block mt-0.5">ESUEE • MoE Exit 2016</span></div></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-xl"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span>Overview</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="my-exams" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span>My Exams</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="exam-library" href="#"><span class="material-symbols-outlined text-[20px]">local_library</span>Exam Library</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="practice-tests" href="#"><span class="material-symbols-outlined text-[20px]">quiz</span>Practice Tests</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="mock-examinations" href="#"><span class="material-symbols-outlined text-[20px]">alarm_on</span>Mock Examinations</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="study-progress" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span>Study Progress</a><a class="flex items-center justify-between px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="aviation-portal" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">flight</span>Aviation Portal</span><span class="bg-secondary text-on-secondary text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-full">New</span></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="bg-surface-container-high p-space-sm rounded-xl flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-on-surface truncate">Dawit M.</span><span class="font-label-md text-label-md text-on-surface-variant truncate">CS Dept • AAU</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Candidate Status</span><div class="inline-flex items-center gap-1 bg-surface-container px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface font-semibold">National Registry Verified</span></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">military_tech</span><span class="font-label-md text-label-md text-on-surface font-semibold">Target: MoE Exit Exam 2016 E.C.</span></div><button aria-label="Notifications" class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-Header / Admin Context Command Strip -->
+<section class="w-full bg-surface-container-lowest px-gutter py-space-md shadow-sm">
+<div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="inline-flex items-center gap-1.5 bg-primary-container text-on-primary px-space-sm py-1 rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">verified_user</span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-semibold">Super Administrator</span>
+<span class="text-on-primary-container text-[12px]">•</span>
+<span class="font-label-sm text-label-md text-primary-fixed">MoE Content Operations</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-space-sm py-1 rounded-full text-on-surface-variant font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span>Production DataStore Live</span>
+<span class="text-outline-variant font-data-mono">/</span>
+<span class="font-data-mono font-medium text-secondary">Sync Latency: 24ms</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">Last Root Checksum:</span>
+<code class="font-data-mono text-[11px] bg-surface-container px-2 py-0.5 rounded-lg text-primary font-bold">sha256:8f4c2e...9a01</code>
+<button class="inline-flex items-center gap-1 text-secondary font-label-md text-label-md font-semibold hover:text-primary transition-colors ml-1" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+          Sync Telebirr Node
+        </button>
+</div>
+</div>
+</section>
+<div class="max-w-[1400px] w-full mx-auto px-gutter py-space-lg flex flex-col gap-space-xl">
+<!-- Top KPI Cards with Sparklines / Visual Metrics -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant block">Indexed Exam Papers</span>
+<span class="font-headline-lg text-headline-lg text-primary block mt-1 tracking-tight">1,248</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">library_books</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant">
+<div class="inline-flex items-center gap-1 text-[12px] font-semibold text-secondary">
+<span class="material-symbols-outlined text-[15px]">trending_up</span>
+<span>+14 this week</span>
+</div>
+<span class="font-label-md text-[11px] text-outline">100% MoE &amp; EAEA verified</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant block">Repository Questions</span>
+<span class="font-headline-lg text-headline-lg text-primary block mt-1 tracking-tight">48,920</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-md text-[12px] font-semibold text-primary">98.4% verified keys</span>
+</div>
+<div class="w-16 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 98.4%"></div>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant block">Moderation Queue</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-error tracking-tight">23</span>
+<span class="font-label-md text-label-md text-error font-semibold">Pending Review</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-on-surface-variant text-[12px]">
+<span>9 User OCR Papers</span>
+<span class="font-semibold text-error">14 Answer Disputes</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant block">Active Subscriptions</span>
+<span class="font-headline-lg text-headline-lg text-primary block mt-1 tracking-tight">8,430</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-data-mono text-[12px] text-primary font-bold">ETB 3.2M MTD</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-[10px] uppercase font-bold text-on-surface-variant">Telebirr • CBE</span>
+</div>
+</div>
+</section>
+<!-- Administrative Operations Workspace Tabs -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b-0 pb-1 overflow-x-auto">
+<div class="bg-surface-container-low p-1.5 rounded-xl flex items-center gap-1 shrink-0">
+<button class="bg-surface-container-lowest text-primary shadow-sm font-label-lg text-label-lg px-space-md py-2 rounded-lg flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">folder_special</span>
+<span>Exam Paper Repository</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold px-1.5 py-0.2 rounded-full">1,248</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg px-space-md py-2 rounded-lg flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+<span>Question &amp; Answer Key Editor</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg px-space-md py-2 rounded-lg flex items-center gap-2 transition-colors relative" type="button">
+<span class="material-symbols-outlined text-[18px]">flag</span>
+<span>Content Moderation &amp; Claims</span>
+<span class="bg-error text-on-error text-[10px] font-bold px-1.5 py-0.5 rounded-full">23</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg px-space-md py-2 rounded-lg flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">flight_takeoff</span>
+<span>Aviation Module Manager</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg px-space-md py-2 rounded-lg flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+<span>User &amp; Rights</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg px-space-md py-2 rounded-lg flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">history_toggle_off</span>
+<span>Audit Logs</span>
+</button>
+</div>
+<div class="hidden xl:flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Last DB Backup:</span>
+<span class="font-data-mono text-[12px] bg-surface-container px-2 py-1 rounded text-primary font-semibold">Today, 04:30 EAT</span>
+</div>
+</div>
+<!-- Filter, Search & Primary Action Bar -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col lg:flex-row gap-space-md items-stretch lg:items-center justify-between">
+<div class="flex-1 flex flex-col md:flex-row gap-space-sm items-stretch md:items-center">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-md text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#1a51d0] transition-all" placeholder="Search papers by exam code, institution, year, or subject..." type="text" value="CS-EXIT-2016"/>
+</div>
+<!-- Dropdowns -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="relative">
+<select class="appearance-none bg-surface-container-low pl-3 pr-8 py-2.5 rounded-lg text-on-surface font-label-md text-label-md cursor-pointer focus:outline-none">
+<option selected="">Category: All Exams</option>
+<option>MoE University Exit Exam</option>
+<option>ESUEE Matriculation (Grade 12)</option>
+<option>AAU GAT Graduate Aptitude</option>
+<option>Ethiopian Aviation University</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-outline pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-low pl-3 pr-8 py-2.5 rounded-lg text-on-surface font-label-md text-label-md cursor-pointer focus:outline-none">
+<option selected="">Status: All Statuses</option>
+<option>Published Live</option>
+<option>Pending Verification</option>
+<option>Draft</option>
+<option>Rights Restricted</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-outline pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-low pl-3 pr-8 py-2.5 rounded-lg text-on-surface font-label-md text-label-md cursor-pointer focus:outline-none">
+<option selected="">Academic Year: 2016 E.C.</option>
+<option>2015 E.C.</option>
+<option>2014 E.C.</option>
+<option>Historical Archive</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-[16px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface font-label-lg text-label-lg px- space-md py-2.5 px-3 rounded-lg flex items-center gap-1.5 transition-colors" title="Export selection to CSV" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="hidden sm:inline">Export CSV</span>
+</button>
+<button class="bg-secondary hover:bg-primary text-on-secondary font-label-lg text-label-lg px-space-md py-2.5 rounded-lg flex items-center gap-2 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+<span>+ Upload Exam Paper (OCR / PDF)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Dense Data Table: Exam Paper Management -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header & Bulk Controls -->
+<div class="p-space-md bg-surface-container-low/70 flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+<span class="font-label-md text-label-md font-semibold text-primary">Select All 1,248 Records</span>
+</label>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-1.5">
+<button class="bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-md text-label-md px-2.5 py-1 rounded shadow-sm transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+              Bulk Verify
+            </button>
+<button class="bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-md text-label-md px-2.5 py-1 rounded shadow-sm transition-all flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">publish</span>
+              Batch Publish
+            </button>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span>Showing <strong class="text-primary font-semibold">1-5</strong> of 1,248 items</span>
+<div class="inline-flex rounded-lg bg-surface-container-lowest shadow-sm p-0.5">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Responsive Table Container -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-3 px-4 w-10"></th>
+<th class="py-3 px-4 font-semibold">Exam Code &amp; Academic Program</th>
+<th class="py-3 px-4 font-semibold">Authority &amp; Category</th>
+<th class="py-3 px-4 font-semibold">Session / Year</th>
+<th class="py-3 px-4 font-semibold">Structure &amp; Format</th>
+<th class="py-3 px-4 font-semibold">Rights &amp; Provenance</th>
+<th class="py-3 px-4 font-semibold">Verification</th>
+<th class="py-3 px-4 font-semibold">Status</th>
+<th class="py-3 px-4 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-sm font-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 min-w-[280px]">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary mt-0.5 text-[20px]">terminal</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[15px] font-bold text-primary hover:text-secondary cursor-pointer transition-colors leading-tight">
+                      CS-EXIT-2016-A
+                    </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+                      MoE Computer Science &amp; Software Eng. Exit Exam
+                    </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-semibold text-primary block w-fit">Univ. Exit Exam</span>
+<span class="text-[11px] text-on-surface-variant mt-0.5 block">Ministry of Education (MoE)</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="font-data-mono text-[12px] font-semibold text-primary">2016 E.C.</span>
+<span class="text-[11px] text-on-surface-variant block">July 2024 Session</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-primary">100 MCQs</span>
+<span class="text-outline text-[11px]">•</span>
+<span class="bg-surface-container-high text-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">OCR+JSON</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">3.5 MB Master PDF</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container">verified</span>
+                  MoE Public Academic
+                </span>
+<span class="text-[10px] text-outline block">Fair Use CC-BY-NC</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-surface-container-high text-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Verified: AAiT Faculty
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-secondary text-on-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+                  Published Live
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Edit Question Bank" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Inspect Source Document" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline-variant hover:text-error transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<input class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 min-w-[280px]">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary mt-0.5 text-[20px]">calculate</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[15px] font-bold text-primary hover:text-secondary cursor-pointer transition-colors leading-tight">
+                      ESUEE-MATH-2016-N
+                    </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+                      National Educational Assessment Grade 12 Natural Science Math
+                    </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-semibold text-primary block w-fit">ESUEE Matric</span>
+<span class="text-[11px] text-on-surface-variant mt-0.5 block">EAEA National Board</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="font-data-mono text-[12px] font-semibold text-primary">2016 E.C.</span>
+<span class="text-[11px] text-on-surface-variant block">June 2024 Session</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-primary">65 MCQs</span>
+<span class="text-outline text-[11px]">•</span>
+<span class="bg-surface-container-high text-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">LaTeX Encoded</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">4.8 MB High-Res PDF</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+                  EAEA Certified Scan
+                </span>
+<span class="text-[10px] text-outline block">National Repository Code</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-surface-container-high text-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Verified: Math Panel
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-secondary text-on-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+                  Published Live
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Edit Question Bank" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Inspect Source Document" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline-variant hover:text-error transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Pending Review) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20">
+<td class="py-3.5 px-4">
+<input class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 min-w-[280px]">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-error mt-0.5 text-[20px]">gavel</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-[15px] font-bold text-primary hover:text-secondary cursor-pointer transition-colors leading-tight">
+                        LAW-EXIT-2016-B
+                      </span>
+<span class="bg-error-container text-error text-[10px] font-bold px-1.5 py-0.2 rounded">Dispute Open</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+                      Ethiopian Criminal &amp; Constitutional Jurisprudence
+                    </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-semibold text-primary block w-fit">Univ. Exit Exam</span>
+<span class="text-[11px] text-on-surface-variant mt-0.5 block">MoE National Law Panel</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="font-data-mono text-[12px] font-semibold text-primary">2016 E.C.</span>
+<span class="text-[11px] text-on-surface-variant block">July 2024 Session</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-primary">100 MCQs</span>
+<span class="text-outline text-[11px]">•</span>
+<span class="bg-surface-container-high text-primary px-1.5 py-0.5 rounded text-[10px] font-bold">OCR Pending Refine</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">2.9 MB PDF</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-outline">hourglass_top</span>
+                  Under Claim Audit
+                </span>
+<span class="text-[10px] text-outline block">Academic Review Tier</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Under Peer Review
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-surface-container text-on-surface px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+                  Internal Staging
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-error transition-colors" title="Resolve Dispute" type="button">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Edit Question Bank" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline-variant hover:text-error transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<input class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 min-w-[280px]">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary mt-0.5 text-[20px]">flight</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[15px] font-bold text-primary hover:text-secondary cursor-pointer transition-colors leading-tight">
+                      EAA-CADET-2024
+                    </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+                      Ethiopian Aviation University Pilot Cadet Screening Exam
+                    </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-semibold text-primary block w-fit">Aviation Module</span>
+<span class="text-[11px] text-on-surface-variant mt-0.5 block">Ethiopian Airlines Group</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="font-data-mono text-[12px] font-semibold text-primary">2024 Int.</span>
+<span class="text-[11px] text-on-surface-variant block">Quarter 2 Intake</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-primary">80 Questions</span>
+<span class="text-outline text-[11px]">•</span>
+<span class="bg-surface-container-high text-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">Physics+Aero</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">Custom Simulation JSON</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+                  Licensed Partnership
+                </span>
+<span class="text-[10px] text-outline block">Restricted Subscription</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-surface-container-high text-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Verified: EAA Academy
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-secondary text-on-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+                  Published Live
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Edit Question Bank" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Inspect Source Document" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline-variant hover:text-error transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4">
+<input class="w-4 h-4 rounded text-secondary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 min-w-[280px]">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary mt-0.5 text-[20px]">psychology</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[15px] font-bold text-primary hover:text-secondary cursor-pointer transition-colors leading-tight">
+                      AAU-GAT-VERBAL-15
+                    </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+                      Addis Ababa University Graduate Aptitude Verbal Reasoning Paper
+                    </span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="bg-surface-container px-2 py-0.5 rounded text-[11px] font-semibold text-primary block w-fit">University GAT</span>
+<span class="text-[11px] text-on-surface-variant mt-0.5 block">AAU Testing Center</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="font-data-mono text-[12px] font-semibold text-primary">2015 E.C.</span>
+<span class="text-[11px] text-on-surface-variant block">Oct 2023 Session</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-primary">60 Questions</span>
+<span class="text-outline text-[11px]">•</span>
+<span class="bg-surface-container-high text-secondary px-1.5 py-0.5 rounded text-[10px] font-bold">Standardized</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">1.8 MB Master Doc</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container">verified</span>
+                  AAU Official Feed
+                </span>
+<span class="text-[10px] text-outline block">Academic Distribution</span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-surface-container-high text-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Verified: Testing Bureau
+                </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 bg-secondary text-on-secondary px-2 py-0.5 rounded-full font-label-md text-[11px] font-semibold">
+                  Published Live
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Edit Question Bank" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-primary transition-colors" title="Inspect Source Document" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline-variant hover:text-error transition-colors" title="More options" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Metadata -->
+<div class="p-space-sm px-space-md bg-surface-container-lowest border-t-0 flex flex-col sm:flex-row items-center justify-between text-on-surface-variant font-label-md text-label-md gap-2">
+<span class="text-[12px]">Last automated OCR index scan: 12 minutes ago by Crawler Node #3</span>
+<div class="flex items-center gap-2">
+<span>Rows per view:</span>
+<select class="bg-surface-container-low px-2 py-1 rounded text-primary font-semibold text-[12px] focus:outline-none">
+<option>25</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Split Asymmetric Section: Moderation Workbench & Cryptographic Audit Log -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Content Moderation & Dispute Resolution Console (7 cols) -->
+<section class="lg:col-span-7 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Content Moderation &amp; Academic Dispute</h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Active ticket assigned to Content Quality Panel</span>
+</div>
+</div>
+<span class="bg-error text-on-error text-[11px] font-bold px-2 py-0.5 rounded-full">Dispute #CR-2016-89</span>
+</div>
+<!-- Dispute Case Box -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-1 text-[12px]">
+<span class="font-semibold text-primary">Target: CS-EXIT-2016-A • Question Item #24</span>
+<span class="text-on-surface-variant">Reported by Candidate: <strong class="text-primary font-semibold">K. Tadesse (AAU)</strong> • 3 hrs ago</span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block mb-1">Subject Question Formulation:</span>
+<p class="font-body-md text-body-md text-primary font-medium">
+              "Which of the following synchronization mechanisms guarantees mutual exclusion, progress, and bounded waiting in a modern multiprocessor preemptive kernel environment?"
+            </p>
+</div>
+<!-- Dispute Comparison Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm text-[13px]">
+<div class="p-3 bg-surface-container-lowest rounded-lg">
+<span class="font-label-md text-[11px] font-bold text-error uppercase block mb-1">Current Key in Draft:</span>
+<p class="font-semibold text-on-surface">Option B: Peterson’s Algorithm without hardware fence</p>
+<span class="text-[11px] text-outline block mt-1">Disputed: Modern architectures reorder memory instructions.</span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-lg">
+<span class="font-label-md text-[11px] font-bold text-secondary uppercase block mb-1">Candidate Proposed Correction:</span>
+<p class="font-semibold text-primary">Option A: Hardware Test-and-Set / Compare-and-Swap Primitive</p>
+<span class="text-[11px] text-on-surface-variant block mt-1">Citation: Silberschatz Operating Systems, 10th Ed., Sec 6.4.</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">school</span>
+<p class="text-[12px] text-on-surface leading-relaxed">
+<strong class="font-semibold">Reviewer Recommendation:</strong> Consensus is valid. Modern multi-core compilers invalidate Peterson's without memory fences. Recommend key update to Option A before final publication broadcast.
+            </p>
+</div>
+<!-- Moderation Controls -->
+<div class="flex flex-wrap items-center justify-end gap-2 pt-2">
+<button class="bg-surface-container-high hover:bg-surface-container text-on-surface font-label-md text-label-md px-3 py-2 rounded-lg transition-colors" type="button">
+              Assign to AAiT Faculty Desk
+            </button>
+<button class="bg-surface-container text-error hover:bg-error hover:text-on-error font-label-md text-label-md px-3 py-2 rounded-lg transition-colors" type="button">
+              Reject with Formal Rationale
+            </button>
+<button class="bg-secondary text-on-secondary hover:bg-primary font-label-md text-label-md px-4 py-2 rounded-lg font-semibold shadow-sm transition-all flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+              Accept Correction &amp; Push Live
+            </button>
+</div>
+</div>
+</section>
+<!-- Provenance, Audit Trail & Cryptographic Verification (5 cols) -->
+<section class="lg:col-span-5 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Audit Trail &amp; Ledger</h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Tamper-evident operations log</span>
+</div>
+</div>
+<button class="text-secondary hover:text-primary font-label-md text-label-md font-semibold" type="button">View All</button>
+</div>
+<!-- Ledger Entries -->
+<div class="flex flex-col gap-space-sm">
+<!-- Log 1 -->
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col gap-1 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-data-mono font-semibold text-secondary">ACTION: KEY_MUTATION</span>
+<span class="text-outline">Today, 14:22:08 EAT</span>
+</div>
+<p class="font-body-sm text-[13px] text-primary font-medium">
+              CS-EXIT-2016-A answer key amended for Item #12 (SQL Index B-Tree).
+            </p>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-1">
+<span>Admin: <strong>t.kebede@moe.gov.et</strong></span>
+<code class="font-data-mono bg-surface-container-high px-1.5 py-0.2 rounded text-[10px]">hash:4a8b...19e0</code>
+</div>
+</div>
+<!-- Log 2 -->
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col gap-1 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-data-mono font-semibold text-primary">ACTION: PAPER_PUBLISHED</span>
+<span class="text-outline">Today, 11:05:40 EAT</span>
+</div>
+<p class="font-body-sm text-[13px] text-primary font-medium">
+              EAA-CADET-2024 Pilot Cadet Screening Exam published to active subscribers.
+            </p>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-1">
+<span>Admin: <strong>ops.aviation@ethioexam.com</strong></span>
+<code class="font-data-mono bg-surface-container-high px-1.5 py-0.2 rounded text-[10px]">hash:89c1...33d1</code>
+</div>
+</div>
+<!-- Log 3 -->
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col gap-1 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-data-mono font-semibold text-outline">ACTION: OCR_BULK_INGEST</span>
+<span class="text-outline">Yesterday, 18:45:12 EAT</span>
+</div>
+<p class="font-body-sm text-[13px] text-primary font-medium">
+              Processed 140 PDF pages from AAU Registrar archive (Economics &amp; Management Exit).
+            </p>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant pt-1">
+<span>Pipeline: <strong>ocr-worker-node-02</strong></span>
+<code class="font-data-mono bg-surface-container-high px-1.5 py-0.2 rounded text-[10px]">hash:ee45...f102</code>
+</div>
+</div>
+</div>
+<div class="p-3 bg-surface-container rounded-lg flex items-center justify-between text-[12px]">
+<span class="text-on-surface-variant">Cryptographic Engine:</span>
+<span class="font-semibold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">lock</span>
+            SHA-256 Merkle Provenance Active
+          </span>
+</div>
+</section>
+</div>
+</div>
+</div></main></div></body></html>

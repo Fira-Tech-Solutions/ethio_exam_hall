@@ -1,0 +1,32 @@
+{
+  "name": "ethio-exam-hall-backend",
+  "version": "1.0.0",
+  "description": "Backend API and Exam Processing Engine for Ethio Exam Hall",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js",
+    "test": "node --test tests/api.test.js tests/telegram-auth.test.js"
+  },
+  "keywords": [
+    "ethio-exam-hall",
+    "education",
+    "examination-simulator",
+    "aviation-prep"
+  ],
+  "author": "Ethio Exam Hall",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jose": "^6.2.12",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.3"
+  }
+}

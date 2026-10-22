@@ -1,0 +1,28 @@
+{
+  "name": "Ethio Exam Hall",
+  "short_name": "Ethio Exam",
+  "description": "Ethiopia's national exam preparation platform — University Exit, Aviation Cadet, and more.",
+  "theme_color": "#000d23",
+  "background_color": "#f9f9ff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education"],
+  "screenshots": []
+}

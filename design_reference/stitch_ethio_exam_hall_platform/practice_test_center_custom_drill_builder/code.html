@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>Ethio Exam Hall - Student Dashboard</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary": "#00100f",
+          "on-primary-container": "#798bac",
+          "surface-container-high": "#e0e8ff",
+          "primary": "#000d23",
+          "on-primary-fixed": "#071b37",
+          "surface-bright": "#f9f9ff",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "on-background": "#101b30",
+          "primary-fixed-dim": "#b5c7eb",
+          "surface-container-low": "#f1f3ff",
+          "background": "#f9f9ff",
+          "secondary-fixed-dim": "#b5c4ff",
+          "on-secondary-fixed-variant": "#003cad",
+          "inverse-primary": "#b5c7eb",
+          "on-surface": "#101b30",
+          "surface-container": "#e8edff",
+          "on-tertiary-fixed": "#00201f",
+          "on-secondary-fixed": "#00164d",
+          "outline-variant": "#c5c6ce",
+          "on-tertiary": "#ffffff",
+          "inverse-on-surface": "#edf0ff",
+          "error": "#ba1a1a",
+          "secondary-container": "#3e6bea",
+          "surface-dim": "#cfdaf6",
+          "secondary": "#1a51d0",
+          "surface-container-highest": "#d7e2ff",
+          "surface-tint": "#4d5f7e",
+          "on-surface-variant": "#44474d",
+          "on-primary-fixed-variant": "#364765",
+          "on-tertiary-fixed-variant": "#00504d",
+          "on-secondary": "#ffffff",
+          "on-secondary-container": "#fffbff",
+          "tertiary-fixed-dim": "#60d9d3",
+          "error-container": "#ffdad6",
+          "secondary-fixed": "#dce1ff",
+          "outline": "#75777e",
+          "tertiary-fixed": "#7ef5ef",
+          "primary-container": "#10233f",
+          "tertiary-container": "#002827",
+          "surface": "#f9f9ff",
+          "surface-variant": "#d7e2ff",
+          "on-primary": "#ffffff",
+          "inverse-surface": "#263046",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#d6e3ff",
+          "on-tertiary-container": "#009a96"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "margin-tablet": "1.5rem",
+          "space-2xl": "4rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "margin": "3rem",
+          "gutter": "1.5rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem"
+        },
+        "fontFamily": {
+          "headline-xl": [
+            "Manrope"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "label-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Manrope"
+          ],
+          "label-lg": [
+            "Inter"
+          ],
+          "data-mono": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Manrope"
+          ],
+          "headline-lg": [
+            "Manrope"
+          ],
+          "headline-md": [
+            "Manrope"
+          ],
+          "headline-xl-mobile": [
+            "Manrope"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "body-xl": [
+            "Inter"
+          ],
+          "display-lg": [
+            "Manrope"
+          ]
+        },
+        "fontSize": {
+          "headline-xl": [
+            "2.5rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.025em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.875rem",
+            {
+              "lineHeight": "1.5",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.6",
+              "fontWeight": "400"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-lg-mobile": [
+            "2.25rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "800"
+            }
+          ],
+          "label-lg": [
+            "0.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "data-mono": [
+            "1.125rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-sm": [
+            "1.25rem",
+            {
+              "lineHeight": "1.4",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "2rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-md": [
+            "1.5rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "1rem",
+            {
+              "lineHeight": "1.55",
+              "fontWeight": "400"
+            }
+          ],
+          "body-xl": [
+            "1.25rem",
+            {
+              "lineHeight": "1.6",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg": [
+            "3.5rem",
+            {
+              "lineHeight": "1.15",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "800"
+            }
+          ]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md"><div class="flex flex-col"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[20px]">school</span></div><div><span class="font-headline-sm text-headline-sm text-primary leading-tight block">Ethio Exam</span><span class="font-label-md text-label-md text-on-surface-variant block">Candidate Portal</span></div></div><div class="px-space-md mb-space-md"><div class="bg-surface-container p-space-sm rounded-xl"><span class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-wider">Target Academic Code</span><span class="font-label-lg text-label-lg text-secondary font-bold block mt-0.5">ESUEE • MoE Exit 2016</span></div></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-xl"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span>Overview</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="my-exams" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span>My Exams</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="exam-library" href="#"><span class="material-symbols-outlined text-[20px]">local_library</span>Exam Library</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="practice-tests" href="#"><span class="material-symbols-outlined text-[20px]">quiz</span>Practice Tests</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="mock-examinations" href="#"><span class="material-symbols-outlined text-[20px]">alarm_on</span>Mock Examinations</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="study-progress" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span>Study Progress</a><a class="flex items-center justify-between px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="aviation-portal" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">flight</span>Aviation Portal</span><span class="bg-secondary text-on-secondary text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-full">New</span></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="bg-surface-container-high p-space-sm rounded-xl flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-on-surface truncate">Dawit M.</span><span class="font-label-md text-label-md text-on-surface-variant truncate">CS Dept • AAU</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Candidate Status</span><div class="inline-flex items-center gap-1 bg-surface-container px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface font-semibold">National Registry Verified</span></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">military_tech</span><span class="font-label-md text-label-md text-on-surface font-semibold">Target: MoE Exit Exam 2016 E.C.</span></div><button aria-label="Notifications" class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Macro Page Layout with Asymmetric Editorial Balance -->
+<div class="p-gutter lg:p-margin max-w-7xl mx-auto w-full flex flex-col gap-space-xl">
+<!-- Top Bar & Breadcrumb Status Banner -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg pb-space-sm">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md uppercase tracking-wider text-secondary font-bold">Academic Assessment Engine</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Curriculum 2016 E.C.</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Practice Test Center &amp; Custom Drill Builder</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Assemble targeted question sets filtered by competency matrix, past mistake history, and strict timed simulation parameters.</p>
+</div>
+<!-- Quick Stats Banner Metric Box -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-lg shrink-0">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-12 h-12 flex items-center justify-center shrink-0">
+<svg class="w-12 h-12 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="51, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="absolute font-label-md text-label-md text-primary font-bold">51%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Today's Target</span>
+<span class="font-data-mono text-data-mono text-primary font-bold">18 <span class="text-on-surface-variant font-normal text-body-sm">/ 35 Qs</span></span>
+</div>
+</div>
+<div class="w-px h-8 bg-surface-container"></div>
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Presets</span>
+<span class="font-data-mono text-data-mono text-secondary font-bold">3 Saved</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Grid: Left 8-col Builder, Right 4-col Recommendations -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Interactive Drill Configuration Wizard (8 Columns) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg lg:p-space-xl shadow-sm flex flex-col gap-space-xl">
+<!-- Step 1: Examination Track -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Select Examination Track &amp; Academic Tier</h2>
+</div>
+<span class="font-label-md text-label-md text-secondary font-semibold bg-surface-container-high px-space-sm py-0.5 rounded-full">Official MoE Pool</span>
+</div>
+<!-- Radio Option Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm" id="exam-track-group">
+<label class="cursor-pointer relative flex flex-col p-space-md rounded-xl bg-primary-container text-on-primary shadow-sm transition-all">
+<input checked="" class="sr-only track-radio" name="academic_track" type="radio" value="exit_exam"/>
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">terminal</span>
+<span class="w-4 h-4 rounded-full bg-secondary flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-on-secondary"></span>
+</span>
+</div>
+<span class="font-label-lg text-label-lg font-bold mt-space-sm">University Exit Exam</span>
+<span class="font-body-sm text-body-sm text-on-primary-container">Ministry of Education • CS &amp; SE Tracks</span>
+</label>
+<label class="cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all">
+<input class="sr-only track-radio" name="academic_track" type="radio" value="esuee"/>
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">menu_book</span>
+<span class="w-4 h-4 rounded-full bg-outline-variant flex items-center justify-center"></span>
+</div>
+<span class="font-label-lg text-label-lg font-bold mt-space-sm">Grade 12 Entrance (ESUEE)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Natural &amp; Social Science Matrix</span>
+</label>
+<label class="cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all">
+<input class="sr-only track-radio" name="academic_track" type="radio" value="gat"/>
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">psychology</span>
+<span class="w-4 h-4 rounded-full bg-outline-variant flex items-center justify-center"></span>
+</div>
+<span class="font-label-lg text-label-lg font-bold mt-space-sm">AAU GAT Postgraduate</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Verbal, Analytical &amp; Quantitative</span>
+</label>
+<label class="cursor-pointer relative flex flex-col p-space-md rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container transition-all">
+<input class="sr-only track-radio" name="academic_track" type="radio" value="aviation"/>
+<div class="flex items-start justify-between">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">flight_takeoff</span>
+<span class="w-4 h-4 rounded-full bg-outline-variant flex items-center justify-center"></span>
+</div>
+<span class="font-label-lg text-label-lg font-bold mt-space-sm">Aviation Academy Aptitude</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pilot Cadet &amp; Aircraft Maintenance</span>
+</label>
+</div>
+</div>
+<!-- Step 2: Choose Domains & Subtopics -->
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">2</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Choose Competency Domains</h2>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="font-label-md text-label-md text-secondary hover:text-primary transition-colors px-2 py-1 rounded bg-surface-container-high font-semibold" id="btn-select-all" type="button">Select All</button>
+<button class="font-label-md text-label-md text-error hover:bg-error-container transition-colors px-2 py-1 rounded bg-surface-container-high font-semibold" id="btn-select-weak" type="button">Only Weak (&lt;60%)</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-space-xs" id="domain-pill-container">
+<!-- Pill 1 -->
+<label class="domain-chip cursor-pointer inline-flex items-center gap-2 px-space-md py-2 rounded-xl bg-primary text-on-primary text-label-lg font-label-lg shadow-sm transition-all select-none">
+<input checked="" class="sr-only domain-checkbox" data-count="240" data-weak="false" type="checkbox"/>
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Software Engineering</span>
+<span class="bg-surface-container-lowest/20 text-on-primary text-label-md px-1.5 py-0.5 rounded-full">240 Qs</span>
+</label>
+<!-- Pill 2 -->
+<label class="domain-chip cursor-pointer inline-flex items-center gap-2 px-space-md py-2 rounded-xl bg-primary text-on-primary text-label-lg font-label-lg shadow-sm transition-all select-none">
+<input checked="" class="sr-only domain-checkbox" data-count="310" data-weak="false" type="checkbox"/>
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Algorithms &amp; Data Structures</span>
+<span class="bg-surface-container-lowest/20 text-on-primary text-label-md px-1.5 py-0.5 rounded-full">310 Qs</span>
+</label>
+<!-- Pill 3 (Weak Domain) -->
+<label class="domain-chip cursor-pointer inline-flex items-center gap-2 px-space-md py-2 rounded-xl bg-surface-container text-on-surface text-label-lg font-label-lg hover:bg-surface-container-high transition-all select-none">
+<input class="sr-only domain-checkbox" data-count="195" data-weak="true" type="checkbox"/>
+<span class="material-symbols-outlined text-[18px] opacity-40">add</span>
+<span>Database Systems &amp; SQL</span>
+<span class="bg-error-container text-on-error-container text-label-md px-1.5 py-0.5 rounded-full font-bold">54% Acc • 195 Qs</span>
+</label>
+<!-- Pill 4 (Weak Domain) -->
+<label class="domain-chip cursor-pointer inline-flex items-center gap-2 px-space-md py-2 rounded-xl bg-surface-container text-on-surface text-label-lg font-label-lg hover:bg-surface-container-high transition-all select-none">
+<input class="sr-only domain-checkbox" data-count="220" data-weak="true" type="checkbox"/>
+<span class="material-symbols-outlined text-[18px] opacity-40">add</span>
+<span>Operating Systems &amp; Concurrency</span>
+<span class="bg-error-container text-on-error-container text-label-md px-1.5 py-0.5 rounded-full font-bold">48% Acc • 220 Qs</span>
+</label>
+<!-- Pill 5 -->
+<label class="domain-chip cursor-pointer inline-flex items-center gap-2 px-space-md py-2 rounded-xl bg-surface-container text-on-surface text-label-lg font-label-lg hover:bg-surface-container-high transition-all select-none">
+<input class="sr-only domain-checkbox" data-count="185" data-weak="false" type="checkbox"/>
+<span class="material-symbols-outlined text-[18px] opacity-40">add</span>
+<span>Computer Networks &amp; Security</span>
+<span class="bg-surface-container-high text-on-surface-variant text-label-md px-1.5 py-0.5 rounded-full">185 Qs</span>
+</label>
+</div>
+</div>
+<!-- Step 3: Question Source & Filter Criteria -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">3</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Question Source &amp; History Sieve</h2>
+</div>
+<!-- Segmented Switch Tray -->
+<div class="bg-surface-container-low p-1.5 rounded-xl grid grid-cols-2 md:grid-cols-4 gap-1" id="source-filter-tray">
+<button class="source-tab bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-md py-2 px-space-sm rounded-lg flex flex-col items-center justify-center gap-0.5 transition-all" data-source="all" type="button">
+<span class="font-bold">All Questions</span>
+<span class="text-on-surface-variant text-[11px]">Pool: 1,150 Items</span>
+</button>
+<button class="source-tab text-on-surface-variant hover:text-on-surface font-label-md text-label-md py-2 px-space-sm rounded-lg flex flex-col items-center justify-center gap-0.5 transition-all" data-source="incorrect" type="button">
+<span class="font-bold">Incorrect Only</span>
+<span class="text-error font-semibold text-[11px]">38 Missed</span>
+</button>
+<button class="source-tab text-on-surface-variant hover:text-on-surface font-label-md text-label-md py-2 px-space-sm rounded-lg flex flex-col items-center justify-center gap-0.5 transition-all" data-source="bookmarked" type="button">
+<span class="font-bold">Bookmarked</span>
+<span class="text-secondary font-semibold text-[11px]">34 Flagged</span>
+</button>
+<button class="source-tab text-on-surface-variant hover:text-on-surface font-label-md text-label-md py-2 px-space-sm rounded-lg flex flex-col items-center justify-center gap-0.5 transition-all" data-source="unseen" type="button">
+<span class="font-bold">Unseen Only</span>
+<span class="text-on-surface-variant text-[11px]">520 Fresh Qs</span>
+</button>
+</div>
+</div>
+<!-- Step 4: Test Parameters & Simulation Mode -->
+<div class="flex flex-col gap-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">4</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Execution Mode &amp; Density</h2>
+</div>
+<!-- Session Mode Two-Card Toggle -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<label class="cursor-pointer flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-high transition-all" id="mode-card-timed">
+<input checked="" class="sr-only" name="session_mode" type="radio" value="timed"/>
+<div class="w-10 h-10 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-primary">Timed Exam Simulation</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">Strict countdown: 1 min 30 sec per question. Simulates official national testing pressure.</p>
+</div>
+</label>
+<label class="cursor-pointer flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all" id="mode-card-study">
+<input class="sr-only" name="session_mode" type="radio" value="study"/>
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-primary">Active Study Mode</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">Instant answer verification with comprehensive rationales and textbook references.</p>
+</div>
+</label>
+</div>
+<!-- Volume and Difficulty Sub-grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-lg pt-space-xs">
+<!-- Question Volume Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Question Volume</label>
+<div class="grid grid-cols-4 gap-2" id="volume-selector">
+<button class="vol-btn py-2.5 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md font-semibold text-center hover:bg-surface-container transition-all" data-est="15" data-volume="10" type="button">
+                    10 Qs
+                  </button>
+<button class="vol-btn py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold text-center shadow-sm transition-all" data-est="38" data-volume="25" type="button">
+                    25 Qs
+                  </button>
+<button class="vol-btn py-2.5 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md font-semibold text-center hover:bg-surface-container transition-all" data-est="75" data-volume="50" type="button">
+                    50 Qs
+                  </button>
+<button class="vol-btn py-2.5 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md font-semibold text-center hover:bg-surface-container transition-all" data-est="Custom" data-volume="custom" type="button">
+                    Custom
+                  </button>
+</div>
+</div>
+<!-- Difficulty Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Challenge Caliber</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low font-label-lg text-label-lg text-primary px-space-md py-2.5 rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container pr-10">
+<option value="mixed">Mixed Standard (MoE Weighted Curve)</option>
+<option value="foundational">Foundational &amp; Core Recall</option>
+<option value="challenging">Advanced Problem-Solving / Code Analysis</option>
+<option value="national_tough">National Exam Hard-Tier (Top 5th Percentile)</option>
+</select>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant absolute right-3 top-3 pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar / Launch Console -->
+<div class="pt-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<label class="flex items-center gap-space-sm cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded bg-surface text-secondary accent-secondary cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-primary">Save as Preset Template</span>
+<span class="text-[11px] text-on-surface-variant">“My Daily OS &amp; Algorithm High-Yield Sprint”</span>
+</div>
+</label>
+<div class="flex items-center gap-space-md">
+<div class="hidden sm:flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Estimated Allocation</span>
+<span class="font-label-lg text-label-lg text-primary font-bold" id="est-duration-display">~38 mins • 25 Questions</span>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg font-bold px-space-lg py-3 rounded-lg shadow-sm transition-all transform active:scale-[0.99]" type="button">
+<span>Launch Practice Session</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Quick-Start Drills & Visual Performance Sparkline (4 Columns) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Remediation Card (Visual Highlight) -->
+<div class="relative overflow-hidden bg-primary text-on-primary rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<!-- Subtle Decorative Accent Overlay -->
+<div class="absolute -right-12 -top-12 w-40 h-40 bg-secondary/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between z-10">
+<span class="inline-flex items-center gap-1.5 bg-error/20 text-error-container text-label-md px-2 py-0.5 rounded-full font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+              High Priority Remediation
+            </span>
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">troubleshoot</span>
+</div>
+<div class="flex flex-col gap-1 z-10">
+<h3 class="font-headline-sm text-headline-sm text-on-primary">Operating Systems Concurrency</h3>
+<p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">Generated automatically from the 7 missed mutex &amp; semaphore questions on Mock Assessment #2.</p>
+</div>
+<div class="flex items-center gap-space-md pt-space-xs z-10">
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-on-primary-container font-semibold">Target Size</span>
+<span class="font-data-mono text-data-mono text-on-primary font-bold">10 Qs</span>
+</div>
+<div class="w-px h-6 bg-on-primary/10"></div>
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-on-primary-container font-semibold">Est. Time</span>
+<span class="font-data-mono text-data-mono text-on-primary font-bold">15 Mins</span>
+</div>
+<div class="w-px h-6 bg-on-primary/10"></div>
+<div class="flex flex-col">
+<span class="text-[11px] uppercase tracking-wider text-on-primary-container font-semibold">Target Pass</span>
+<span class="font-data-mono text-data-mono text-tertiary-fixed font-bold">80%</span>
+</div>
+</div>
+<button class="w-full mt-space-xs py-2.5 px-space-md bg-secondary hover:bg-secondary-container text-on-secondary font-label-md text-label-md font-bold rounded-lg transition-all flex items-center justify-center gap-2 z-10" type="button">
+<span>Remediate Concurrency Gaps</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</button>
+</div>
+<!-- Recommended Drills Container -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Fast-Fire Drills</h3>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Curated Daily</span>
+</div>
+<!-- Drill Item 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary font-bold">Database Systems</span>
+<span class="text-[11px] text-on-surface-variant font-mono">15 Qs • 20m</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-primary">Normalization &amp; BCNF Deconstruction</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Rapid identification of 2NF, 3NF, and multi-valued functional dependencies.</p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="text-[11px] font-semibold text-on-surface-variant">Passing Cutoff: 85%</span>
+<button class="font-label-md text-label-md text-secondary hover:text-primary font-bold flex items-center gap-1" type="button">
+                Start Sprint <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Drill Item 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">AAU GAT Aptitude</span>
+<span class="text-[11px] text-on-surface-variant font-mono">20 Qs • 30m</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-primary">Quantitative Logic &amp; Series Blitz</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Mathematical syllogisms, sequence completion, and high-velocity spatial tests.</p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="text-[11px] font-semibold text-on-surface-variant">Standardized Timed</span>
+<button class="font-label-md text-label-md text-secondary hover:text-primary font-bold flex items-center gap-1" type="button">
+                Start Sprint <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Accuracy by Discipline Inline Chart Box -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">Skill Accuracy Trend</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Last 14 Days</span>
+</div>
+<!-- Concise Inline SVG Bar Chart (<2KB) -->
+<div class="w-full h-32 flex flex-col justify-end">
+<svg class="w-full h-28" preserveaspectratio="none" viewbox="0 0 320 100">
+<!-- Gridlines -->
+<line class="text-surface-container" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="320" y1="25" y2="25"></line>
+<line class="text-surface-container" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="320" y1="50" y2="50"></line>
+<line class="text-surface-container" stroke="currentColor" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="320" y1="75" y2="75"></line>
+<!-- Bars: Alg, SE, DB, OS, Net -->
+<!-- Bar 1 -->
+<rect class="fill-secondary" height="78" rx="3" width="28" x="25" y="22"></rect>
+<!-- Bar 2 -->
+<rect class="fill-secondary" height="85" rx="3" width="28" x="85" y="15"></rect>
+<!-- Bar 3 (Weak) -->
+<rect class="fill-error" height="54" rx="3" width="28" x="145" y="46"></rect>
+<!-- Bar 4 (Weak) -->
+<rect class="fill-error" height="48" rx="3" width="28" x="205" y="52"></rect>
+<!-- Bar 5 -->
+<rect class="fill-secondary" height="70" rx="3" width="28" x="265" y="30"></rect>
+</svg>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-mono pt-1">
+<span class="w-12 text-center">ALG</span>
+<span class="w-12 text-center">SE</span>
+<span class="w-12 text-center text-error font-bold">DBS</span>
+<span class="w-12 text-center text-error font-bold">OS</span>
+<span class="w-12 text-center">NET</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Practice History & Recent Custom Sessions Table -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg lg:p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Practice History &amp; Saved Custom Logs</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Review question rationales, analyze solution paths, or re-run past configurations.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Showing latest 4 drills</span>
+</div>
+</div>
+<!-- High-Density Academic Table -->
+<div class="overflow-x-auto -mx-space-lg lg:mx-0">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-3 px-space-md rounded-l-lg">Session Date</th>
+<th class="py-3 px-space-md">Preset / Configuration</th>
+<th class="py-3 px-space-md">Target Domains</th>
+<th class="py-3 px-space-md text-center">Questions</th>
+<th class="py-3 px-space-md">Accuracy Score</th>
+<th class="py-3 px-space-md">Time Spent</th>
+<th class="py-3 px-space-md text-right rounded-r-lg">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface">Today, 08:45 AM</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-primary">Algorithms Sprint #4</span>
+<span class="bg-surface-container-high text-secondary text-[11px] font-bold px-1.5 py-0.5 rounded">Timed</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface-variant">Data Structures &amp; Complexity</td>
+<td class="py-3.5 px-space-md text-center font-data-mono text-body-sm text-primary">18 / 18</td>
+<td class="py-3.5 px-space-md">
+<div class="inline-flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-data-mono text-body-sm text-primary font-bold">88.9% (16/18)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface-variant">24m 12s</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded font-semibold transition-all" type="button">Review Rationale</button>
+<button aria-label="Retake Drill" class="w-7 h-7 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:text-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface">Yesterday, 04:15 PM</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-primary">OS Concurrency Diagnostic</span>
+<span class="bg-error-container text-on-error-container text-[11px] font-bold px-1.5 py-0.5 rounded">Weak Focus</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface-variant">Deadlocks &amp; Sync Primitives</td>
+<td class="py-3.5 px-space-md text-center font-data-mono text-body-sm text-primary">25 / 25</td>
+<td class="py-3.5 px-space-md">
+<div class="inline-flex items-center gap-1.5 bg-error-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-data-mono text-body-sm text-on-error-container font-bold">52.0% (13/25)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface-variant">36m 40s</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded font-semibold transition-all" type="button">Review Rationale</button>
+<button aria-label="Retake Drill" class="w-7 h-7 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:text-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface">22 Tir 2016</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-primary">Database Systems Comprehensive</span>
+<span class="bg-surface-container-high text-primary text-[11px] font-bold px-1.5 py-0.5 rounded">Study Mode</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface-variant">Relational Algebra &amp; SQL</td>
+<td class="py-3.5 px-space-md text-center font-data-mono text-body-sm text-primary">50 / 50</td>
+<td class="py-3.5 px-space-md">
+<div class="inline-flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-data-mono text-body-sm text-primary font-bold">76.0% (38/50)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface-variant">1h 14m</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="px-2.5 py-1 bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded font-semibold transition-all" type="button">Review Rationale</button>
+<button aria-label="Retake Drill" class="w-7 h-7 flex items-center justify-center rounded bg-surface-container text-on-surface-variant hover:text-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface">19 Tir 2016</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-primary">AAU GAT Quantitative #2</span>
+<span class="bg-surface-container text-on-surface-variant text-[11px] font-bold px-1.5 py-0.5 rounded">Paused</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface-variant">Logic &amp; Discrete Math</td>
+<td class="py-3.5 px-space-md text-center font-data-mono text-body-sm text-primary">12 / 20</td>
+<td class="py-3.5 px-space-md">
+<span class="text-on-surface-variant text-body-sm italic">Incomplete</span>
+</td>
+<td class="py-3.5 px-space-md font-data-mono text-body-sm text-on-surface-variant">18m 05s</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-label-md rounded font-semibold transition-all" type="button">Resume Test</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Interactive Client-side Script for Instant Feedback -->
+<script>
+    (function initDrillBuilder() {
+      // 1. Academic Track Cards
+      const trackLabels = document.querySelectorAll('#exam-track-group label');
+      trackLabels.forEach(label => {
+        label.addEventListener('click', () => {
+          trackLabels.forEach(l => {
+            l.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+            l.classList.add('bg-surface-container-low', 'text-on-surface');
+            const icon = l.querySelector('.material-symbols-outlined');
+            if (icon) icon.className = 'material-symbols-outlined text-on-surface-variant text-[24px]';
+            const radioBullet = l.querySelector('span.w-4');
+            if (radioBullet) {
+              radioBullet.className = 'w-4 h-4 rounded-full bg-outline-variant flex items-center justify-center';
+              radioBullet.innerHTML = '';
+            }
+          });
+          label.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+          label.classList.remove('bg-surface-container-low', 'text-on-surface');
+          const activeIcon = label.querySelector('.material-symbols-outlined');
+          if (activeIcon) activeIcon.className = 'material-symbols-outlined text-secondary-fixed text-[24px]';
+          const activeBullet = label.querySelector('span.w-4');
+          if (activeBullet) {
+            activeBullet.className = 'w-4 h-4 rounded-full bg-secondary flex items-center justify-center';
+            activeBullet.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-on-secondary"></span>';
+          }
+        });
+      });
+
+      // 2. Domain Multi-Select Toggle and Helpers
+      const chips = document.querySelectorAll('.domain-chip');
+      const btnSelectAll = document.getElementById('btn-select-all');
+      const btnSelectWeak = document.getElementById('btn-select-weak');
+
+      function updateChipStyle(chip, isChecked) {
+        const checkbox = chip.querySelector('.domain-checkbox');
+        const icon = chip.querySelector('.material-symbols-outlined');
+        checkbox.checked = isChecked;
+
+        if (isChecked) {
+          chip.classList.add('bg-primary', 'text-on-primary');
+          chip.classList.remove('bg-surface-container', 'text-on-surface');
+          icon.textContent = 'check';
+          icon.classList.remove('opacity-40');
+        } else {
+          chip.classList.remove('bg-primary', 'text-on-primary');
+          chip.classList.add('bg-surface-container', 'text-on-surface');
+          icon.textContent = 'add';
+          icon.classList.add('opacity-40');
+        }
+      }
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', (e) => {
+          e.preventDefault();
+          const checkbox = chip.querySelector('.domain-checkbox');
+          updateChipStyle(chip, !checkbox.checked);
+        });
+      });
+
+      if (btnSelectAll) {
+        btnSelectAll.addEventListener('click', () => {
+          chips.forEach(c => updateChipStyle(c, true));
+        });
+      }
+
+      if (btnSelectWeak) {
+        btnSelectWeak.addEventListener('click', () => {
+          chips.forEach(c => {
+            const isWeak = c.querySelector('.domain-checkbox').getAttribute('data-weak') === 'true';
+            updateChipStyle(c, isWeak);
+          });
+        });
+      }
+
+      // 3. Question Source Segmented Tabs
+      const sourceTabs = document.querySelectorAll('.source-tab');
+      sourceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          sourceTabs.forEach(t => {
+            t.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+            t.classList.add('text-on-surface-variant');
+          });
+          tab.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+          tab.classList.remove('text-on-surface-variant');
+        });
+      });
+
+      // 4. Session Mode Toggles
+      const timedCard = document.getElementById('mode-card-timed');
+      const studyCard = document.getElementById('mode-card-study');
+
+      function setMode(isTimed) {
+        if (isTimed) {
+          timedCard.className = 'cursor-pointer flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-high transition-all';
+          studyCard.className = 'cursor-pointer flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all';
+        } else {
+          studyCard.className = 'cursor-pointer flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-high transition-all';
+          timedCard.className = 'cursor-pointer flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all';
+        }
+      }
+
+      if (timedCard && studyCard) {
+        timedCard.addEventListener('click', () => setMode(true));
+        studyCard.addEventListener('click', () => setMode(false));
+      }
+
+      // 5. Volume Selector & Duration Calculation
+      const volButtons = document.querySelectorAll('.vol-btn');
+      const durationDisplay = document.getElementById('est-duration-display');
+
+      volButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          volButtons.forEach(b => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            b.classList.add('bg-surface-container-low', 'text-on-surface');
+          });
+          btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          btn.classList.remove('bg-surface-container-low', 'text-on-surface');
+
+          const vol = btn.getAttribute('data-volume');
+          const est = btn.getAttribute('data-est');
+          if (vol === 'custom') {
+            durationDisplay.textContent = 'Custom Range • Flexible';
+          } else {
+            durationDisplay.textContent = '~' + est + ' mins • ' + vol + ' Questions';
+          }
+        });
+      });
+    })();
+  </script>
+</div></main></div></body></html>

@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9ff;
+    color: #101b30;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+  }
+}
+
+.tnum {
+  font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* Stitch design helpers (login page) */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.8deg); }
+}
+.animate-floating {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.accent-mesh {
+  background-color: #f6f8fc;
+  background-image:
+    radial-gradient(at 10% 20%, rgba(36, 87, 214, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(16, 35, 63, 0.07) 0px, transparent 40%),
+    radial-gradient(at 80% 80%, rgba(59, 130, 246, 0.09) 0px, transparent 50%);
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  vertical-align: middle;
+}

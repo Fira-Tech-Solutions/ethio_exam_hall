@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>Ethio Exam Hall - Student Dashboard</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary": "#00100f",
+          "on-primary-container": "#798bac",
+          "surface-container-high": "#e0e8ff",
+          "primary": "#000d23",
+          "on-primary-fixed": "#071b37",
+          "surface-bright": "#f9f9ff",
+          "on-error": "#ffffff",
+          "on-error-container": "#93000a",
+          "on-background": "#101b30",
+          "primary-fixed-dim": "#b5c7eb",
+          "surface-container-low": "#f1f3ff",
+          "background": "#f9f9ff",
+          "secondary-fixed-dim": "#b5c4ff",
+          "on-secondary-fixed-variant": "#003cad",
+          "inverse-primary": "#b5c7eb",
+          "on-surface": "#101b30",
+          "surface-container": "#e8edff",
+          "on-tertiary-fixed": "#00201f",
+          "on-secondary-fixed": "#00164d",
+          "outline-variant": "#c5c6ce",
+          "on-tertiary": "#ffffff",
+          "inverse-on-surface": "#edf0ff",
+          "error": "#ba1a1a",
+          "secondary-container": "#3e6bea",
+          "surface-dim": "#cfdaf6",
+          "secondary": "#1a51d0",
+          "surface-container-highest": "#d7e2ff",
+          "surface-tint": "#4d5f7e",
+          "on-surface-variant": "#44474d",
+          "on-primary-fixed-variant": "#364765",
+          "on-tertiary-fixed-variant": "#00504d",
+          "on-secondary": "#ffffff",
+          "on-secondary-container": "#fffbff",
+          "tertiary-fixed-dim": "#60d9d3",
+          "error-container": "#ffdad6",
+          "secondary-fixed": "#dce1ff",
+          "outline": "#75777e",
+          "tertiary-fixed": "#7ef5ef",
+          "primary-container": "#10233f",
+          "tertiary-container": "#002827",
+          "surface": "#f9f9ff",
+          "surface-variant": "#d7e2ff",
+          "on-primary": "#ffffff",
+          "inverse-surface": "#263046",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#d6e3ff",
+          "on-tertiary-container": "#009a96"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "margin-tablet": "1.5rem",
+          "space-2xl": "4rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "margin": "3rem",
+          "gutter": "1.5rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2.5rem",
+          "space-sm": "0.5rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "1rem"
+        },
+        "fontFamily": {
+          "headline-xl": [
+            "Manrope"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "label-md": [
+            "Inter"
+          ],
+          "display-lg-mobile": [
+            "Manrope"
+          ],
+          "label-lg": [
+            "Inter"
+          ],
+          "data-mono": [
+            "Inter"
+          ],
+          "headline-sm": [
+            "Manrope"
+          ],
+          "headline-lg": [
+            "Manrope"
+          ],
+          "headline-md": [
+            "Manrope"
+          ],
+          "headline-xl-mobile": [
+            "Manrope"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "body-xl": [
+            "Inter"
+          ],
+          "display-lg": [
+            "Manrope"
+          ]
+        },
+        "fontSize": {
+          "headline-xl": [
+            "2.5rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.025em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "0.875rem",
+            {
+              "lineHeight": "1.5",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "1.125rem",
+            {
+              "lineHeight": "1.6",
+              "fontWeight": "400"
+            }
+          ],
+          "label-md": [
+            "0.75rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "0.03em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-lg-mobile": [
+            "2.25rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "800"
+            }
+          ],
+          "label-lg": [
+            "0.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "data-mono": [
+            "1.125rem",
+            {
+              "lineHeight": "1.2",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-sm": [
+            "1.25rem",
+            {
+              "lineHeight": "1.4",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "2rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "headline-md": [
+            "1.5rem",
+            {
+              "lineHeight": "1.3",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl-mobile": [
+            "1.875rem",
+            {
+              "lineHeight": "1.25",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-md": [
+            "1rem",
+            {
+              "lineHeight": "1.55",
+              "fontWeight": "400"
+            }
+          ],
+          "body-xl": [
+            "1.25rem",
+            {
+              "lineHeight": "1.6",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "400"
+            }
+          ],
+          "display-lg": [
+            "3.5rem",
+            {
+              "lineHeight": "1.15",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "800"
+            }
+          ]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md"><div class="flex flex-col"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[20px]">school</span></div><div><span class="font-headline-sm text-headline-sm text-primary leading-tight block">Ethio Exam</span><span class="font-label-md text-label-md text-on-surface-variant block">Candidate Portal</span></div></div><div class="px-space-md mb-space-md"><div class="bg-surface-container p-space-sm rounded-xl"><span class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-wider">Target Academic Code</span><span class="font-label-lg text-label-lg text-secondary font-bold block mt-0.5">ESUEE • MoE Exit 2016</span></div></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-xl"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-all bg-primary-container text-on-primary font-label-lg rounded-xl" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span>Overview</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="my-exams" href="#"><span class="material-symbols-outlined text-[20px]">assignment</span>My Exams</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="exam-library" href="#"><span class="material-symbols-outlined text-[20px]">local_library</span>Exam Library</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="practice-tests" href="#"><span class="material-symbols-outlined text-[20px]">quiz</span>Practice Tests</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="mock-examinations" href="#"><span class="material-symbols-outlined text-[20px]">alarm_on</span>Mock Examinations</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="study-progress" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span>Study Progress</a><a class="flex items-center justify-between px-space-md py-2.5 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="aviation-portal" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">flight</span>Aviation Portal</span><span class="bg-secondary text-on-secondary text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-full">New</span></a></nav></div><div class="px-space-md flex flex-col gap-space-xs"><div class="bg-surface-container-high p-space-sm rounded-xl flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-lg text-label-lg text-on-surface truncate">Dawit M.</span><span class="font-label-md text-label-md text-on-surface-variant truncate">CS Dept • AAU</span></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Candidate Status</span><div class="inline-flex items-center gap-1 bg-surface-container px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface font-semibold">National Registry Verified</span></div></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">military_tech</span><span class="font-label-md text-label-md text-on-surface font-semibold">Target: MoE Exit Exam 2016 E.C.</span></div><button aria-label="Notifications" class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-gutter py-space-lg flex flex-col gap-space-lg max-w-[1400px] mx-auto w-full">
+<!-- Top Academic Goal & Status Banner -->
+<section class="relative overflow-hidden rounded-xl bg-primary text-on-primary p-space-lg shadow-md">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-secondary/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-16 -top-16 w-64 h-64 rounded-full bg-tertiary-container/30 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-high/20 text-on-primary font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-ping"></span>
+              Official Target: MoE National Exit Examination (2016 E.C.)
+            </span>
+<span class="font-data-mono text-data-mono text-secondary-fixed">48 Days Remaining</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-primary tracking-tight mt-1">
+            Welcome back, Dawit.
+          </h1>
+<p class="font-body-md text-body-md text-on-primary-container max-w-2xl">
+            Computer Science &amp; Software Engineering Candidate. Your overall curriculum mastery is on pace for <strong class="text-on-primary font-semibold">High Distinction</strong>. Aviation Cadet Aptitude track remains accessible on your secondary profile.
+          </p>
+<!-- Study Target Progress Line -->
+<div class="mt-space-sm bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-space-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-on-secondary">flag</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-primary-container block uppercase tracking-wider">Today's Study Goal</span>
+<span class="font-label-lg text-label-lg text-on-primary font-semibold">24 of 35 Questions Completed (68% pace)</span>
+</div>
+</div>
+<div class="w-full sm:w-48 flex items-center gap-space-sm">
+<div class="w-full bg-surface-container-lowest/20 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed h-full rounded-full transition-all duration-500" style="width: 68%;"></div>
+</div>
+<span class="font-label-md text-label-md text-secondary-fixed shrink-0">11 left</span>
+</div>
+</div>
+</div>
+<!-- Call to actions -->
+<div class="flex flex-col sm:flex-row lg:flex-col gap-space-sm shrink-0">
+<button class="group relative flex items-center justify-center gap-space-sm px-space-lg py-3 rounded-xl bg-secondary hover:bg-secondary-container text-on-secondary transition-all shadow-md active:scale-[0.98]" type="button">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-tertiary-fixed"></span>
+</span>
+<span class="font-label-lg text-label-lg font-bold">Resume Last Practice</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">play_arrow</span>
+</button>
+<button class="flex items-center justify-center gap-space-sm px-space-lg py-3 rounded-xl bg-surface-container-high/15 hover:bg-surface-container-high/25 text-on-primary font-label-lg text-label-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+<span>Start Diagnostic Test</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Overview Metrics Grid (4 Cards) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Metric 1: Exams Completed -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Exams Completed</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-primary font-bold">18</span>
+<span class="font-label-md text-label-md text-on-tertiary-container font-semibold">+3 this week</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">12 MoE Exit • 4 GAT • 2 Aviation</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<!-- Metric 2: Practice Questions Solved -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Questions Solved</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+</div>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-primary font-bold">1,420</span>
+<span class="font-label-md text-label-md text-on-tertiary-container font-semibold">78.4% Acc.</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">1,113 correct responses overall</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-full" style="width: 78.4%;"></div>
+</div>
+</div>
+<!-- Metric 3: Average Mock Score -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Average Mock Score</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">analytics</span>
+</div>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-primary font-bold">76.5%</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Honor Tier</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">MoE Cutoff: 50% • Top 10% AAU</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 76.5%;"></div>
+</div>
+</div>
+<!-- Metric 4: Study Streak -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Study Streak</span>
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<div class="my-space-sm">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-lg text-headline-xl text-primary font-bold">14 <span class="font-headline-sm text-headline-sm font-medium text-on-surface-variant">Days</span></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Personal record: 19 days in April</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-full h-1.5 rounded-full bg-error"></span>
+<span class="w-full h-1.5 rounded-full bg-error"></span>
+<span class="w-full h-1.5 rounded-full bg-error"></span>
+<span class="w-full h-1.5 rounded-full bg-error"></span>
+<span class="w-full h-1.5 rounded-full bg-error"></span>
+<span class="w-full h-1.5 rounded-full bg-error/40"></span>
+<span class="w-full h-1.5 rounded-full bg-surface-container"></span>
+</div>
+</div>
+</section>
+<!-- 2-Column Main Workspace (Left 8 / Right 4) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN (8 Spans) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Continue Studying / Recent Sessions -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Recent Academic Sessions</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pick up exactly where you left off or analyze recent completions</span>
+</div>
+<a class="font-label-lg text-label-lg text-secondary hover:text-on-secondary-fixed-variant flex items-center gap-1 font-semibold" href="#">
+              View All History <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<!-- Card 1: Active Timed Mock -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex flex-col gap-space-xs max-w-xl pl-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-secondary font-label-md text-label-md font-bold">ESUEE-2016EC</span>
+<span class="px-space-sm py-0.5 rounded-full bg-error-container text-error font-label-md text-label-md font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Paused Live Mock
+                </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1h 14m remaining</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold mt-1">
+                2016 E.C. Computer Science Exit Exam — Timed Mock #2
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Paused at Question 42 of 100 • Est. Current Score: <strong class="text-on-surface font-semibold">79%</strong> (Software Eng, OS &amp; DB modules complete)
+              </p>
+<!-- Progress bar -->
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="w-full md:w-auto px-space-lg py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs transition-colors shadow-sm" type="button">
+<span>Resume Exam</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Algorithms Diagnostic Drill (Completed) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-xl">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold">Drill Session</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Completed Yesterday
+                </span>
+<span class="font-data-mono text-data-mono text-secondary font-bold">Score: 85%</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold mt-1">
+                Algorithms &amp; Computational Complexity Diagnostic Drill
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                30 MCQs reviewed • Strongest area: Graph Traversals (100%) • Weak area: Greedy Proofs (60%)
+              </p>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="w-full md:w-auto px-space-md py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>Review Solutions</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Database Normalization (In Progress) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-xl">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold">Rapid Quiz</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">In Progress • 15/20 Answered</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold mt-1">
+                Database Normalization &amp; SQL Rapid Assessment
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Focusing on 3NF, BCNF decomposition and indexed query performance.
+              </p>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="w-full md:w-auto px-space-md py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span>Continue Quiz</span>
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Study Activity & Weekly Engagement (SVG Chart & Breakdown) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Weekly Performance &amp; Study Volume</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Calculated against 2016 E.C. MoE curriculum competencies</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-xl">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-bold shadow-sm" type="button">This Week</button>
+<button class="px-space-sm py-1 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md" type="button">Past 30 Days</button>
+</div>
+</div>
+<!-- Chart Visual (Questions per day) -->
+<div class="pt-space-md pb-space-xs">
+<div class="h-44 w-full flex items-end justify-between gap-2 sm:gap-6 px-space-sm">
+<!-- Mon -->
+<div class="flex-1 flex flex-col items-center gap-space-xs h-full justify-end">
+<span class="font-label-md text-label-md text-on-surface-variant">32</span>
+<div class="w-full max-w-[42px] bg-surface-container-highest rounded-t-lg transition-all hover:bg-secondary" style="height: 64%;"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Mon</span>
+</div>
+<!-- Tue -->
+<div class="flex-1 flex flex-col items-center gap-space-xs h-full justify-end">
+<span class="font-label-md text-label-md text-on-surface-variant">45</span>
+<div class="w-full max-w-[42px] bg-surface-container-highest rounded-t-lg transition-all hover:bg-secondary" style="height: 85%;"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Tue</span>
+</div>
+<!-- Wed -->
+<div class="flex-1 flex flex-col items-center gap-space-xs h-full justify-end">
+<span class="font-label-md text-label-md text-on-surface-variant">28</span>
+<div class="w-full max-w-[42px] bg-surface-container-highest rounded-t-lg transition-all hover:bg-secondary" style="height: 52%;"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Wed</span>
+</div>
+<!-- Thu -->
+<div class="flex-1 flex flex-col items-center gap-space-xs h-full justify-end">
+<span class="font-label-md text-label-md text-on-surface-variant">50</span>
+<div class="w-full max-w-[42px] bg-surface-container-highest rounded-t-lg transition-all hover:bg-secondary" style="height: 95%;"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Thu</span>
+</div>
+<!-- Fri -->
+<div class="flex-1 flex flex-col items-center gap-space-xs h-full justify-end">
+<span class="font-label-md text-label-md text-on-surface-variant">38</span>
+<div class="w-full max-w-[42px] bg-surface-container-highest rounded-t-lg transition-all hover:bg-secondary" style="height: 70%;"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Fri</span>
+</div>
+<!-- Sat (Today Highlight) -->
+<div class="flex-1 flex flex-col items-center gap-space-xs h-full justify-end">
+<span class="font-label-md text-label-md font-bold text-secondary">24</span>
+<div class="w-full max-w-[42px] bg-secondary rounded-t-lg shadow-sm" style="height: 48%;"></div>
+<span class="font-label-md text-label-md font-bold text-secondary">Sat (Today)</span>
+</div>
+<!-- Sun -->
+<div class="flex-1 flex flex-col items-center gap-space-xs h-full justify-end">
+<span class="font-label-md text-label-md text-outline-variant">--</span>
+<div class="w-full max-w-[42px] bg-surface-container-low rounded-t-lg" style="height: 10%;"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Sun</span>
+</div>
+</div>
+</div>
+<!-- Subject Breakdown Pills -->
+<div class="pt-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant block mb-space-sm">Questions Solved by Subject Domain</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Software Eng</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">32%</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container">79% Accuracy</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Algorithms</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">28%</span>
+<span class="font-body-sm text-body-sm text-secondary">82% Accuracy</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">DBMS</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">22%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">74% Accuracy</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Operating Sys</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">18%</span>
+<span class="font-body-sm text-body-sm text-error">62% Accuracy</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Recommendations -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Curated for Your Exit Exam Track</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Handpicked high-yield materials based on Ethiopian National Curriculum Standards</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Recommendation 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-secondary font-label-md text-label-md font-bold">Official MoE</span>
+<span class="text-on-tertiary-container font-label-md text-label-md font-semibold">Free Access</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold mt-1 group-hover:text-secondary transition-colors">
+                  2015 E.C. Ministry Official Archive Paper
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Verified answer key with step-by-step rationales authored by AAU faculty members.
+                </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">100 MCQs • 3h</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-on-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Recommendation 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md font-semibold">Interactive Lab</span>
+<span class="text-secondary font-label-md text-label-md font-semibold">Simulator</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold mt-1 group-hover:text-secondary transition-colors">
+                  Virtual Memory &amp; Concurrency Master Drill
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Page replacement simulations (LRU, FIFO) and semaphore deadlocks visualization.
+                </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">25 Drills • High Yield</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-on-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Recommendation 3 (Aviation Track) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md font-bold">Aviation Track</span>
+<span class="text-on-surface-variant font-label-md text-label-md font-semibold">Secondary</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary font-bold mt-1 group-hover:text-secondary transition-colors">
+                  Ethiopian Airlines Cadet Pilot Spatial Quiz
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Rapid 3D instrument orientation and bearing tests formatted for EAA screening.
+                </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">40 Questions • 20m</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-on-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN (4 Spans) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Weak Topics Requiring Urgent Revision -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Priority Weak Topics</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Topics with accuracy below 60%</span>
+</div>
+<div class="w-7 h-7 rounded-full bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Weak Topic 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Dynamic Programming</span>
+<span class="px-space-sm py-0.5 rounded-full bg-error-container text-error font-data-mono text-label-md font-bold">42%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Recurrence relations, memoization tables</span>
+<div class="pt-1 flex items-center justify-between">
+<span class="font-label-md text-label-md text-error font-medium">Critical Deficit</span>
+<button class="font-label-md text-label-md text-secondary hover:underline font-bold flex items-center gap-0.5" type="button">
+                  Practice 15 Drills <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Weak Topic 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">DB Concurrency Control</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface font-data-mono text-label-md font-bold">51%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Isolation levels, two-phase locking protocols</span>
+<div class="pt-1 flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Borderline</span>
+<button class="font-label-md text-label-md text-secondary hover:underline font-bold flex items-center gap-0.5" type="button">
+                  Review &amp; Drill <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Weak Topic 3 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">TCP/IP Flow Control</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface font-data-mono text-label-md font-bold">58%</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sliding window protocols, congestion avoidance</span>
+<div class="pt-1 flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Borderline</span>
+<button class="font-label-md text-label-md text-secondary hover:underline font-bold flex items-center gap-0.5" type="button">
+                  Start Quiz <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Study Milestone Plan -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Upcoming Milestones</h3>
+<span class="material-symbols-outlined text-secondary text-[20px]">event</span>
+</div>
+<div class="flex flex-col gap-space-md relative pl-4 before:content-[''] before:absolute before:left-1 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<!-- Milestone 1 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-[19px] top-1.5 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-secondary font-bold">June 12, 2024 • 4 Days</span>
+<h4 class="font-headline-sm text-headline-sm text-primary font-semibold text-[15px]">MoE Full Simulation Trial #3</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">100 Multiple Choice • Proctored 180 Mins Exam</p>
+</div>
+<!-- Milestone 2 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-[19px] top-1.5 w-2.5 h-2.5 rounded-full bg-surface-container-highest"></span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">June 18, 2024 • 10 Days</span>
+<h4 class="font-headline-sm text-headline-sm text-primary font-semibold text-[15px]">AAU GAT Quantitative Sectional</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mastery checkpoint for Graduate Admission Test</p>
+</div>
+<!-- Milestone 3 (Official Date) -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-[19px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-primary font-bold">July 2024 (Tentative)</span>
+<h4 class="font-headline-sm text-headline-sm text-primary font-semibold text-[15px]">National Exit Examination Day</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Addis Ababa University Test Center Assigned</p>
+</div>
+</div>
+</section>
+<!-- Quick Action Utilities -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant px-space-xs">Quick Study Utilities</span>
+<a class="p-space-sm rounded-xl hover:bg-surface-container flex items-center justify-between text-on-surface transition-colors group" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">download</span>
+<span class="font-label-lg text-label-lg font-semibold group-hover:text-secondary">Download Offline Test Booklet</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">PDF</span>
+</a>
+<a class="p-space-sm rounded-xl hover:bg-surface-container flex items-center justify-between text-on-surface transition-colors group" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">bookmark</span>
+<span class="font-label-lg text-label-lg font-semibold group-hover:text-secondary">Bookmarked Hard Questions</span>
+</div>
+<span class="font-label-md text-label-md bg-surface-container-high text-primary px-space-sm py-0.5 rounded-full font-bold">34 Saved</span>
+</a>
+<a class="p-space-sm rounded-xl hover:bg-surface-container flex items-center justify-between text-on-surface transition-colors group" href="#">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">swap_horiz</span>
+<span class="font-label-lg text-label-lg font-semibold group-hover:text-secondary">Switch Exam Goal Track</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">chevron_right</span>
+</a>
+</section>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

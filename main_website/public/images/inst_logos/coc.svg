@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle cx="50" cy="50" r="48" fill="#0A3663" />
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#2563EB" stroke-width="2" />
+  <!-- Cog wheel / compass / technical certification -->
+  <g fill="#60A5FA">
+    <!-- Gear teeth -->
+    <path d="M46 16 h8 v6 h-8 z M46 78 h8 v6 h-8 z M16 46 h6 v8 h-6 z M78 46 h6 v8 h-6 z
+             M25 25 l5.6 5.6 l-4.2 4.2 l-5.6 -5.6 z M69 69 l5.6 5.6 l-4.2 4.2 l-5.6 -5.6 z
+             M75 25 l-5.6 5.6 l4.2 4.2 l5.6 -5.6 z M31 69 l-5.6 5.6 l4.2 4.2 l5.6 -5.6 z" fill="#3B82F6"/>
+    <circle cx="50" cy="50" r="22" fill="#0E467D" stroke="#93C5FD" stroke-width="2"/>
+    <!-- Compass / Checkmark / Certificate badge -->
+    <path d="M42 50 L48 56 L60 42" fill="none" stroke="#FDE047" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="50" y="87" font-family="sans-serif" font-size="8" font-weight="bold" fill="#E2E8F0" text-anchor="middle" letter-spacing="1">TVET • CoC</text>
+</svg>

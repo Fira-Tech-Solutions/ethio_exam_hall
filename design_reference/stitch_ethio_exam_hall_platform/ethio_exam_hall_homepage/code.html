@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#fffbff", "surface-tint": "#4d5f7e", "on-error": "#ffffff", "on-secondary-fixed-variant": "#003cad", "tertiary-fixed": "#7ef5ef", "inverse-on-surface": "#edf0ff", "surface-container-high": "#e0e8ff", "surface-container-highest": "#d7e2ff", "on-primary-fixed-variant": "#364765", "tertiary-container": "#002827", "surface": "#f9f9ff", "primary-fixed": "#d6e3ff", "on-tertiary-fixed": "#00201f", "outline": "#75777e", "on-error-container": "#93000a", "inverse-surface": "#263046", "tertiary": "#00100f", "on-primary-container": "#798bac", "secondary-fixed-dim": "#b5c4ff", "secondary": "#1a51d0", "error": "#ba1a1a", "secondary-container": "#3e6bea", "on-secondary": "#ffffff", "on-secondary-fixed": "#00164d", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#b5c7eb", "surface-container": "#e8edff", "on-surface": "#101b30", "surface-variant": "#d7e2ff", "outline-variant": "#c5c6ce", "primary-container": "#10233f", "surface-bright": "#f9f9ff", "on-tertiary": "#ffffff", "surface-container-low": "#f1f3ff", "secondary-fixed": "#dce1ff", "on-tertiary-container": "#009a96", "on-tertiary-fixed-variant": "#00504d", "error-container": "#ffdad6", "tertiary-fixed-dim": "#60d9d3", "on-primary-fixed": "#071b37", "on-background": "#101b30", "primary": "#000d23", "background": "#f9f9ff", "inverse-primary": "#b5c7eb", "on-surface-variant": "#44474d", "on-primary": "#ffffff", "surface-dim": "#cfdaf6" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-sm": "0.5rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "margin-tablet": "1.5rem", "space-md": "1rem", "margin": "3rem", "margin-mobile": "1rem", "gutter": "1.5rem", "space-lg": "1.5rem", "gutter-mobile": "1rem", "space-2xl": "4rem" }, "fontFamily": { "headline-xl-mobile": ["Manrope"], "body-sm": ["Inter"], "display-lg-mobile": ["Manrope"], "label-md": ["Inter"], "headline-xl": ["Manrope"], "headline-sm": ["Manrope"], "data-mono": ["Inter"], "body-md": ["Inter"], "label-lg": ["Inter"], "body-xl": ["Inter"], "display-lg": ["Manrope"], "body-lg": ["Inter"], "headline-lg": ["Manrope"], "headline-md": ["Manrope"] }, "fontSize": { "headline-xl-mobile": ["1.875rem", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["0.875rem", { "lineHeight": "1.5", "fontWeight": "400" }], "display-lg-mobile": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }], "label-md": ["0.75rem", { "lineHeight": "1.2", "letterSpacing": "0.03em", "fontWeight": "600" }], "headline-xl": ["2.5rem", { "lineHeight": "1.2", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-sm": ["1.25rem", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }], "data-mono": ["1.125rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["1rem", { "lineHeight": "1.55", "fontWeight": "400" }], "label-lg": ["0.875rem", { "lineHeight": "1.25", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-xl": ["1.25rem", { "lineHeight": "1.6", "letterSpacing": "-0.005em", "fontWeight": "400" }], "display-lg": ["3.5rem", { "lineHeight": "1.15", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }], "headline-lg": ["2rem", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["1.5rem", { "lineHeight": "1.3", "letterSpacing": "-0.015em", "fontWeight": "600" }] } } } }</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(16,35,63,0.06)]"><div class="h-20 max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><img alt="Ethio Exam Hall Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WxJ7UeNN8l8KFNKpkxEfn8Oc8Zv71HuIpZmXrFbCuj3Q4bEcDwPRacfO9YC-_5DzoLLD9LiQOYek1zms1C_8gnTqKATN-zpKfUWr4G6888we2liTdkQoR_BF0_3B8Bmdyzn4b3sv5AiYZnyUumMMSfex8unssMPLJfb02_nxjBXEDolsJLOL4CEszes0ZHF4j9JZ7za3RubPO7-MQHQnJC_HZ4Necnlv_K7vL5M6SBCRRF77qhTcxIZMM"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Ethio Exam Hall</span><span class="font-label-md text-label-md text-on-surface-variant font-medium tracking-wide mt-0.5">ኢትዮ ፈተና</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container text-primary font-label-lg rounded-xl"><a aria-current="page" class="px-3 py-2 transition-colors bg-surface-container text-primary font-label-lg rounded-xl" data-path="home" href="#">Home</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore-exams" href="#">Explore Exams</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="past-papers" href="#">Past Papers</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="practice-tests" href="#">Practice Tests</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface inline-flex items-center gap-1.5 transition-colors" data-path="aviation-portal" href="#"><span>Aviation Portal</span><span class="px-2 py-0.5 font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed rounded-full">Aviation Track</span></a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Pricing</a><a class="px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Search shortcut" class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button class="px-2.5 py-1 rounded-xl bg-surface-container-low hover:bg-surface-container font-label-md text-label-md text-on-surface font-semibold transition-colors" type="button">EN | አማ</button><a class="hidden sm:inline-flex px-3 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface font-semibold transition-colors" data-path="sign-in" href="#">Sign In</a><a class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container font-label-lg text-label-lg rounded-xl shadow-[0_1px_3px_0_rgba(16,35,63,0.08)] transition-all" data-path="get-started" href="#">Get Started</a><div class="pl-1 border-l border-outline-variant/30 flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnDIPGhd3lLxBp097OyxIlAygta4smT4HV4BFTDchJ3o6Sp7H94ORy8kAR6B81X2IvCvs2dKv0v4jyRfIe70Y50x5VLXOZFVGuD3XncAFG8NPxvwi3L2sHNunKN56gdcuaRUW8tg9nLAVvm_vZktwRiUbHMKS7V0RDFROmvv7ZZDIx5KyXQ0nDrt0kfm3CuKl-AdNbgeTSIfT9FIAH_0987p1l5K6sJU28pYztAD0qZ8mu7oOv8Aaj"/></div></div></div></header><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full">
+<!-- Top Academic Hero Section -->
+<section class="relative w-full bg-gradient-to-b from-surface-container-high/40 via-surface to-surface overflow-hidden pb-space-2xl pt-space-xl">
+<div class="absolute -top-32 -right-32 w-96 h-96 bg-secondary-fixed/50 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-48 -left-20 w-80 h-80 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin relative z-10 flex flex-col items-center text-center">
+<!-- Overline Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-on-surface shadow-sm mb-space-md">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-md text-label-md tracking-wider uppercase text-on-surface-variant font-semibold">National Examination Prep Network • 2016 E.C. Active</span>
+</div>
+<!-- Main Catch Headline -->
+<h1 class="font-display-lg text-display-lg text-primary max-w-4xl tracking-tight mb-space-md">
+        Prepare Smarter. Walk Into Every Exam With Confidence.
+      </h1>
+<p class="font-body-xl text-body-xl text-on-surface-variant max-w-2xl mb-space-xl">
+        Discover Ethiopian past examination papers, practice with realistic tests, and track your progress—all in one place.
+      </p>
+<!-- Prominent Global Search Bar -->
+<div class="w-full max-w-4xl bg-surface-container-lowest rounded-full shadow-[0_12px_36px_rgba(16,35,63,0.08)] p-2 md:p-3 mb-space-md">
+<form class="flex flex-col md:flex-row items-center gap-2" onsubmit="event.preventDefault();">
+<!-- Category Select Pill -->
+<div class="relative w-full md:w-auto shrink-0">
+<select aria-label="Category Selection" class="w-full md:w-auto appearance-none bg-surface-container text-on-surface font-label-lg text-label-lg rounded-full py-3 pl-4 pr-10 focus:outline-none focus:bg-surface-container-high transition-colors cursor-pointer">
+<option value="all">All Academic Categories</option>
+<option value="esuee">Grade 12 (ESUEE)</option>
+<option value="exit">University Exit Exam</option>
+<option value="gat">AAU GAT (Postgraduate)</option>
+<option value="aviation">Aviation &amp; Cadet Academy</option>
+<option value="banking">Bank Trainee Aptitude</option>
+<option value="coc">TVET &amp; CoC Certification</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+<!-- Input -->
+<div class="relative flex-1 w-full flex items-center">
+<span class="material-symbols-outlined text-outline absolute left-3.5 text-[22px]">search</span>
+<input class="w-full bg-transparent py-3 pl-11 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search exams, subjects, institutions, or years (e.g., Grade 12 Math 2016 E.C., AAU GAT, Exit Exam Law)..." type="text"/>
+</div>
+<!-- Search Button -->
+<button class="w-full md:w-auto shrink-0 px-6 py-3.5 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-full shadow-md transition-all flex items-center justify-center gap-2" type="submit">
+<span>Search Exams</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Quick Filter Chips -->
+<div class="flex items-center flex-wrap justify-center gap-2 mb-space-xl max-w-4xl">
+<span class="font-label-md text-label-md text-on-surface-variant mr-1">Trending:</span>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors shadow-sm">Grade 12 Entrance</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors shadow-sm">University Exit Exam</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors shadow-sm">GAT (Addis Ababa University)</button>
+<button class="px-3.5 py-1.5 rounded-full bg-secondary-fixed/50 hover:bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">flight_takeoff</span>
+<span>Aviation Pilot &amp; Cadet</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors shadow-sm">Commercial Bank Recruitment</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors shadow-sm">Engineering Exit</button>
+</div>
+<!-- Primary Action Row -->
+<div class="flex flex-col sm:flex-row items-center gap-4 mb-space-2xl">
+<a class="px-7 py-3.5 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-xl shadow-lg transition-all flex items-center gap-2" href="#popular-categories">
+<span>Explore All Exams</span>
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</a>
+<a class="px-7 py-3.5 bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-lg text-label-lg rounded-xl shadow-md transition-all flex items-center gap-2" href="#featured-resources">
+<span>Start Practice Test</span>
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</a>
+</div>
+<!-- Academic Trust Metrics (Honest platform capability descriptors) -->
+<div class="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-4 p-4 md:p-6 bg-surface-container-lowest rounded-full shadow-[0_4px_20px_rgba(16,35,63,0.04)]">
+<div class="flex items-center gap-3 p-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="text-left">
+<span class="block font-headline-sm text-headline-sm text-primary leading-tight">Organized</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-none">Past Papers (Verified provenance)</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed/50 flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[24px]">avg_pace</span>
+</div>
+<div class="text-left">
+<span class="block font-headline-sm text-headline-sm text-primary leading-tight">Timed</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-none">Interactive exam simulators</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed/40 flex items-center justify-center shrink-0 text-on-tertiary-container">
+<span class="material-symbols-outlined text-[24px]">fact_check</span>
+</div>
+<div class="text-left">
+<span class="block font-headline-sm text-headline-sm text-primary leading-tight">Step-by-Step</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-none">Detailed clear solutions</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center shrink-0 text-on-surface">
+<span class="material-symbols-outlined text-[24px]">insights</span>
+</div>
+<div class="text-left">
+<span class="block font-headline-sm text-headline-sm text-primary leading-tight">Targeted</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-none">Personalized weakness analytics</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Academic Categories Grid -->
+<section class="w-full py-space-2xl bg-surface-container-low/50" id="popular-categories">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-space-xl">
+<div>
+<span class="font-label-lg text-label-lg text-secondary uppercase font-bold tracking-wider block mb-1">Standardized Directories</span>
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tight">Popular Academic &amp; Career Categories</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Structured archives tailored specifically to the Ethiopian national curriculum, higher education qualification rubrics, and selective industry gateways.
+        </p>
+</div>
+<!-- 6 Category Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Grade 12 Entrance -->
+<div class="group bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+<div class="w-1.5 h-full bg-secondary absolute left-0 top-0"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">school</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">ESUEE Curriculum</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">
+              Grade 12 University Entrance
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+              Complete archives for Natural Science and Social Science tracks. Includes Mathematics, Physics, Chemistry, Biology, English, and Aptitude.
+            </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">2010–2016 E.C.</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Model Papers</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Subject Banks</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-secondary group-hover:underline" href="#">
+<span>Explore Grade 12 Library</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2: University Exit Exam -->
+<div class="group bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+<div class="w-1.5 h-full bg-primary-container absolute left-0 top-0"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">local_police</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">MoE Standard</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">
+              University Exit Examination
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+              Ministry of Education mandatory exit competency assessments across Law (LL.B), Computer Science, Medicine, Civil Engineering, and Economics.
+            </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Core Competencies</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">All 68 Departments</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-secondary group-hover:underline" href="#">
+<span>Explore University Exit Exams</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3: AAU GAT -->
+<div class="group bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+<div class="w-1.5 h-full bg-tertiary absolute left-0 top-0"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed/40 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[28px]">psychology</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">Postgraduate Hub</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">
+              Graduate Admission Test (GAT)
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+              Dedicated preparation for Addis Ababa University and nationwide postgraduate candidates covering Verbal Reasoning, Quantitative Aptitude, and Analytical Logic.
+            </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Timed Mock Engines</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Math Formulas</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-secondary group-hover:underline" href="#">
+<span>Explore GAT Preparation</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 4: Aviation & Airline Academy (Special Strategic Portal) -->
+<div class="group bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+<div class="w-1.5 h-full bg-secondary-container absolute left-0 top-0"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[28px]">flight_takeoff</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-bold uppercase tracking-wide">Strategic Portal</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">
+              Aviation &amp; Airline Academy
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+              Specialized candidate selection materials: Ethiopian Airlines Cadet Pilot tests, Aircraft Maintenance Technician (AMT), ICAO Aviation English, and spatial psychometrics.
+            </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/30 text-on-secondary-fixed font-label-md text-label-md">Cadet Aptitude</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Cabin Crew English</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Physics Reasoning</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-secondary group-hover:underline" href="#">
+<span>Enter Aviation Academy Portal</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 5: Competitive Banking -->
+<div class="group bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+<div class="w-1.5 h-full bg-surface-tint absolute left-0 top-0"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[28px]">account_balance</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">Professional Entry</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">
+              Competitive Recruitment &amp; Banking
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+              Commercial Bank of Ethiopia (CBE), Awash Bank, Dashen Bank, and public institutional trainee screening tests with detailed business reasoning and numerical drills.
+            </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">CBE Aptitude</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">General Knowledge</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-secondary group-hover:underline" href="#">
+<span>Browse Banking Tests</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 6: TVET / CoC -->
+<div class="group bg-surface-container-lowest p-space-lg rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+<div class="w-1.5 h-full bg-outline absolute left-0 top-0"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[28px]">construction</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">Occupational Standard</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">
+              College &amp; Vocational (TVET / CoC)
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4 leading-relaxed">
+              Center of Competency (CoC) Level I through Level IV practical assessment guides, theoretical test banks, and occupational certification roadmaps.
+            </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Level 3 &amp; 4</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">Automotive</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-md text-label-md">ICT &amp; Accounting</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-secondary group-hover:underline" href="#">
+<span>View TVET / CoC Modules</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="w-full py-space-2xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="text-center max-w-2xl mx-auto mb-space-2xl">
+<span class="font-label-lg text-label-lg text-secondary uppercase font-bold tracking-wider block mb-1">Methodical Mastery</span>
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tight mb-2">How Ethio Exam Hall Works</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Built for rigorous focus. We remove clutter and speculative prep material so you practice what counts.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 01 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col items-start relative">
+<span class="font-headline-xl text-headline-xl text-primary-fixed-dim/60 font-black mb-4 leading-none">01</span>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-[26px]">manage_search</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Find Your Examination</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Search or filter by academic year (EC / GC), national examining authority, or specific department to instantly access authentic papers.
+          </p>
+</div>
+<!-- Step 02 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col items-start relative">
+<span class="font-headline-xl text-headline-xl text-secondary-fixed-dim font-black mb-4 leading-none">02</span>
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined text-[26px]">timer</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Practice with Realistic Simulators</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Take timed mocks under true test conditions or review verified solution PDFs offline with clear diagrams and mathematical working.
+          </p>
+</div>
+<!-- Step 03 -->
+<div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col items-start relative">
+<span class="font-headline-xl text-headline-xl text-tertiary-fixed-dim font-black mb-4 leading-none">03</span>
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed/50 flex items-center justify-center text-tertiary-container mb-4">
+<span class="material-symbols-outlined text-[26px]">troubleshoot</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Diagnose &amp; Master Weak Topics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Review detailed question-by-question rationales, identify curriculum gaps, and systematically close performance deficits before exam day.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured & Recent Exam Resources Section -->
+<section class="w-full py-space-2xl bg-surface-container-low/40" id="featured-resources">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-space-lg">
+<div>
+<span class="font-label-lg text-label-lg text-secondary uppercase font-bold tracking-wider block mb-1">Official Material Repository</span>
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tight">Featured Examination Resources</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl bg-surface-container text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-colors">
+            All Papers
+          </button>
+<button class="px-4 py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container transition-colors">
+            Free Papers
+          </button>
+<button class="px-4 py-2 rounded-xl bg-surface-container-lowest text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container transition-colors">
+            Interactive Mocks
+          </button>
+</div>
+</div>
+<!-- Resource List / Interactive Rows -->
+<div class="flex flex-col gap-3">
+<!-- Resource 1 -->
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[26px]">calculate</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="font-label-md text-label-md uppercase font-bold text-secondary">Grade 12 (ESUEE)</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2016 E.C. (Natural Science)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+<span>EAES Authenticated</span>
+</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">
+                2016 E.C. Grade 12 Mathematics (Natural Science Stream)
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                65 questions • 2 hours 30 min • Full step-by-step calculus, coordinate geometry &amp; vectors solution set.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+<span class="px-2.5 py-1 bg-surface-container text-on-surface font-label-md text-label-md rounded-full">Free PDF</span>
+<a class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-xl transition-colors flex items-center gap-1.5" href="#">
+<span>Start Simulator</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</a>
+</div>
+</div>
+<!-- Resource 2 -->
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[26px]">terminal</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="font-label-md text-label-md uppercase font-bold text-secondary">University Exit Exam</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2024 Ministry Standard</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+<span>MoE Curriculum</span>
+</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">
+                Computer Science &amp; Software Engineering Exit Exam Paper
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                100 questions • 3 hours • Data Structures, Algorithms, Networking, Database Systems &amp; OS.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+<span class="px-2.5 py-1 bg-surface-container text-on-surface font-label-md text-label-md rounded-full">Interactive</span>
+<a class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-xl transition-colors flex items-center gap-1.5" href="#">
+<span>Take Test</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</a>
+</div>
+</div>
+<!-- Resource 3 -->
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[26px]">neurology</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="font-label-md text-label-md uppercase font-bold text-secondary">Graduate Admission (GAT)</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Addis Ababa University Model</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+<span>Diagnostic Verified</span>
+</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">
+                AAU GAT Aptitude Diagnostic Paper 2 (Verbal &amp; Quantitative)
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                80 questions • 2 hours • Antonyms, sentence completion, reading comprehension &amp; data interpretation.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+<span class="px-2.5 py-1 bg-surface-container text-on-surface font-label-md text-label-md rounded-full">Free Diagnostic</span>
+<a class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-xl transition-colors flex items-center gap-1.5" href="#">
+<span>Start Simulator</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</a>
+</div>
+</div>
+<!-- Resource 4 (Aviation Premium) -->
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center shrink-0 text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[26px]">flight</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="font-label-md text-label-md uppercase font-bold text-secondary">Aviation Academy</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2024/2025 Edition</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold">
+                  Cadet Track
+                </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">
+                Aviation Cadet Pilot Aptitude &amp; Spatial Reasoning Test
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                120 questions • Spatial orientation, mechanical comprehension, rapid numeracy &amp; cockpit dials.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+<span class="px-2.5 py-1 bg-surface-container-high text-primary font-label-md text-label-md rounded-full">Pro Simulator</span>
+<a class="px-4 py-2 bg-secondary text-on-secondary hover:bg-secondary-container font-label-lg text-label-lg rounded-xl transition-colors flex items-center gap-1.5" href="#">
+<span>View Access</span>
+<span class="material-symbols-outlined text-[16px]">lock_open</span>
+</a>
+</div>
+</div>
+<!-- Resource 5 -->
+<div class="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[26px]">account_balance</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="font-label-md text-label-md uppercase font-bold text-secondary">Bank Recruitment</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">CBE Graduate Recruitment</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+<span>Recruitment Mock</span>
+</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">
+                Commercial Bank of Ethiopia (CBE) Graduate Trainee Aptitude Exam
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                50 questions • 60 min • English grammar, banking terminology, quantitative reasoning &amp; Ethiopian economics.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0 self-end lg:self-center">
+<span class="px-2.5 py-1 bg-surface-container text-on-surface font-label-md text-label-md rounded-full">Free Paper</span>
+<a class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-xl transition-colors flex items-center gap-1.5" href="#">
+<span>Start Simulator</span>
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Spotlight Split / Photo Narrative -->
+<section class="w-full py-space-2xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-5 relative">
+<div class="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="An Ethiopian university student studying intently in an academic library setting in Addis Ababa, natural window light illuminating study notes, laptops, and mathematics textbooks, focused calm expression, sharp institutional EdTech aesthetic in navy and subtle blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj_lgwvi0YsgX4E0UXOR9bDcnXlqxaUxJVOee9s4R8_4klEup5Rbh2JacKsU8W-DFJMHBBvoGBJMsPfopo0CXnfGqkRUX_5AX5-cVmdCB-0AB7szV-ItuZY3FCn9k0C8h3B1HzFf9UYvdlWjhMDPI7s2QdgQDxcFSsqpdwKpexU2B05Phqc1ffAZzvOjS44GL4TSrHqI1oI4M5d-dJouQ3lXskD1-kyZNDsF4R_c4rMVQplao8vUXq"/>
+</div>
+<!-- Overlapping Micro Badge -->
+<div class="absolute -bottom-6 -right-4 bg-surface-container-lowest p-4 rounded-xl shadow-xl max-w-xs hidden sm:flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary font-bold block">100% Ethiopian Standard</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Reviewed against Ministry syllabi</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col justify-center lg:pl-space-lg">
+<span class="font-label-lg text-label-lg text-secondary uppercase font-bold tracking-wider block mb-2">Designed For Serious Focus</span>
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tight mb-4">
+            No distractions. Just structured past papers and timed exam practice.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+            Most online preparation materials for Ethiopian students are fragmented across unorganized Telegram channels, poorly photocopied PDFs, and low-res photos. Ethio Exam Hall curates, cleans, typesets, and validates each examination paper.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-space-lg">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">verified</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary text-[1.1rem]">Official Year Provenance</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Clearly cataloged with both Ethiopian Calendar (E.C.) and Gregorian timestamps.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5">speed</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary text-[1.1rem]">Realistic Timing &amp; Scoring</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Simulate official testing constraints so time management becomes second nature.</p>
+</div>
+</div>
+</div>
+<div>
+<a class="px-6 py-3 bg-surface-container text-primary hover:bg-surface-container-high font-label-lg text-label-lg rounded-xl transition-colors inline-flex items-center gap-2" href="#">
+<span>Read About Our Verification Process</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Premium Practice Advantage Banner -->
+<section class="w-full py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin">
+<div class="bg-primary text-on-primary rounded-2xl p-space-lg md:p-space-2xl shadow-xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="absolute right-0 top-0 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container text-on-primary-container mb-space-md">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">stars</span>
+<span class="font-label-md text-label-md font-semibold tracking-wide uppercase">Ethio Exam Hall Pro Access</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-primary mb-3">
+            Accelerate Your Preparation with Worked Rationales &amp; Diagnostic Tools
+          </h2>
+<p class="font-body-md text-body-md text-on-primary-container leading-relaxed">
+            While basic question papers are permanently open and accessible, our Pro Tier provides comprehensive step-by-step mathematical calculations, legal case breakdowns, subject weakness analytics, and specialized Ethiopian Airlines cadet flight simulators.
+          </p>
+</div>
+<div class="relative z-10 shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto">
+<a class="px-6 py-3.5 bg-secondary text-on-secondary hover:bg-secondary-container font-label-lg text-label-lg rounded-xl shadow-md text-center transition-all flex items-center justify-center gap-2" href="#">
+<span>View Transparent Pricing</span>
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</a>
+<span class="font-body-sm text-body-sm text-on-primary-container text-center">Affordable local ETB (Telebirr / CBE) &amp; Global Card support</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final High-Impact Conversion Card -->
+<section class="w-full py-space-2xl bg-surface">
+<div class="max-w-5xl mx-auto px-margin-mobile md:px-margin-tablet text-center flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-[32px]">menu_book</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary tracking-tight mb-3">
+        Ready to Conquer Your Next National Exam?
+      </h2>
+<p class="font-body-xl text-body-xl text-on-surface-variant max-w-xl mb-space-xl">
+        Join students and professionals across Ethiopia who use verified papers and timed mock tests to achieve top scores.
+      </p>
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+<a class="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2" href="#">
+<span>Create Free Account</span>
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</a>
+<a class="w-full sm:w-auto px-8 py-4 bg-surface-container hover:bg-surface-container-high text-primary font-label-lg text-label-lg rounded-xl transition-all flex items-center justify-center gap-2" href="#">
+<span>Explore Exam Library</span>
+<span class="material-symbols-outlined text-[20px]">library_books</span>
+</a>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-space-md">
+        No payment required to get started • Free past papers with standard answer keys
+      </p>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-2xl pb-space-xl shadow-[0_-1px_6px_rgba(16,35,63,0.02)]"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-xl pb-space-xl border-b border-outline-variant/30"><div class="lg:col-span-2 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><img alt="Ethio Exam Hall Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WxJ7UeNN8l8KFNKpkxEfn8Oc8Zv71HuIpZmXrFbCuj3Q4bEcDwPRacfO9YC-_5DzoLLD9LiQOYek1zms1C_8gnTqKATN-zpKfUWr4G6888we2liTdkQoR_BF0_3B8Bmdyzn4b3sv5AiYZnyUumMMSfex8unssMPLJfb02_nxjBXEDolsJLOL4CEszes0ZHF4j9JZ7za3RubPO7-MQHQnJC_HZ4Necnlv_K7vL5M6SBCRRF77qhTcxIZMM"/><span class="font-headline-sm text-headline-sm text-primary leading-none">Ethio Exam Hall</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-sm">Every Exam. One Place. Your Next Achievement. Ethiopia's trusted institutional preparation network empowering matriculation, university certification, and vocational excellence.</p><div class="inline-flex items-center gap-space-xs px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md w-fit"><span class="material-symbols-outlined text-[16px] text-secondary">verified</span><span>Verified Curriculum &amp; National Standardization</span></div></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Categories</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Grade 12 Entrance (ESUEE)</a></li><li class="hover:text-primary transition-colors"><a href="#">University Exit Exam</a></li><li class="hover:text-primary transition-colors"><a href="#">Graduate Admission Test (GAT)</a></li><li class="hover:text-primary transition-colors"><a href="#">Aviation &amp; Flight School</a></li><li class="hover:text-primary transition-colors"><a href="#">Aptitude &amp; Bank Recruitment</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Resources</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Past Papers</a></li><li class="hover:text-primary transition-colors"><a href="#">Practice Tests</a></li><li class="hover:text-primary transition-colors"><a href="#">Verified Solutions</a></li><li class="hover:text-primary transition-colors"><a href="#">Curriculum Study Guides</a></li><li class="hover:text-primary transition-colors"><a href="#">Performance Diagnostic Tools</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Legal &amp; Provenance</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Rights &amp; Attributions</a></li><li class="hover:text-primary transition-colors"><a href="#">Terms of Use</a></li><li class="hover:text-primary transition-colors"><a href="#">Privacy Policy</a></li><li class="hover:text-primary transition-colors"><a href="#">Academic Integrity Policy</a></li><li class="hover:text-primary transition-colors"><a href="#">Institutional Licensing</a></li></ul></div><div class="flex flex-col gap-space-sm"><h3 class="font-label-lg text-label-lg text-primary uppercase tracking-wider font-bold">Contact &amp; Support</h3><ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a href="#">Educator Verification</a></li><li class="hover:text-primary transition-colors"><a href="#">Student Help Desk</a></li><li class="hover:text-primary transition-colors"><a href="#">Feedback &amp; Error Reporting</a></li><li class="hover:text-primary transition-colors"><a href="#">Ministry Partners Portal</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm"><div>© 2025 Ethio Exam Hall. All mock exam materials and sample questions are illustrative academic preparation resources.</div><div class="flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">translate</span><span>Bilingual interface support: English (EN) &amp; Amharic (አማርኛ)</span></div></div></div></footer></body></html>
