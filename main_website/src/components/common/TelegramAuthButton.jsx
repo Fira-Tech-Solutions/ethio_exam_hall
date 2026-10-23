@@ -40,8 +40,12 @@ export default function TelegramAuthButton({
     if (loading || disabled) return;
     setLoading(true);
 
-    const rawBase = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || '/api';
-    const apiBase = rawBase.replace(/\/+$/, '');
+    let rawBase = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || '/api';
+    rawBase = rawBase.replace(/\/+$/, '');
+    if (!rawBase.endsWith('/api') && rawBase.startsWith('http')) {
+      rawBase += '/api';
+    }
+    const apiBase = rawBase;
     const startUrl = `${apiBase}/auth/telegram/start?redirect=${encodeURIComponent(returnUrl || '/dashboard')}`;
 
     // Direct browser navigation to Telegram authorization endpoint

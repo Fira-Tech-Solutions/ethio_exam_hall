@@ -152,6 +152,7 @@ export default function App() {
       <main className={`flex-1 w-full flex flex-col ${location.pathname === '/' ? '' : 'pt-16 md:pt-20'}`}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/explore" element={<Navigate to="/explore-exams" replace />} />
           <Route path="/explore-exams" element={<DiscoveryLibraryPage />} />
           <Route path="/assisted-with-ai" element={<AssistedWithAiPage />} />
           <Route path="/ai-assistant" element={<AssistedWithAiPage />} />

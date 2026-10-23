@@ -213,6 +213,7 @@ app.get('/', (req, res) => {
 
 // Mount Routes
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes); // Convenience alias so /auth/telegram/start works directly
 app.use('/api/exams', examRoutes);
 app.use('/api/attempts', attemptRoutes);
 app.use('/api/practice', practiceRoutes);
