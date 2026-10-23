@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-const { createRemoteJWKSet, jwtVerify, createLocalJWKSet } = require('jose');
 const { query } = require('../db');
 require('dotenv').config();
 
@@ -8,9 +7,19 @@ const TELEGRAM_AUTH_ENDPOINT = process.env.TELEGRAM_AUTH_ENDPOINT || `${TELEGRAM
 const TELEGRAM_TOKEN_ENDPOINT = process.env.TELEGRAM_TOKEN_ENDPOINT || `${TELEGRAM_ISSUER}/token`;
 const TELEGRAM_JWKS_URI = process.env.TELEGRAM_JWKS_URI || `${TELEGRAM_ISSUER}/.well-known/jwks.json`;
 
+// Helper to load ESM 'jose' package dynamically inside CommonJS
+let _jose = null;
+async function getJose() {
+  if (!_jose) {
+    _jose = await import('jose');
+  }
+  return _jose;
+}
+
 // Cache remote JWKS set
 let remoteJwks = null;
-function getJwksResolver(customJwks) {
+async function getJwksResolver(customJwks) {
+  const { createLocalJWKSet, createRemoteJWKSet } = await getJose();
   if (customJwks) {
     return createLocalJWKSet(customJwks);
   }
@@ -212,7 +221,8 @@ async function verifyIdToken(idToken, { expectedNonce, customJwks } = {}) {
     throw new Error('Missing ID token for verification.');
   }
 
-  const jwksResolver = getJwksResolver(customJwks);
+  const jwksResolver = await getJwksResolver(customJwks);
+  const { jwtVerify } = await getJose();
 
   const { payload } = await jwtVerify(idToken, jwksResolver, {
     issuer: TELEGRAM_ISSUER,

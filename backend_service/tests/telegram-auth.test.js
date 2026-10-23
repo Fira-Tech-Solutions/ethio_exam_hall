@@ -1,9 +1,10 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { generateKeyPair, exportJWK, SignJWT } = require('jose');
 const app = require('../src/server');
 const { query } = require('../src/db');
 const telegramService = require('../src/services/telegram.service');
+
+let generateKeyPair, exportJWK, SignJWT;
 
 let server;
 let baseUrl;
@@ -15,6 +16,12 @@ const TEST_CLIENT_ID = 'test_telegram_bot_client_123';
 const TEST_CLIENT_SECRET = 'test_telegram_bot_secret_456';
 
 test.before(async () => {
+  // Dynamically load ESM jose package
+  const jose = await import('jose');
+  generateKeyPair = jose.generateKeyPair;
+  exportJWK = jose.exportJWK;
+  SignJWT = jose.SignJWT;
+
   // Configure test environment variables
   process.env.TELEGRAM_LOGIN_ENABLED = 'true';
   process.env.TELEGRAM_ALLOW_REGISTRATION = 'true';
