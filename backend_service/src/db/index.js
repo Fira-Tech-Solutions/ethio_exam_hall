@@ -4,9 +4,15 @@ require('dotenv').config();
 const isSsl = process.env.DB_SSL === 'true' || 
   (process.env.DATABASE_URL && !process.env.DATABASE_URL.includes('localhost') && !process.env.DATABASE_URL.includes('127.0.0.1'));
 
-const poolConfig = process.env.DATABASE_URL
+let cleanDatabaseUrl = process.env.DATABASE_URL;
+if (cleanDatabaseUrl) {
+  // Strip ?sslmode=... or &sslmode=... so pg-connection-string does not force strict CA verification
+  cleanDatabaseUrl = cleanDatabaseUrl.replace(/[?&]sslmode=[^&]+/g, '').replace(/\?$/, '');
+}
+
+const poolConfig = cleanDatabaseUrl
   ? {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: cleanDatabaseUrl,
       ssl: isSsl ? { rejectUnauthorized: false } : false,
       max: parseInt(process.env.DB_POOL_MAX || '10', 10),
       idleTimeoutMillis: 30000,
