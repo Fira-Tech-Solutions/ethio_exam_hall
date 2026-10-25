@@ -308,6 +308,7 @@ export default function UniversityInsightsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [inspectingUni, setInspectingUni] = useState(null);
   const [activeTab, setActiveTab] = useState('overview'); // 'overview' | 'location' | 'departments' | 'gallery'
+  const [selectedCollege, setSelectedCollege] = useState(null);
   const [deptSearch, setDeptSearch] = useState('');
 
   // Local storage for user uploads per university
@@ -372,6 +373,7 @@ export default function UniversityInsightsPage() {
   const openUniModal = (uni) => {
     setInspectingUni(uni);
     setActiveTab('overview');
+    setSelectedCollege(uni.faculties?.[0]?.name || null);
     setDeptSearch('');
   };
 
@@ -689,7 +691,7 @@ export default function UniversityInsightsPage() {
 
               {/* TAB 3: DEPARTMENTS */}
               {activeTab === 'departments' && (
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {/* Department Search Filter */}
                   <div className="relative">
                     <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-base">
@@ -699,45 +701,125 @@ export default function UniversityInsightsPage() {
                       type="text"
                       value={deptSearch}
                       onChange={(e) => setDeptSearch(e.target.value)}
-                      placeholder="Filter departments (e.g. Software, Medicine, Law, Civil)..."
+                      placeholder="Filter departments or search programs (e.g. Software, Medicine, Law, Civil)..."
                       className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
                     />
                   </div>
 
-                  {/* Faculties & Programs List */}
-                  <div className="space-y-4 max-h-[55vh] overflow-y-auto pr-1">
-                    {inspectingUni.faculties
-                      .map((fac) => {
-                        const matchingDepts = fac.depts.filter(d =>
-                          deptSearch ? d.toLowerCase().includes(deptSearch.toLowerCase()) : true
-                        );
-                        if (deptSearch && matchingDepts.length === 0) return null;
+                  {/* Horizontal College Sub-Navigation Buttons */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-[11px] uppercase font-bold text-slate-400 tracking-wider">
+                        Select Faculty / College:
+                      </span>
+                      <span className="text-[11px] text-amber-400 font-mono">
+                        {inspectingUni.faculties.length} Academic Divisions
+                      </span>
+                    </div>
 
+                    <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-slate-800">
+                      {inspectingUni.faculties.map((fac) => {
+                        const isSelected = (selectedCollege || inspectingUni.faculties[0]?.name) === fac.name;
                         return (
-                          <div key={fac.name} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2.5">
-                            <div className="flex items-center justify-between">
-                              <span className="text-xs sm:text-sm font-bold text-amber-300">
-                                {fac.name}
-                              </span>
-                              <span className="text-[10px] text-slate-400 font-mono">
-                                {matchingDepts.length} programs
-                              </span>
+                          <button
+                            key={fac.name}
+                            type="button"
+                            onClick={() => setSelectedCollege(fac.name)}
+                            className={`px-3.5 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition-all flex items-center gap-2 border ${
+                              isSelected
+                                ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-400 shadow-md shadow-amber-500/20 scale-[1.02]'
+                                : 'bg-slate-900/90 text-slate-300 border-slate-800 hover:border-slate-700 hover:bg-slate-800/80 hover:text-white'
+                            }`}
+                          >
+                            <span className="material-symbols-outlined text-sm">
+                              {isSelected ? 'check_circle' : 'school'}
+                            </span>
+                            <span>{fac.name}</span>
+                            <span
+                              className={`text-[10px] px-1.5 py-0.5 rounded-md font-mono ${
+                                isSelected ? 'bg-slate-950/20 text-slate-950 font-black' : 'bg-slate-950 text-slate-400'
+                              }`}
+                            >
+                              {fac.depts.length}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Active College Header & Vertical Departments List */}
+                  {(() => {
+                    const currentFac =
+                      inspectingUni.faculties.find(
+                        (f) => f.name === (selectedCollege || inspectingUni.faculties[0]?.name)
+                      ) || inspectingUni.faculties[0];
+
+                    if (!currentFac) return null;
+
+                    const matchingDepts = currentFac.depts.filter((d) =>
+                      deptSearch ? d.toLowerCase().includes(deptSearch.toLowerCase()) : true
+                    );
+
+                    return (
+                      <div className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-4">
+                        {/* College Info Header */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800/80 gap-2">
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-8 h-8 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400 flex items-center justify-center shrink-0">
+                              <span className="material-symbols-outlined text-base">domain</span>
                             </div>
-                            <div className="flex flex-wrap gap-1.5">
-                              {matchingDepts.map(dept => (
-                                <span
-                                  key={dept}
-                                  className="text-[11px] px-3 py-1 rounded-xl bg-slate-950 border border-slate-800/80 text-slate-200 font-medium"
-                                >
-                                  {dept}
-                                </span>
-                              ))}
+                            <div>
+                              <h3 className="text-sm font-bold text-white leading-tight">
+                                {currentFac.name}
+                              </h3>
+                              <span className="text-[11px] text-slate-400">
+                                Accredited Ministry of Education Degree Programs
+                              </span>
                             </div>
                           </div>
-                        );
-                      })
-                      .filter(Boolean)}
-                  </div>
+
+                          <span className="text-xs px-2.5 py-1 rounded-full bg-slate-950 border border-slate-800 text-slate-300 font-mono self-start sm:self-auto">
+                            Showing <strong className="text-amber-400">{matchingDepts.length}</strong> of {currentFac.depts.length} departments
+                          </span>
+                        </div>
+
+                        {/* Vertical List of Departments */}
+                        {matchingDepts.length === 0 ? (
+                          <div className="py-8 text-center text-xs text-slate-400">
+                            No departments in "{currentFac.name}" match "{deptSearch}".
+                          </div>
+                        ) : (
+                          <div className="flex flex-col gap-2 max-h-[46vh] overflow-y-auto pr-1">
+                            {matchingDepts.map((dept, idx) => (
+                              <div
+                                key={dept}
+                                className="p-3 sm:p-3.5 rounded-xl bg-slate-950/80 border border-slate-800/80 hover:border-amber-400/40 hover:bg-slate-950 transition-all flex items-center justify-between gap-3 group"
+                              >
+                                <div className="flex items-center gap-3 min-w-0">
+                                  <span className="w-6 h-6 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-center shrink-0 group-hover:text-amber-400 group-hover:border-amber-400/30">
+                                    {idx + 1}
+                                  </span>
+                                  <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white truncate">
+                                    {dept}
+                                  </span>
+                                </div>
+
+                                <div className="flex items-center gap-2 shrink-0">
+                                  <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold hidden sm:inline-block">
+                                    Exit Exam Verified
+                                  </span>
+                                  <span className="material-symbols-outlined text-sm text-slate-500 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all">
+                                    verified
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
 
