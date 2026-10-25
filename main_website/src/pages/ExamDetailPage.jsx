@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { ExamDetailSkeletonLoader } from '../components/common/SkeletonLoader';
 
 export default function ExamDetailPage() {
   const { id } = useParams();
@@ -28,14 +29,7 @@ export default function ExamDetailPage() {
   }, [id]);
 
   if (loading) {
-    return (
-      <div className="w-full min-h-screen bg-slate-950 flex items-center justify-center p-8">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-slate-400 font-medium text-sm">Loading Examination Document...</span>
-        </div>
-      </div>
-    );
+    return <ExamDetailSkeletonLoader />;
   }
 
   if (!data || !data.exam) {

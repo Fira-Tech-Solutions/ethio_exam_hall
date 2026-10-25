@@ -4,6 +4,8 @@ import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import ExamModeModal from '../components/exam/ExamModeModal';
 
+import { DashboardSkeletonLoader } from '../components/common/SkeletonLoader';
+
 export default function StudentDashboardPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -16,7 +18,6 @@ export default function StudentDashboardPage() {
       navigate('/sign-in');
       return;
     }
-
     async function loadDashboard() {
       try {
         const data = await api.getStudentDashboard();
@@ -31,16 +32,7 @@ export default function StudentDashboardPage() {
   }, [user, navigate]);
 
   if (loading) {
-    return (
-      <div className="w-full min-h-screen bg-[#070e1c] flex items-center justify-center p-8 text-white">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-sm font-semibold text-slate-300">
-            Loading Candidate Dashboard & Analytics...
-          </span>
-        </div>
-      </div>
-    );
+    return <DashboardSkeletonLoader />;
   }
 
   const { candidate, readiness, recentSessions, curatedExams, bookmarks } = dashboardData || {};

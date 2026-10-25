@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { ScoreReportSkeletonLoader } from '../components/common/SkeletonLoader';
 
 export default function ScoreReportPage() {
   const { attemptId } = useParams();
@@ -27,16 +28,7 @@ export default function ScoreReportPage() {
   }, [attemptId]);
 
   if (loading) {
-    return (
-      <div className="w-full min-h-screen bg-[#070e1c] text-white flex items-center justify-center p-8">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-sm font-semibold text-slate-300">
-            Generating Diagnostic Analytics...
-          </span>
-        </div>
-      </div>
-    );
+    return <ScoreReportSkeletonLoader />;
   }
 
   if (!report) {

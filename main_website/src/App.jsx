@@ -23,6 +23,7 @@ import UniversityInsightsPage from './pages/UniversityInsightsPage';
 import { SignInPage } from './pages/AuthPages';
 import RegisterPage from './pages/RegisterPage';
 import TelegramCallbackPage from './pages/TelegramCallbackPage';
+import { AppSkeletonLoader } from './components/common/SkeletonLoader';
 import AssistedWithAiPage from './pages/AssistedWithAiPage';
 
 export default function App() {
@@ -61,16 +62,9 @@ export default function App() {
     location.pathname.startsWith('/university-insights') ||
     location.pathname.startsWith('/analytics');
 
-  // While checking auth token on initial load, show a clean loader
+  // While checking auth token on initial load, show modern skeleton loader
   if (loading) {
-    return (
-      <div className="min-h-screen bg-[#0B1527] flex flex-col items-center justify-center gap-4 text-white">
-        <div className="w-12 h-12 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
-        <p className="font-semibold text-slate-300 text-sm tracking-wide">
-          Loading Ethio Exam Hall...
-        </p>
-      </div>
-    );
+    return <AppSkeletonLoader />;
   }
 
   // 1. Full-screen auth route layout (sign-in, register, telegram callback)

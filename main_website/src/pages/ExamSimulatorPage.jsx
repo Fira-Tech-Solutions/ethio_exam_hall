@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { ExamSimulatorSkeletonLoader } from '../components/common/SkeletonLoader';
 
 export default function ExamSimulatorPage() {
   const { examId } = useParams();
@@ -278,16 +279,7 @@ export default function ExamSimulatorPage() {
   };
 
   if (loading) {
-    return (
-      <div className="w-full min-h-screen bg-[#070e1c] flex items-center justify-center p-8 text-white">
-        <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-sm font-semibold text-slate-300">
-            Initializing {isPractice ? 'Practice Hall (AI RAG Enabled)' : 'Locked Examination Simulator'}...
-          </span>
-        </div>
-      </div>
-    );
+    return <ExamSimulatorSkeletonLoader />;
   }
 
   const questions = sessionData?.questions || [];
