@@ -10,6 +10,8 @@ import AdminAviationPage from './pages/AdminAviationPage';
 import AdminUsersPage from './pages/AdminUsersPage';
 import AdminTransactionsPage from './pages/AdminTransactionsPage';
 import AdminAuditLogsPage from './pages/AdminAuditLogsPage';
+import AdminUniversitiesPage from './pages/AdminUniversitiesPage';
+import AdminSubscriptionsPage from './pages/AdminSubscriptionsPage';
 import AdminLoginPage from './pages/AdminLoginPage';
 import { useAdminAuth } from './context/AdminAuthContext';
 
@@ -40,6 +42,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<AdminOverviewPage />} />
             <Route path="/exams" element={<AdminExamsPage />} />
+            <Route path="/universities" element={<AdminUniversitiesPage />} />
+            <Route path="/subscriptions" element={<AdminSubscriptionsPage />} />
             <Route path="/questions" element={<AdminQuestionsPage />} />
             <Route path="/moderation" element={<AdminModerationPage />} />
             <Route path="/aviation" element={<AdminAviationPage />} />

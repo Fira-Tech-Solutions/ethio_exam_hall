@@ -224,4 +224,37 @@ router.get('/user/bookmarks', authenticate, async (req, res) => {
   }
 });
 
+// Public Universities Directory Endpoints
+router.get('/universities/all', async (req, res) => {
+  try {
+    const unisRes = await query(`
+      SELECT * FROM universities
+      WHERE is_active = TRUE
+      ORDER BY id ASC;
+    `);
+    res.json(unisRes.rows);
+  } catch (error) {
+    console.error('Error fetching universities:', error);
+    res.status(500).json({ error: 'Failed to fetch universities.' });
+  }
+});
+
+router.get('/universities/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const isNum = !isNaN(id);
+    const uniRes = await query(
+      `SELECT * FROM universities WHERE ${isNum ? 'id = $1' : 'code = $1'} LIMIT 1;`,
+      [isNum ? parseInt(id, 10) : id]
+    );
+    if (uniRes.rows.length === 0) {
+      return res.status(404).json({ error: 'University not found.' });
+    }
+    res.json(uniRes.rows[0]);
+  } catch (error) {
+    console.error('Error fetching university:', error);
+    res.status(500).json({ error: 'Failed to fetch university details.' });
+  }
+});
+
 module.exports = router;

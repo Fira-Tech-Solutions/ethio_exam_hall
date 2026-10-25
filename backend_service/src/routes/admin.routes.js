@@ -725,5 +725,305 @@ router.get('/audit-logs', async (req, res) => {
   }
 });
 
+// ==========================================
+// UNIVERSITIES DIRECTORY MANAGEMENT (CRUD)
+// ==========================================
+
+// Get all universities (Admin view)
+router.get('/universities', async (req, res) => {
+  try {
+    const unisRes = await query(`
+      SELECT * FROM universities
+      ORDER BY id ASC;
+    `);
+    res.json(unisRes.rows);
+  } catch (error) {
+    console.error('Admin universities error:', error);
+    res.status(500).json({ error: 'Failed to fetch universities list.' });
+  }
+});
+
+// Create new university
+router.post('/universities', async (req, res) => {
+  try {
+    const {
+      code, name, amharic_name, short_code, category, generation, established,
+      president, main_campus, city, students, climate, badge, logo_url,
+      accent, crest_color, map_coords, map_query, overview,
+      campuses, unique_features, gallery, faculties, cutoffs, is_active
+    } = req.body;
+
+    if (!code || !name) {
+      return res.status(400).json({ error: 'University code and name are required.' });
+    }
+
+    const insertRes = await query(`
+      INSERT INTO universities (
+        code, name, amharic_name, short_code, category, generation, established,
+        president, main_campus, city, students, climate, badge, logo_url,
+        accent, crest_color, map_coords, map_query, overview,
+        campuses, unique_features, gallery, faculties, cutoffs, is_active
+      ) VALUES (
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16,
+        $17, $18, $19, $20, $21, $22, $23, $24, $25
+      )
+      RETURNING *;
+    `, [
+      code.trim().toLowerCase(),
+      name.trim(),
+      amharic_name || '',
+      short_code || code.toUpperCase(),
+      category || 'Comprehensive',
+      generation || 'General Public',
+      established ? parseInt(established, 10) : null,
+      president || '',
+      main_campus || '',
+      city || '',
+      students || '',
+      climate || '',
+      badge || '',
+      logo_url || '/images/logo.png',
+      accent || 'from-blue-600 to-indigo-800',
+      crest_color || 'bg-blue-900',
+      JSON.stringify(map_coords || { lat: 9.0, lng: 38.7 }),
+      map_query || name,
+      overview || '',
+      JSON.stringify(campuses || []),
+      JSON.stringify(unique_features || []),
+      JSON.stringify(gallery || []),
+      JSON.stringify(faculties || []),
+      cutoffs || '',
+      is_active !== undefined ? is_active : true
+    ]);
+
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'CREATE_UNIVERSITY', 'universities', $2, $3);
+    `, [req.user.id, insertRes.rows[0].id, JSON.stringify({ name, code })]);
+
+    res.status(201).json(insertRes.rows[0]);
+  } catch (error) {
+    console.error('Create university error:', error);
+    res.status(500).json({ error: error.message || 'Failed to create university.' });
+  }
+});
+
+// Update existing university
+router.put('/universities/:id', async (req, res) => {
+  try {
+    const uniId = parseInt(req.params.id, 10);
+    const {
+      code, name, amharic_name, short_code, category, generation, established,
+      president, main_campus, city, students, climate, badge, logo_url,
+      accent, crest_color, map_coords, map_query, overview,
+      campuses, unique_features, gallery, faculties, cutoffs, is_active
+    } = req.body;
+
+    const updateRes = await query(`
+      UPDATE universities SET
+        code = COALESCE($1, code),
+        name = COALESCE($2, name),
+        amharic_name = COALESCE($3, amharic_name),
+        short_code = COALESCE($4, short_code),
+        category = COALESCE($5, category),
+        generation = COALESCE($6, generation),
+        established = COALESCE($7, established),
+        president = COALESCE($8, president),
+        main_campus = COALESCE($9, main_campus),
+        city = COALESCE($10, city),
+        students = COALESCE($11, students),
+        climate = COALESCE($12, climate),
+        badge = COALESCE($13, badge),
+        logo_url = COALESCE($14, logo_url),
+        accent = COALESCE($15, accent),
+        crest_color = COALESCE($16, crest_color),
+        map_coords = CASE WHEN $17::text IS NOT NULL THEN $17::jsonb ELSE map_coords END,
+        map_query = COALESCE($18, map_query),
+        overview = COALESCE($19, overview),
+        campuses = CASE WHEN $20::text IS NOT NULL THEN $20::jsonb ELSE campuses END,
+        unique_features = CASE WHEN $21::text IS NOT NULL THEN $21::jsonb ELSE unique_features END,
+        gallery = CASE WHEN $22::text IS NOT NULL THEN $22::jsonb ELSE gallery END,
+        faculties = CASE WHEN $23::text IS NOT NULL THEN $23::jsonb ELSE faculties END,
+        cutoffs = COALESCE($24, cutoffs),
+        is_active = COALESCE($25, is_active),
+        updated_at = NOW()
+      WHERE id = $26
+      RETURNING *;
+    `, [
+      code, name, amharic_name, short_code, category, generation,
+      established ? parseInt(established, 10) : null,
+      president, main_campus, city, students, climate, badge, logo_url,
+      accent, crest_color,
+      map_coords ? JSON.stringify(map_coords) : null,
+      map_query, overview,
+      campuses ? JSON.stringify(campuses) : null,
+      unique_features ? JSON.stringify(unique_features) : null,
+      gallery ? JSON.stringify(gallery) : null,
+      faculties ? JSON.stringify(faculties) : null,
+      cutoffs, is_active, uniId
+    ]);
+
+    if (updateRes.rows.length === 0) {
+      return res.status(404).json({ error: 'University not found.' });
+    }
+
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'UPDATE_UNIVERSITY', 'universities', $2, $3);
+    `, [req.user.id, uniId, JSON.stringify({ name, code })]);
+
+    res.json(updateRes.rows[0]);
+  } catch (error) {
+    console.error('Update university error:', error);
+    res.status(500).json({ error: error.message || 'Failed to update university.' });
+  }
+});
+
+// Delete university
+router.delete('/universities/:id', async (req, res) => {
+  try {
+    const uniId = parseInt(req.params.id, 10);
+    const delRes = await query('DELETE FROM universities WHERE id = $1 RETURNING id, name;', [uniId]);
+    if (delRes.rows.length === 0) {
+      return res.status(404).json({ error: 'University not found.' });
+    }
+
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'DELETE_UNIVERSITY', 'universities', $2, $3);
+    `, [req.user.id, uniId, JSON.stringify(delRes.rows[0])]);
+
+    res.json({ message: 'University deleted successfully.', deleted: delRes.rows[0] });
+  } catch (error) {
+    console.error('Delete university error:', error);
+    res.status(500).json({ error: error.message || 'Failed to delete university.' });
+  }
+});
+
+// ==========================================
+// SUBSCRIPTION PLANS MANAGEMENT (CRUD)
+// ==========================================
+
+// Get all subscription plans (Admin view including inactive)
+router.get('/subscription-plans', async (req, res) => {
+  try {
+    const plansRes = await query(`
+      SELECT sp.*,
+             COUNT(us.id)::int as active_subscribers_count
+      FROM subscription_plans sp
+      LEFT JOIN user_subscriptions us ON sp.id = us.plan_id AND us.status = 'active'
+      GROUP BY sp.id
+      ORDER BY sp.price_etb ASC;
+    `);
+    res.json(plansRes.rows);
+  } catch (error) {
+    console.error('Admin subscription plans error:', error);
+    res.status(500).json({ error: 'Failed to fetch subscription plans.' });
+  }
+});
+
+// Create subscription plan
+router.post('/subscription-plans', async (req, res) => {
+  try {
+    const { code, name, billing_interval, duration_days, price_etb, price_usd, badge, features_json, is_active } = req.body;
+    if (!code || !name) {
+      return res.status(400).json({ error: 'Plan code and name are required.' });
+    }
+
+    const insertRes = await query(`
+      INSERT INTO subscription_plans (code, name, billing_interval, duration_days, price_etb, price_usd, badge, features_json, is_active)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      RETURNING *;
+    `, [
+      code.trim().toLowerCase(),
+      name.trim(),
+      billing_interval || 'monthly',
+      duration_days ? parseInt(duration_days, 10) : 30,
+      price_etb ? parseFloat(price_etb) : 0,
+      price_usd ? parseFloat(price_usd) : 0,
+      badge || '',
+      JSON.stringify(features_json || []),
+      is_active !== undefined ? is_active : true
+    ]);
+
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'CREATE_SUBSCRIPTION_PLAN', 'subscription_plans', $2, $3);
+    `, [req.user.id, insertRes.rows[0].id, JSON.stringify({ code, name })]);
+
+    res.status(201).json(insertRes.rows[0]);
+  } catch (error) {
+    console.error('Create subscription plan error:', error);
+    res.status(500).json({ error: error.message || 'Failed to create subscription plan.' });
+  }
+});
+
+// Update subscription plan
+router.put('/subscription-plans/:id', async (req, res) => {
+  try {
+    const planId = parseInt(req.params.id, 10);
+    const { code, name, billing_interval, duration_days, price_etb, price_usd, badge, features_json, is_active } = req.body;
+
+    const updateRes = await query(`
+      UPDATE subscription_plans SET
+        code = COALESCE($1, code),
+        name = COALESCE($2, name),
+        billing_interval = COALESCE($3, billing_interval),
+        duration_days = COALESCE($4, duration_days),
+        price_etb = COALESCE($5, price_etb),
+        price_usd = COALESCE($6, price_usd),
+        badge = COALESCE($7, badge),
+        features_json = CASE WHEN $8::text IS NOT NULL THEN $8::jsonb ELSE features_json END,
+        is_active = COALESCE($9, is_active)
+      WHERE id = $10
+      RETURNING *;
+    `, [
+      code, name, billing_interval,
+      duration_days ? parseInt(duration_days, 10) : null,
+      price_etb !== undefined ? parseFloat(price_etb) : null,
+      price_usd !== undefined ? parseFloat(price_usd) : null,
+      badge,
+      features_json ? JSON.stringify(features_json) : null,
+      is_active,
+      planId
+    ]);
+
+    if (updateRes.rows.length === 0) {
+      return res.status(404).json({ error: 'Subscription plan not found.' });
+    }
+
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'UPDATE_SUBSCRIPTION_PLAN', 'subscription_plans', $2, $3);
+    `, [req.user.id, planId, JSON.stringify({ code, name })]);
+
+    res.json(updateRes.rows[0]);
+  } catch (error) {
+    console.error('Update subscription plan error:', error);
+    res.status(500).json({ error: error.message || 'Failed to update subscription plan.' });
+  }
+});
+
+// Delete subscription plan
+router.delete('/subscription-plans/:id', async (req, res) => {
+  try {
+    const planId = parseInt(req.params.id, 10);
+    const delRes = await query('DELETE FROM subscription_plans WHERE id = $1 RETURNING id, code, name;', [planId]);
+    if (delRes.rows.length === 0) {
+      return res.status(404).json({ error: 'Subscription plan not found.' });
+    }
+
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'DELETE_SUBSCRIPTION_PLAN', 'subscription_plans', $2, $3);
+    `, [req.user.id, planId, JSON.stringify(delRes.rows[0])]);
+
+    res.json({ message: 'Subscription plan deleted.', deleted: delRes.rows[0] });
+  } catch (error) {
+    console.error('Delete subscription plan error:', error);
+    res.status(500).json({ error: error.message || 'Failed to delete subscription plan.' });
+  }
+});
+
 module.exports = router;
 

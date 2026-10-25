@@ -68,6 +68,18 @@ export const adminApi = {
   // Aviation Modules
   getAviationModules: () => request('/admin/aviation/modules'),
 
+  // Universities Directory Management
+  getUniversities: () => request('/admin/universities'),
+  createUniversity: (data) => request('/admin/universities', { method: 'POST', body: JSON.stringify(data) }),
+  updateUniversity: (id, data) => request(`/admin/universities/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteUniversity: (id) => request(`/admin/universities/${id}`, { method: 'DELETE' }),
+
+  // Subscription Plans Management
+  getSubscriptionPlans: () => request('/admin/subscription-plans'),
+  createSubscriptionPlan: (data) => request('/admin/subscription-plans', { method: 'POST', body: JSON.stringify(data) }),
+  updateSubscriptionPlan: (id, data) => request(`/admin/subscription-plans/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteSubscriptionPlan: (id) => request(`/admin/subscription-plans/${id}`, { method: 'DELETE' }),
+
   // Audit Logs & Categories
   getAuditLogs: () => request('/admin/audit-logs'),
   getCategories: () => request('/exams/categories'),

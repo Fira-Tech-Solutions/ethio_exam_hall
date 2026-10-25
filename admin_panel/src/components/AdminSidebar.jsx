@@ -8,6 +8,8 @@ export default function AdminSidebar() {
   const links = [
     { name: 'Overview', path: '/', icon: 'grid_view' },
     { name: 'Exam Repository', path: '/exams', icon: 'folder_special' },
+    { name: 'Universities Directory', path: '/universities', icon: 'account_balance' },
+    { name: 'Subscription Plans', path: '/subscriptions', icon: 'card_membership' },
     { name: 'Question Bank & Keys', path: '/questions', icon: 'edit_note' },
     { name: 'Content Moderation', path: '/moderation', icon: 'flag' },
     { name: 'Aviation Modules', path: '/aviation', icon: 'flight_takeoff', badge: 'Cadet/AMT' },

@@ -53,6 +53,8 @@ export const api = {
   getExamById: (id) => request(`/exams/${id}`),
   toggleBookmark: (id) => request(`/exams/${id}/bookmark`, { method: 'POST' }),
   getBookmarks: () => request('/exams/user/bookmarks'),
+  getUniversities: () => request('/exams/universities/all'),
+  getUniversityById: (id) => request(`/exams/universities/${id}`),
 
   // Practice & Simulator
   startAttempt: (examId, mode = 'mock') => request('/attempts/start', { method: 'POST', body: JSON.stringify({ examId, mode }) }),

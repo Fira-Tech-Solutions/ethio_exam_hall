@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { api } from '../services/api';
 
 const UNIVERSITIES_DIRECTORY = [
   {
@@ -304,6 +305,7 @@ const UNIVERSITIES_DIRECTORY = [
 ];
 
 export default function UniversityInsightsPage() {
+  const [universities, setUniversities] = useState(UNIVERSITIES_DIRECTORY);
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [inspectingUni, setInspectingUni] = useState(null);
@@ -318,17 +320,220 @@ export default function UniversityInsightsPage() {
   const [newPhotoPreview, setNewPhotoPreview] = useState(null);
   const fileInputRef = useRef(null);
 
-  // Load user photos from localStorage
+  // Full-screen Lightbox Gallery State
+  const [activeLightboxIndex, setActiveLightboxIndex] = useState(null);
+  const [photoInteractions, setPhotoInteractions] = useState({}); // { [photoKey]: { likes: number, userLiked: boolean, comments: [], reportedFake: boolean } }
+  const [commentInput, setCommentInput] = useState('');
+  const [showCommentsDrawer, setShowCommentsDrawer] = useState(false);
+  const [reportModalOpen, setReportModalOpen] = useState(false);
+  const touchStartXRef = useRef(null);
+
+  // Fetch dynamic universities from backend API, fall back to directory
+  useEffect(() => {
+    let isMounted = true;
+    api.getUniversities()
+      .then(dbUnis => {
+        if (!isMounted || !Array.isArray(dbUnis) || dbUnis.length === 0) return;
+        const normalized = dbUnis.map(u => ({
+          id: u.code,
+          name: u.name,
+          amharic: u.amharic_name || '',
+          short: u.short_code || u.code.toUpperCase(),
+          generation: u.generation || 'Public University',
+          category: u.category || 'General',
+          established: u.established,
+          president: u.president,
+          mainCampus: u.main_campus,
+          city: u.city,
+          logo: u.logo_url || '/images/logo.png',
+          accent: u.accent || 'from-blue-600 to-indigo-800',
+          crestColor: u.crest_color || 'bg-blue-900',
+          campuses: Array.isArray(u.campuses) ? u.campuses : [],
+          students: u.students,
+          climate: u.climate,
+          badge: u.badge,
+          mapCoords: u.map_coords || { lat: 9.0, lng: 38.7 },
+          mapQuery: u.map_query || u.name,
+          overview: u.overview,
+          uniqueFeatures: Array.isArray(u.unique_features) ? u.unique_features : [],
+          gallery: Array.isArray(u.gallery) ? u.gallery : [],
+          faculties: Array.isArray(u.faculties) ? u.faculties : [],
+          cutoffs: u.cutoffs,
+        }));
+        setUniversities(normalized);
+      })
+      .catch(err => {
+        console.warn('Using static university directory fallback:', err?.message);
+      });
+    return () => { isMounted = false; };
+  }, []);
+
+  // Load user photos and photo interactions from localStorage
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('ethio_uni_user_photos');
-      if (stored) {
-        setUserPhotos(JSON.parse(stored));
+      const storedPhotos = localStorage.getItem('ethio_uni_user_photos');
+      if (storedPhotos) {
+        setUserPhotos(JSON.parse(storedPhotos));
+      }
+      const storedInteractions = localStorage.getItem('ethio_gallery_interactions');
+      if (storedInteractions) {
+        setPhotoInteractions(JSON.parse(storedInteractions));
       }
     } catch (e) {
-      console.warn('Could not read user photos from localStorage', e);
+      console.warn('Could not read user gallery data from localStorage', e);
     }
   }, []);
+
+  // Save interactions to localStorage
+  const saveInteractions = (updated) => {
+    setPhotoInteractions(updated);
+    try {
+      localStorage.setItem('ethio_gallery_interactions', JSON.stringify(updated));
+    } catch (e) {
+      console.warn('Could not persist gallery interactions:', e);
+    }
+  };
+
+  // Build combined gallery for currently inspected university
+  const getCombinedGallery = () => {
+    if (!inspectingUni) return [];
+    const userUploaded = (userPhotos[inspectingUni.id] || []).map((p, i) => ({
+      ...p,
+      isUserUpload: true,
+      key: `${inspectingUni.id}-user-${i}`,
+    }));
+    const curated = (inspectingUni.gallery || []).map((p, i) => ({
+      ...p,
+      isUserUpload: false,
+      key: `${inspectingUni.id}-curated-${i}`,
+    }));
+    return [...userUploaded, ...curated];
+  };
+
+  const combinedGallery = getCombinedGallery();
+  const activePhoto = activeLightboxIndex !== null ? combinedGallery[activeLightboxIndex] : null;
+  const currentPhotoInteraction = activePhoto
+    ? photoInteractions[activePhoto.key] || { likes: 12, userLiked: false, comments: [], reportedFake: false }
+    : null;
+
+  // Navigation handlers
+  const handleNextPhoto = () => {
+    if (activeLightboxIndex === null || combinedGallery.length === 0) return;
+    setActiveLightboxIndex((prev) => (prev + 1) % combinedGallery.length);
+    setCommentInput('');
+  };
+
+  const handlePrevPhoto = () => {
+    if (activeLightboxIndex === null || combinedGallery.length === 0) return;
+    setActiveLightboxIndex((prev) => (prev - 1 + combinedGallery.length) % combinedGallery.length);
+    setCommentInput('');
+  };
+
+  // Keyboard navigation for Lightbox
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (activeLightboxIndex === null) return;
+      if (e.key === 'ArrowRight') {
+        handleNextPhoto();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevPhoto();
+      } else if (e.key === 'Escape') {
+        setActiveLightboxIndex(null);
+        setShowCommentsDrawer(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeLightboxIndex, combinedGallery.length]);
+
+  // Touch Swipe handlers
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartXRef.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartXRef.current - touchEndX;
+    if (Math.abs(diff) > 45) {
+      if (diff > 0) {
+        handleNextPhoto(); // swiped left -> next
+      } else {
+        handlePrevPhoto(); // swiped right -> prev
+      }
+    }
+    touchStartXRef.current = null;
+  };
+
+  // Engagement Actions
+  const handleToggleLike = () => {
+    if (!activePhoto) return;
+    const current = currentPhotoInteraction;
+    const nextUserLiked = !current.userLiked;
+    const nextLikes = nextUserLiked ? (current.likes || 0) + 1 : Math.max(0, (current.likes || 1) - 1);
+
+    const updated = {
+      ...photoInteractions,
+      [activePhoto.key]: {
+        ...current,
+        likes: nextLikes,
+        userLiked: nextUserLiked,
+      },
+    };
+    saveInteractions(updated);
+  };
+
+  const handleAddComment = (e) => {
+    e.preventDefault();
+    if (!activePhoto || !commentInput.trim()) return;
+
+    const newComment = {
+      id: Date.now(),
+      author: 'Candidate ' + Math.floor(1000 + Math.random() * 9000),
+      text: commentInput.trim(),
+      timestamp: 'Just now',
+    };
+
+    const current = currentPhotoInteraction;
+    const updated = {
+      ...photoInteractions,
+      [activePhoto.key]: {
+        ...current,
+        comments: [newComment, ...(current.comments || [])],
+      },
+    };
+    saveInteractions(updated);
+    setCommentInput('');
+  };
+
+  const handleReportFake = () => {
+    if (!activePhoto) return;
+    const current = currentPhotoInteraction;
+    const updated = {
+      ...photoInteractions,
+      [activePhoto.key]: {
+        ...current,
+        reportedFake: true,
+      },
+    };
+    saveInteractions(updated);
+    setReportModalOpen(false);
+    alert('Thank you. This photo has been flagged as potentially inaccurate or unverified. Our moderation council has logged your report.');
+  };
+
+  const handleDownloadPhoto = () => {
+    if (!activePhoto) return;
+    try {
+      const link = document.createElement('a');
+      link.href = activePhoto.url;
+      link.download = `${inspectingUni.short}_campus_view_${Date.now()}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (e) {
+      window.open(activePhoto.url, '_blank');
+    }
+  };
 
   // Save user photos
   const handlePhotoUpload = (e) => {
@@ -377,13 +582,13 @@ export default function UniversityInsightsPage() {
     setDeptSearch('');
   };
 
-  const filteredUnis = UNIVERSITIES_DIRECTORY.filter(u => {
+  const filteredUnis = universities.filter(u => {
     if (selectedCategory !== 'all' && u.category !== selectedCategory) return false;
     if (search.trim()) {
       const q = search.toLowerCase();
       const matchName = u.name.toLowerCase().includes(q) || u.short.toLowerCase().includes(q) || u.amharic.includes(q);
-      const matchCity = u.city.toLowerCase().includes(q) || u.mainCampus.toLowerCase().includes(q);
-      const matchDepts = u.faculties.some(f => f.depts.some(d => d.toLowerCase().includes(q)));
+      const matchCity = (u.city || '').toLowerCase().includes(q) || (u.mainCampus || '').toLowerCase().includes(q);
+      const matchDepts = (u.faculties || []).some(f => (f.depts || []).some(d => d.toLowerCase().includes(q)));
       if (!matchName && !matchCity && !matchDepts) return false;
     }
     return true;
@@ -842,53 +1047,46 @@ export default function UniversityInsightsPage() {
                     </button>
                   </div>
 
-                  {/* Photo Grid */}
+                  {/* Photo Grid with Interactive Click to Fullscreen */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {/* User Uploaded Photos */}
-                    {(userPhotos[inspectingUni.id] || []).map((photo, pIdx) => (
+                    {combinedGallery.map((item, idx) => (
                       <div
-                        key={`user-${pIdx}`}
-                        className="rounded-2xl overflow-hidden bg-slate-900 border border-amber-500/40 relative group shadow-lg"
+                        key={item.key || idx}
+                        onClick={() => {
+                          setActiveLightboxIndex(idx);
+                          setShowCommentsDrawer(false);
+                        }}
+                        className={`rounded-2xl overflow-hidden bg-slate-900 border transition-all duration-300 relative group shadow-lg cursor-pointer hover:shadow-2xl hover:scale-[1.02] ${
+                          item.isUserUpload ? 'border-amber-500/40 hover:border-amber-400' : 'border-slate-800 hover:border-sky-400'
+                        }`}
                       >
-                        <div className="h-44 w-full overflow-hidden bg-slate-950">
-                          <img
-                            src={photo.url}
-                            alt={photo.caption}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                        <div className="p-3 bg-slate-900/95 border-t border-slate-800">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-semibold text-white truncate block">
-                              {photo.caption}
-                            </span>
-                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 font-bold">
-                              Student Upload
-                            </span>
-                          </div>
-                          <span className="text-[10px] text-slate-400 block mt-0.5">Added {photo.uploadedAt}</span>
-                        </div>
-                      </div>
-                    ))}
-
-                    {/* Official Curated Photos */}
-                    {inspectingUni.gallery.map((item, idx) => (
-                      <div
-                        key={`official-${idx}`}
-                        className="rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 relative group shadow-lg"
-                      >
-                        <div className="h-44 w-full overflow-hidden bg-slate-950">
+                        <div className="h-44 w-full overflow-hidden bg-slate-950 relative">
                           <img
                             src={item.url}
                             alt={item.caption}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                            <span className="px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs font-bold text-white flex items-center gap-1 shadow-lg">
+                              <span className="material-symbols-outlined text-sm">fullscreen</span>
+                              <span>View Fullscreen</span>
+                            </span>
+                          </div>
                         </div>
-                        <div className="p-3 bg-slate-900/95 border-t border-slate-800">
-                          <span className="text-xs font-medium text-slate-300 block truncate">
-                            {item.caption}
-                          </span>
-                          <span className="text-[10px] text-slate-400 block mt-0.5">Verified Campus View</span>
+                        <div className="p-3 bg-slate-900/95 border-t border-slate-800 flex items-center justify-between gap-2">
+                          <div className="truncate flex-1">
+                            <span className="text-xs font-semibold text-white truncate block">
+                              {item.caption}
+                            </span>
+                            <span className="text-[10px] text-slate-400 block mt-0.5">
+                              {item.isUserUpload ? `Uploaded ${item.uploadedAt}` : 'Verified Campus View'}
+                            </span>
+                          </div>
+                          {item.isUserUpload && (
+                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 font-bold shrink-0">
+                              Community
+                            </span>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -997,6 +1195,240 @@ export default function UniversityInsightsPage() {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* FULL-SCREEN LIGHTBOX GALLERY MODAL */}
+      {activePhoto && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-[70] bg-black/95 backdrop-blur-xl flex flex-col justify-between select-none animate-fade-in"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Top Bar: Title, Counter, and Close */}
+          <div className="p-4 sm:p-6 flex items-center justify-between bg-gradient-to-b from-black/80 via-black/40 to-transparent text-white z-10">
+            <div className="flex items-center gap-3">
+              <div className="px-3 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-xs font-mono font-bold">
+                {activeLightboxIndex + 1} / {combinedGallery.length}
+              </div>
+              <div>
+                <span className="text-sm font-bold block truncate max-w-[200px] sm:max-w-md">
+                  {activePhoto.caption}
+                </span>
+                <span className="text-[11px] text-slate-400 block">
+                  {inspectingUni.name} • {activePhoto.isUserUpload ? 'Student Community Upload' : 'Verified Campus View'}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              {/* Fake Warning Pill if flagged */}
+              {currentPhotoInteraction?.reportedFake && (
+                <span className="px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/40 text-[10px] font-bold flex items-center gap-1">
+                  <span className="material-symbols-outlined text-xs">report</span>
+                  <span>Reported as Fake/Inaccurate</span>
+                </span>
+              )}
+
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveLightboxIndex(null);
+                  setShowCommentsDrawer(false);
+                }}
+                className="p-2.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white transition-colors"
+                title="Close fullscreen (Esc)"
+              >
+                <span className="material-symbols-outlined text-xl">close</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Central Image & Left/Right Arrows */}
+          <div className="relative flex-1 flex items-center justify-center p-2 sm:p-6 overflow-hidden">
+            {/* Previous Arrow Button */}
+            <button
+              type="button"
+              onClick={handlePrevPhoto}
+              className="absolute left-2 sm:left-6 z-20 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 border border-white/20 flex items-center justify-center text-white transition-all shadow-2xl backdrop-blur-md"
+              title="Previous photo (Arrow Left)"
+            >
+              <span className="material-symbols-outlined text-2xl">chevron_left</span>
+            </button>
+
+            {/* Display Image */}
+            <div className="max-w-5xl max-h-[72vh] sm:max-h-[78vh] w-full h-full flex items-center justify-center">
+              <img
+                src={activePhoto.url}
+                alt={activePhoto.caption}
+                className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl border border-white/10 transition-transform duration-300"
+              />
+            </div>
+
+            {/* Next Arrow Button */}
+            <button
+              type="button"
+              onClick={handleNextPhoto}
+              className="absolute right-2 sm:right-6 z-20 w-12 h-12 rounded-full bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 border border-white/20 flex items-center justify-center text-white transition-all shadow-2xl backdrop-blur-md"
+              title="Next photo (Arrow Right)"
+            >
+              <span className="material-symbols-outlined text-2xl">chevron_right</span>
+            </button>
+          </div>
+
+          {/* Bottom Interactive Actions Bar */}
+          <div className="p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-wrap items-center justify-between gap-3 z-10 border-t border-white/10">
+            {/* Action Buttons: Like, Comment, Download, Report Fake */}
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+              {/* Like Button */}
+              <button
+                type="button"
+                onClick={handleToggleLike}
+                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all ${
+                  currentPhotoInteraction?.userLiked
+                    ? 'bg-rose-500 text-white border-rose-400 shadow-lg shadow-rose-500/20'
+                    : 'bg-white/10 hover:bg-white/20 text-slate-200 border-white/15'
+                }`}
+              >
+                <span className={`material-symbols-outlined text-base ${currentPhotoInteraction?.userLiked ? 'fill-current' : ''}`}>
+                  favorite
+                </span>
+                <span>{currentPhotoInteraction?.likes || 0} Likes</span>
+              </button>
+
+              {/* Comments Toggle Button */}
+              <button
+                type="button"
+                onClick={() => setShowCommentsDrawer(!showCommentsDrawer)}
+                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all ${
+                  showCommentsDrawer
+                    ? 'bg-amber-400 text-slate-950 border-amber-300 font-extrabold'
+                    : 'bg-white/10 hover:bg-white/20 text-slate-200 border-white/15'
+                }`}
+              >
+                <span className="material-symbols-outlined text-base">chat_bubble</span>
+                <span>{(currentPhotoInteraction?.comments || []).length} Comments</span>
+              </button>
+
+              {/* Download Image Button */}
+              <button
+                type="button"
+                onClick={handleDownloadPhoto}
+                className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-200 border border-white/15 text-xs font-bold flex items-center gap-2 transition-all"
+                title="Download full quality photo"
+              >
+                <span className="material-symbols-outlined text-base">download</span>
+                <span>Download</span>
+              </button>
+
+              {/* Report Fake / Inaccurate Image */}
+              <button
+                type="button"
+                onClick={() => setReportModalOpen(true)}
+                className="px-4 py-2 rounded-xl bg-white/5 hover:bg-rose-950/40 text-rose-300/80 hover:text-rose-200 border border-rose-500/30 text-xs font-medium flex items-center gap-1.5 transition-all"
+              >
+                <span className="material-symbols-outlined text-base">warning</span>
+                <span>This image is fake</span>
+              </button>
+            </div>
+
+            {/* Mobile swipe and navigation hint */}
+            <span className="text-[11px] text-slate-400 hidden sm:inline-block">
+              Swipe or use keyboard ← → arrows to navigate
+            </span>
+          </div>
+
+          {/* Slide-over Comments Drawer */}
+          {showCommentsDrawer && (
+            <div className="absolute right-0 top-0 bottom-0 w-full sm:w-96 bg-slate-950/95 border-l border-white/20 z-30 p-5 flex flex-col justify-between shadow-2xl backdrop-blur-2xl">
+              <div>
+                <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-amber-400">forum</span>
+                    <h3 className="font-bold text-sm text-white">Campus Photo Discussion</h3>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowCommentsDrawer(false)}
+                    className="p-1 rounded-lg text-slate-400 hover:text-white"
+                  >
+                    <span className="material-symbols-outlined text-lg">close</span>
+                  </button>
+                </div>
+
+                {/* Comments List */}
+                <div className="py-4 space-y-3 max-h-[65vh] overflow-y-auto">
+                  {(currentPhotoInteraction?.comments || []).length === 0 ? (
+                    <div className="text-center py-8 text-slate-500 space-y-1">
+                      <span className="material-symbols-outlined text-3xl">chat</span>
+                      <p className="text-xs">No comments yet. Share your experience at this campus!</p>
+                    </div>
+                  ) : (
+                    (currentPhotoInteraction?.comments || []).map((c) => (
+                      <div key={c.id} className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-1">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-amber-400">{c.author}</span>
+                          <span className="text-[10px] text-slate-500">{c.timestamp}</span>
+                        </div>
+                        <p className="text-slate-200">{c.text}</p>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+
+              {/* Add Comment Input */}
+              <form onSubmit={handleAddComment} className="pt-3 border-t border-slate-800 space-y-2">
+                <input
+                  type="text"
+                  value={commentInput}
+                  onChange={(e) => setCommentInput(e.target.value)}
+                  placeholder="Write a comment about this photo..."
+                  className="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+                />
+                <button
+                  type="submit"
+                  disabled={!commentInput.trim()}
+                  className="w-full py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs disabled:opacity-50 transition-colors"
+                >
+                  Post Comment
+                </button>
+              </form>
+            </div>
+          )}
+
+          {/* Report Confirmation Modal */}
+          {reportModalOpen && (
+            <div className="absolute inset-0 bg-black/80 flex items-center justify-center p-4 z-40">
+              <div className="bg-slate-900 border border-rose-500/50 rounded-2xl p-6 max-w-sm w-full space-y-4 text-white shadow-2xl">
+                <div className="flex items-center gap-3 text-rose-400">
+                  <span className="material-symbols-outlined text-3xl">gavel</span>
+                  <h4 className="font-bold text-base">Report Inaccurate / Fake Image</h4>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Are you sure you want to flag this photo as fake, misleading, or from a different campus? Our student moderation team will investigate.
+                </p>
+                <div className="flex justify-end gap-2 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setReportModalOpen(false)}
+                    className="px-4 py-2 rounded-xl bg-slate-800 text-xs font-semibold hover:bg-slate-700 text-slate-300"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleReportFake}
+                    className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold"
+                  >
+                    Flag as Fake
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

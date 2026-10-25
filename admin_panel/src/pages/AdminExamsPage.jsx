@@ -8,10 +8,12 @@ export default function AdminExamsPage() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   
-  // Filter Dropdowns
+  // Filter Dropdowns & Categorized Tracks
+  const [activeTrack, setActiveTrack] = useState('ALL'); // 'ALL' | 'freshman' | 'exit' | 'esuee' | 'aviation'
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [selectedStatus, setSelectedStatus] = useState('ALL');
   const [selectedYear, setSelectedYear] = useState('ALL');
+  const [universitiesList, setUniversitiesList] = useState([]);
 
   // Bulk Selection
   const [selectedExamIds, setSelectedExamIds] = useState([]);
@@ -46,12 +48,14 @@ export default function AdminExamsPage() {
   async function loadData() {
     setLoading(true);
     try {
-      const [exList, catList] = await Promise.all([
+      const [exList, catList, uniList] = await Promise.all([
         adminApi.getExams(),
         adminApi.getCategories(),
+        adminApi.getUniversities().catch(() => []),
       ]);
       setExams(exList || []);
       setCategories(catList || []);
+      setUniversitiesList(uniList || []);
     } catch (err) {
       console.error('Error loading exams:', err);
     } finally {
@@ -229,6 +233,18 @@ export default function AdminExamsPage() {
       e.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (e.institution && e.institution.toLowerCase().includes(searchTerm.toLowerCase()));
 
+    // Segmented Track Filter
+    let matchTrack = true;
+    if (activeTrack === 'freshman') {
+      matchTrack = e.category_code === 'freshman' || (e.code && e.code.includes('FRESH')) || (e.institution && e.institution.includes('University') && !e.code.includes('EXIT'));
+    } else if (activeTrack === 'exit') {
+      matchTrack = e.category_code === 'exit' || (e.code && e.code.includes('EXIT')) || (e.title && e.title.includes('Exit'));
+    } else if (activeTrack === 'esuee') {
+      matchTrack = e.category_code === 'esuee' || (e.code && e.code.includes('ESUEE')) || (e.title && e.title.includes('Grade 12'));
+    } else if (activeTrack === 'aviation') {
+      matchTrack = e.is_aviation || e.category_code === 'aviation' || (e.code && e.code.includes('EAA'));
+    }
+
     const matchCategory =
       selectedCategory === 'ALL' ||
       String(e.category_id) === String(selectedCategory);
@@ -241,7 +257,7 @@ export default function AdminExamsPage() {
       selectedYear === 'ALL' ||
       String(e.year_ec) === String(selectedYear);
 
-    return matchSearch && matchCategory && matchStatus && matchYear;
+    return matchSearch && matchTrack && matchCategory && matchStatus && matchYear;
   });
 
   const allSelected = filteredExams.length > 0 && filteredExams.every(e => selectedExamIds.includes(e.id));
@@ -283,6 +299,31 @@ export default function AdminExamsPage() {
             <span>+ Ingest Exam Paper</span>
           </button>
         </div>
+      </div>
+
+      {/* Segmented Track Filter Tabs: All, Freshman, Exit, ESUEE, Aviation */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 bg-surface-container-lowest p-2 rounded-2xl border border-outline-variant/40">
+        {[
+          { id: 'ALL', label: 'All Exam Papers', icon: 'apps' },
+          { id: 'freshman', label: 'University Freshman (by University)', icon: 'account_balance' },
+          { id: 'exit', label: 'University Exit Exams (by Department)', icon: 'school' },
+          { id: 'esuee', label: 'Grade 12 Entrance (by Stream/Subject)', icon: 'history_edu' },
+          { id: 'aviation', label: 'Aviation Track (Pilot/AMT Screening)', icon: 'flight_takeoff' },
+        ].map(track => (
+          <button
+            key={track.id}
+            type="button"
+            onClick={() => setActiveTrack(track.id)}
+            className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap flex items-center gap-2 transition-all ${
+              activeTrack === track.id
+                ? 'bg-primary text-on-primary shadow-sm'
+                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
+            }`}
+          >
+            <span className="material-symbols-outlined text-base">{track.icon}</span>
+            <span>{track.label}</span>
+          </button>
+        ))}
       </div>
 
       {/* Filter, Search & Status Controls */}
@@ -760,14 +801,27 @@ export default function AdminExamsPage() {
               </div>
 
               <div>
-                <label className="font-bold text-on-surface block mb-1">Institution & Issuing Authority</label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="font-bold text-on-surface block">Institution & Issuing Authority</label>
+                  <span className="text-[10px] text-primary">Select university for freshman exams or MoE/EAES</span>
+                </div>
                 <input
                   type="text"
+                  list="universitySuggestions"
                   value={institution}
                   onChange={(e) => setInstitution(e.target.value)}
-                  placeholder="e.g. Ministry of Education (MoE) or EAES National Board"
-                  className="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/40 rounded-xl focus:outline-none"
+                  placeholder="e.g. Addis Ababa University, Adama Science & Technology University, or MoE"
+                  className="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/40 rounded-xl focus:outline-none focus:border-primary"
                 />
+                <datalist id="universitySuggestions">
+                  <option value="Ministry of Education (MoE)" />
+                  <option value="Educational Assessment and Examination Service (EAES)" />
+                  <option value="Ethiopian Airlines Aviation University" />
+                  <option value="Commercial Bank of Ethiopia" />
+                  {universitiesList.map(u => (
+                    <option key={u.id} value={u.name} />
+                  ))}
+                </datalist>
               </div>
 
               <div>

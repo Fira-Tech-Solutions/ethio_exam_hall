@@ -238,3 +238,38 @@ CREATE TABLE IF NOT EXISTS auth_transactions (
 );
 
 CREATE INDEX IF NOT EXISTS idx_auth_transactions_state ON auth_transactions(state);
+
+-- Universities Directory for Institutional Insights
+CREATE TABLE IF NOT EXISTS universities (
+  id SERIAL PRIMARY KEY,
+  code VARCHAR(50) UNIQUE NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  amharic_name VARCHAR(255),
+  short_code VARCHAR(50),
+  category VARCHAR(100),
+  generation VARCHAR(100),
+  established INT,
+  president VARCHAR(255),
+  main_campus VARCHAR(255),
+  city VARCHAR(100),
+  students VARCHAR(50),
+  climate VARCHAR(100),
+  badge VARCHAR(100),
+  logo_url VARCHAR(255),
+  accent VARCHAR(100),
+  crest_color VARCHAR(100),
+  map_coords JSONB DEFAULT '{"lat": 9.0, "lng": 38.7}',
+  map_query VARCHAR(255),
+  overview TEXT,
+  campuses JSONB DEFAULT '[]',
+  unique_features JSONB DEFAULT '[]',
+  gallery JSONB DEFAULT '[]',
+  faculties JSONB DEFAULT '[]',
+  cutoffs TEXT,
+  is_active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_universities_category ON universities(category);
+CREATE INDEX IF NOT EXISTS idx_universities_code ON universities(code);
