@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
   target_track VARCHAR(100) DEFAULT 'exit',
   institution VARCHAR(255) DEFAULT 'Addis Ababa University',
   candidate_id VARCHAR(50) UNIQUE,
+  avatar_url TEXT,
   is_verified BOOLEAN DEFAULT TRUE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()

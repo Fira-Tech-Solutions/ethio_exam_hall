@@ -86,7 +86,15 @@ export default function StudentDashboardPage() {
         </div>
 
         {/* Quick Launch Action Buttons */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-3 shrink-0 flex-wrap">
+          <Link
+            to="/profile"
+            className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-amber-300 transition-colors flex items-center gap-1.5"
+            title="Configure profile data, email, password, and avatar"
+          >
+            <span className="material-symbols-outlined text-[18px] text-amber-400">manage_accounts</span>
+            <span>Profile Settings</span>
+          </Link>
           <Link
             to="/gpa-calculator"
             className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-slate-200 transition-colors flex items-center gap-1.5"

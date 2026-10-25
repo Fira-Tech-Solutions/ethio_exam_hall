@@ -145,7 +145,7 @@ router.get('/me', authenticate, async (req, res) => {
     const telegramIdentity = extRes.rows.find(e => e.provider === 'telegram') || null;
     const activeSubscription = subRes.rows[0] || null;
 
-    const avatarUrl = telegramIdentity?.avatar_url || null;
+    const avatarUrl = req.user.avatar_url || telegramIdentity?.avatar_url || null;
 
     res.json({
       user: {
@@ -166,6 +166,114 @@ router.get('/me', authenticate, async (req, res) => {
   } catch (error) {
     console.error('Profile fetch error:', error);
     res.status(500).json({ error: 'Server error fetching profile.' });
+  }
+});
+
+// Update Candidate Profile (Name, Email, Institution, Track, Avatar)
+router.put('/profile', authenticate, async (req, res) => {
+  try {
+    const { name, email, target_track, institution, avatar_url } = req.body;
+
+    // Email validation and uniqueness check
+    if (email && email.trim().toLowerCase() !== req.user.email.toLowerCase()) {
+      const cleanEmail = email.trim().toLowerCase();
+      // Ensure email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(cleanEmail)) {
+        return res.status(400).json({ error: 'Please provide a valid email address.' });
+      }
+
+      const existing = await query('SELECT id FROM users WHERE email = $1 AND id != $2', [cleanEmail, req.user.id]);
+      if (existing.rows.length > 0) {
+        return res.status(400).json({ error: 'This email is already registered to another account.' });
+      }
+    }
+
+    const cleanEmail = email ? email.trim().toLowerCase() : req.user.email;
+    const cleanName = name ? name.trim() : req.user.name;
+
+    const updateRes = await query(`
+      UPDATE users
+      SET name = COALESCE($1, name),
+          email = COALESCE($2, email),
+          target_track = COALESCE($3, target_track),
+          institution = COALESCE($4, institution),
+          avatar_url = COALESCE($5, avatar_url),
+          updated_at = NOW()
+      WHERE id = $6
+      RETURNING id, name, email, role, target_track, institution, candidate_id, is_verified, avatar_url,
+                (password_hash IS NOT NULL) as has_password;
+    `, [cleanName, cleanEmail, target_track, institution, avatar_url, req.user.id]);
+
+    const updatedUser = updateRes.rows[0];
+
+    // Log to audit trail
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'UPDATE_PROFILE', 'users', $1, $2);
+    `, [req.user.id, JSON.stringify({ name: cleanName, email: cleanEmail, institution })]);
+
+    res.json({
+      message: 'Profile updated successfully.',
+      user: {
+        ...updatedUser,
+        photo_url: updatedUser.avatar_url,
+      },
+    });
+  } catch (error) {
+    console.error('Profile update error:', error);
+    res.status(500).json({ error: error.message || 'Failed to update profile.' });
+  }
+});
+
+// Set or Change Account Password
+router.put('/change-password', authenticate, async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({ error: 'New password must be at least 6 characters long.' });
+    }
+
+    // Check if user currently has a password set
+    const userRow = await query('SELECT password_hash FROM users WHERE id = $1', [req.user.id]);
+    const currentHash = userRow.rows[0]?.password_hash;
+
+    // If user already has a password, verify current password
+    if (currentHash) {
+      if (!currentPassword) {
+        return res.status(400).json({ error: 'Current password is required to change password.' });
+      }
+      const isMatch = await bcrypt.compare(currentPassword, currentHash);
+      if (!isMatch) {
+        return res.status(400).json({ error: 'Current password is incorrect.' });
+      }
+    }
+
+    // Hash new password and save
+    const salt = await bcrypt.genSalt(10);
+    const newHash = await bcrypt.hash(newPassword, salt);
+
+    await query(`
+      UPDATE users
+      SET password_hash = $1,
+          updated_at = NOW()
+      WHERE id = $2;
+    `, [newHash, req.user.id]);
+
+    // Log security event
+    await query(`
+      INSERT INTO audit_logs (user_id, action, resource_type, resource_id, details)
+      VALUES ($1, 'SET_PASSWORD', 'users', $1, $2);
+    `, [req.user.id, JSON.stringify({ action: currentHash ? 'changed_password' : 'set_initial_password' })]);
+
+    res.json({
+      message: currentHash ? 'Password changed successfully.' : 'Password set successfully! You can now sign in with your email and password.',
+      has_password: true,
+    });
+  } catch (error) {
+    console.error('Change password error:', error);
+    res.status(500).json({ error: error.message || 'Failed to update password.' });
   }
 });
 

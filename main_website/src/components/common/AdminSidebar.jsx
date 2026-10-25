@@ -58,6 +58,12 @@ export default function AdminSidebar({ mobileOpen, setMobileOpen }) {
       icon: 'explore',
       badge: 'Guide',
     },
+    {
+      name: 'Profile & Security',
+      path: '/profile',
+      icon: 'manage_accounts',
+      badge: user?.has_password ? null : 'Set Key',
+    },
   ];
 
   const handleLogout = async () => {

@@ -20,6 +20,7 @@ import AviationExamsDashboardPage from './pages/AviationExamsDashboardPage';
 import SubscriptionPage from './pages/SubscriptionPage';
 import GpaCalculatorPage from './pages/GpaCalculatorPage';
 import UniversityInsightsPage from './pages/UniversityInsightsPage';
+import UserProfilePage from './pages/UserProfilePage';
 import { SignInPage } from './pages/AuthPages';
 import RegisterPage from './pages/RegisterPage';
 import TelegramCallbackPage from './pages/TelegramCallbackPage';
@@ -60,6 +61,7 @@ export default function App() {
     location.pathname.startsWith('/subscription') ||
     location.pathname.startsWith('/gpa-calculator') ||
     location.pathname.startsWith('/university-insights') ||
+    location.pathname.startsWith('/profile') ||
     location.pathname.startsWith('/analytics');
 
   // While checking auth token on initial load, show modern skeleton loader
@@ -126,6 +128,7 @@ export default function App() {
               <Route path="/subscription" element={<SubscriptionPage />} />
               <Route path="/gpa-calculator" element={<GpaCalculatorPage />} />
               <Route path="/university-insights" element={<UniversityInsightsPage />} />
+              <Route path="/profile" element={<UserProfilePage />} />
               <Route path="/analytics/:attemptId" element={<ScoreReportPage />} />
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>

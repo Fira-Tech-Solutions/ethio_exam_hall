@@ -19,7 +19,11 @@ async function authenticate(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    const userRes = await query('SELECT id, name, email, role, target_track, institution, candidate_id, is_verified FROM users WHERE id = $1', [decoded.id]);
+    const userRes = await query(`
+      SELECT id, name, email, role, target_track, institution, candidate_id, is_verified, avatar_url,
+             (password_hash IS NOT NULL) as has_password
+      FROM users WHERE id = $1
+    `, [decoded.id]);
     
     if (userRes.rows.length === 0) {
       return res.status(401).json({ error: 'User not found or session invalidated.' });
@@ -48,7 +52,11 @@ async function optionalAuth(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    const userRes = await query('SELECT id, name, email, role, target_track, institution, candidate_id, is_verified FROM users WHERE id = $1', [decoded.id]);
+    const userRes = await query(`
+      SELECT id, name, email, role, target_track, institution, candidate_id, is_verified, avatar_url,
+             (password_hash IS NOT NULL) as has_password
+      FROM users WHERE id = $1
+    `, [decoded.id]);
     req.user = userRes.rows[0] || null;
   } catch {
     req.user = null;

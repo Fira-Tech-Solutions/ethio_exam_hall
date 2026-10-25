@@ -169,6 +169,10 @@ export default function Navbar() {
                     <span className="material-symbols-outlined text-[18px] text-amber-400">dashboard</span>
                     Candidate Dashboard
                   </Link>
+                  <Link to="/profile" className="flex items-center gap-2 px-4 py-2.5 text-xs font-semibold text-amber-300 hover:text-white hover:bg-amber-500/15 transition-colors">
+                    <span className="material-symbols-outlined text-[18px] text-amber-400">manage_accounts</span>
+                    Profile Settings & Password
+                  </Link>
                   <Link to="/subscription" className="flex items-center gap-2 px-4 py-2.5 text-xs font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors">
                     <span className="material-symbols-outlined text-[18px] text-amber-400">workspace_premium</span>
                     Manage Subscription

@@ -11,6 +11,7 @@ async function migrate() {
     await client.query(sql);
     // Ensure existing databases allow null password_hash for OAuth/Telegram users
     await client.query('ALTER TABLE users ALTER COLUMN password_hash DROP NOT NULL;');
+    await client.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS avatar_url TEXT;');
 
     // Ensure 'freshman' exam category exists
     await client.query(`

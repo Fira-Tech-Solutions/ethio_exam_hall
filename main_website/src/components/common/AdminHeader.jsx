@@ -239,6 +239,16 @@ export default function AdminHeader({ onOpenMobileSidebar }) {
                 <button
                   onClick={() => {
                     setDropdownOpen(false);
+                    navigate('/profile');
+                  }}
+                  className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-amber-300 hover:text-white hover:bg-amber-500/15 flex items-center gap-2.5 transition-colors"
+                >
+                  <span className="material-symbols-outlined text-base text-amber-400">manage_accounts</span>
+                  <span>Profile Settings & Password</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setDropdownOpen(false);
                     navigate('/subscription');
                   }}
                   className="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-2.5 transition-colors"
