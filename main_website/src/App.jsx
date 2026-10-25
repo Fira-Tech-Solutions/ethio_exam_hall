@@ -5,6 +5,8 @@ import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import AdminSidebar from './components/common/AdminSidebar';
 import AdminHeader from './components/common/AdminHeader';
+import MobileBottomNav from './components/common/MobileBottomNav';
+import MobileMoreSheet from './components/common/MobileMoreSheet';
 import HomePage from './pages/HomePage';
 import DiscoveryLibraryPage from './pages/DiscoveryLibraryPage';
 import ExamDetailPage from './pages/ExamDetailPage';
@@ -32,6 +34,7 @@ export default function App() {
   const navigate = useNavigate();
   const { user, loading } = useAuth();
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [moreSheetOpen, setMoreSheetOpen] = useState(false);
 
   useEffect(() => {
     // Auto-detect Telegram hash redirect on any landing page
@@ -116,9 +119,9 @@ export default function App() {
           mobileOpen={mobileSidebarOpen}
           setMobileOpen={setMobileSidebarOpen}
         />
-        <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <div className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
           <AdminHeader onOpenMobileSidebar={() => setMobileSidebarOpen(true)} />
-          <main className="flex-1 overflow-y-auto">
+          <main className="flex-1 overflow-y-auto pb-20 lg:pb-0">
             <Routes>
               <Route path="/dashboard" element={<StudentDashboardPage />} />
               <Route path="/university-exams" element={<UniversityExamsPage />} />
@@ -133,6 +136,9 @@ export default function App() {
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </main>
+          {/* Native Mobile Bottom Navigation Bar & More Sheet */}
+          <MobileBottomNav onMoreClick={() => setMoreSheetOpen(true)} />
+          <MobileMoreSheet open={moreSheetOpen} onClose={() => setMoreSheetOpen(false)} />
         </div>
       </div>
     );
@@ -144,9 +150,9 @@ export default function App() {
   // - Public top Navbar & Footer
   // - Signed-in candidates see their avatar/profile menu in the Navbar with link to "Candidate Dashboard"
   return (
-    <div className="flex flex-col min-h-screen bg-background font-inter text-on-surface">
-      <Navbar />
-      <main className={`flex-1 w-full flex flex-col ${location.pathname === '/' ? '' : 'pt-16 md:pt-20'}`}>
+    <div className="flex flex-col min-h-screen bg-background font-inter text-on-surface relative">
+      <Navbar onOpenMore={() => setMoreSheetOpen(true)} />
+      <main className={`flex-1 w-full flex flex-col pb-20 lg:pb-0 ${location.pathname === '/' ? '' : 'pt-16 md:pt-20'}`}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/explore" element={<Navigate to="/explore-exams" replace />} />
@@ -160,6 +166,9 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      {/* Native Mobile Bottom Navigation Bar & More Sheet */}
+      <MobileBottomNav onMoreClick={() => setMoreSheetOpen(true)} />
+      <MobileMoreSheet open={moreSheetOpen} onClose={() => setMoreSheetOpen(false)} />
     </div>
   );
 }

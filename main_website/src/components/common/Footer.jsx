@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="relative z-[70] w-full bg-[#070e1c] text-slate-300 border-t border-slate-800 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] pt-12 md:pt-16 pb-8" style={{ paddingBottom: 'max(2rem, env(safe-area-inset-bottom))' }}>
+    <footer className="relative z-[30] w-full bg-[#070e1c] text-slate-300 border-t border-slate-800 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] pt-12 md:pt-16 pb-24 lg:pb-8" style={{ paddingBottom: 'max(6rem, calc(env(safe-area-inset-bottom, 0px) + 5rem))' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8 md:gap-12">
         
         {/* Main Footer Grid */}

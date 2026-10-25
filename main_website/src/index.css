@@ -48,6 +48,20 @@
 .safe-bottom {
   padding-bottom: max(1rem, env(safe-area-inset-bottom, 16px));
 }
+.safe-area-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 12px));
+}
+.safe-area-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top, 12px));
+}
+
+/* Native mobile feel: disable double-tap zoom delay and text selection on non-editable elements */
+@media (max-width: 1023px) {
+  html, body {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
 
 /* Material Symbols Outlined helpers */
 .material-symbols-outlined {

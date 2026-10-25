@@ -52,18 +52,25 @@ export default function AdminHeader({ onOpenMobileSidebar }) {
   const candidateId = user?.candidate_id || 'ETH-88492';
 
   return (
-    <header className="h-16 lg:h-18 bg-[#0B1527] border-b border-slate-800 text-white px-4 md:px-8 flex items-center justify-between gap-4 sticky top-0 z-30 shadow-[0_2px_15px_rgba(0,0,0,0.4)] backdrop-blur-md">
+    <header className="h-14 lg:h-18 bg-[#0B1527] border-b border-slate-800 text-white px-3 sm:px-4 md:px-8 flex items-center justify-between gap-2 sm:gap-4 sticky top-0 z-30 shadow-[0_2px_15px_rgba(0,0,0,0.4)] backdrop-blur-md safe-area-top">
       {/* Left: Mobile Toggle & Breadcrumb / Status */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
         <button
           onClick={onOpenMobileSidebar}
-          className="lg:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+          className="lg:hidden p-1.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition-colors shrink-0"
           aria-label="Open Sidebar Menu"
         >
-          <span className="material-symbols-outlined text-2xl">menu</span>
+          <span className="material-symbols-outlined text-[24px]">menu</span>
         </button>
 
-        <div className="flex flex-col">
+        {/* Mobile App Title (Mobile only) */}
+        <div className="lg:hidden flex items-center gap-2 min-w-0">
+          <img src="/images/logo.png" alt="Logo" className="w-6 h-6 object-contain shrink-0" />
+          <span className="font-bold text-sm text-white truncate">Ethio Exam Hall</span>
+        </div>
+
+        {/* Desktop Breadcrumb (Desktop only) */}
+        <div className="hidden lg:flex flex-col">
           <div className="flex items-center gap-2">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               National Examination Portal
@@ -116,7 +123,7 @@ export default function AdminHeader({ onOpenMobileSidebar }) {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setDropdownOpen((prev) => !prev)}
-            className="flex items-center gap-3 p-1.5 pr-3 rounded-2xl hover:bg-slate-800/80 border border-transparent hover:border-slate-700/80 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="flex items-center gap-1.5 sm:gap-3 p-1 sm:p-1.5 sm:pr-3 rounded-xl sm:rounded-2xl hover:bg-slate-800/80 border border-transparent hover:border-slate-700/80 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400"
             aria-expanded={dropdownOpen}
             aria-haspopup="true"
           >
@@ -127,15 +134,15 @@ export default function AdminHeader({ onOpenMobileSidebar }) {
                   src={profilePhotoUrl}
                   alt={displayName}
                   onError={() => setImgError(true)}
-                  className="w-10 h-10 rounded-xl object-cover ring-2 ring-amber-400 shadow-sm"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-cover ring-2 ring-amber-400 shadow-sm"
                 />
               ) : (
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 text-slate-950 font-black flex items-center justify-center text-base shadow-sm ring-2 ring-amber-400">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 text-slate-950 font-black flex items-center justify-center text-xs sm:text-base shadow-sm ring-2 ring-amber-400">
                   {userInitial}
                 </div>
               )}
               {/* Online pulse indicator */}
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-slate-900"></span>
+              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500 ring-2 ring-slate-900"></span>
             </div>
 
             {/* User Name & Details */}

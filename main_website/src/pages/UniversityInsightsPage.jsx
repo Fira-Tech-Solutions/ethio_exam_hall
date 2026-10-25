@@ -720,18 +720,23 @@ export default function UniversityInsightsPage() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-fade-in-up"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in-up"
           onClick={() => setInspectingUni(null)}
         >
           {/* Modal Container */}
           <div
-            className="bg-[#0B1527] border border-slate-700/80 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl relative text-white flex flex-col"
+            className="bg-[#0B1527] border-t sm:border border-slate-700/80 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full h-[92vh] sm:h-auto sm:max-h-[90vh] overflow-hidden shadow-2xl relative text-white flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Grab handle for mobile */}
+            <div className="flex sm:hidden justify-center pt-2.5 pb-1 cursor-pointer" onClick={() => setInspectingUni(null)}>
+              <div className="w-10 h-1 rounded-full bg-slate-700" />
+            </div>
+
             {/* Header: Logo, University Name & Close Button */}
-            <div className="p-5 sm:p-6 border-b border-slate-800/90 flex items-start justify-between gap-4 bg-slate-900/60">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center p-2.5 shrink-0 shadow-md">
+            <div className="p-4 sm:p-6 border-b border-slate-800/90 flex items-start justify-between gap-3 sm:gap-4 bg-slate-900/60">
+              <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center p-2 shrink-0 shadow-md">
                   <img
                     src={inspectingUni.logo}
                     alt={`${inspectingUni.short} Logo`}

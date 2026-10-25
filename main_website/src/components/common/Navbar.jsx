@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
-export default function Navbar() {
+export default function Navbar({ onOpenMore }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
@@ -208,16 +208,22 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Mobile Menu Hamburger */}
+          {/* Mobile Menu Hamburger / More Trigger */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => {
+              if (onOpenMore) {
+                onOpenMore();
+              } else {
+                setMobileMenuOpen(!mobileMenuOpen);
+              }
+            }}
             className="lg:hidden p-2 rounded-xl text-white hover:bg-white/10 transition-colors"
             type="button"
             aria-label="Toggle navigation"
             aria-expanded={mobileMenuOpen}
           >
             <span className="material-symbols-outlined text-[26px]">
-              {mobileMenuOpen ? 'close' : 'menu'}
+              {onOpenMore ? 'apps' : (mobileMenuOpen ? 'close' : 'menu')}
             </span>
           </button>
         </div>
